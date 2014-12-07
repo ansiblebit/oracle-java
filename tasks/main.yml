@@ -1,0 +1,6 @@
+---
+# tasks file
+
+- debug: >
+    msg="invoked"
+
