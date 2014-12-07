@@ -1,0 +1,20 @@
+Vagrant.configure('2') do |config|
+  {
+    precise64: {
+      :box => 'hashicorp/precise64',
+      :hostname => 'precise64',
+      :ip => '192.168.128.11'},
+
+    trusty64: {
+      :box => 'ubuntu/trusty64',
+      :hostname => 'trusty64',
+      :ip => '192.168.128.12'}
+
+  }.each do |os, settings|
+    config.vm.define os do |host|
+      host.vm.box = settings[:box]
+      host.vm.network 'private_network', ip: settings[:ip]
+      host.vm.hostname = "#{settings[:hostname]}.vagrant.dev"
+    end
+  end
+end
