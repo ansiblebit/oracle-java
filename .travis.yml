@@ -1,7 +1,7 @@
 language: python
 python: 2.7
 install:
-- pip install tox --use-mirrors
+- pip install tox
 script:
 - tox
 branches:

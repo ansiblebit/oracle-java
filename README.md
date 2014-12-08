@@ -3,6 +3,8 @@ Role Name
 
 A brief description of the role goes here.
 
+[![Build Status](https://travis-ci.org/ansiblebit/primogen.svg?branch=master)](https://travis-ci.org/ansiblebit/primogen)
+
 Requirements
 ------------
 
