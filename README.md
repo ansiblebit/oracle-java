@@ -4,7 +4,8 @@ Role Name
 A brief description of the role goes here.
 
 [![Build Status](https://travis-ci.org/ansiblebit/primogen.svg?branch=master)](https://travis-ci.org/ansiblebit/primogen)
-[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/ansiblebit/primogen/master/LICENSE)
+[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/primogen/master/LICENSE)
+
 [![Project Stats](https://www.openhub.net/p/ansiblebit-primogen/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-primogen/)
 
 Requirements
