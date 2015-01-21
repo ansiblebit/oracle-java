@@ -3,6 +3,6 @@
 
 - hosts: all
   connection: local
-  gather_facts: true
+  gather_facts: yes
   roles:
     - primogen
