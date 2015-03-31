@@ -20,7 +20,7 @@ do
     ansible-playbook -i inventory/vagrant -l $box.vagrant.dev test.yml
     RETURN_CODE=$?
     if [[ $RETURN_CODE != 0 ]]; then
-      echo -ne "Playbook run test: ${RED}PASS${NC}\n"
+      echo -ne "Playbook run test: ${RED}FAILED${NC}\n"
       exit $RETURN_CODE
     else
       echo -ne "Playbook run test: ${GREEN}PASS${NC}\n"
@@ -29,7 +29,7 @@ do
     ansible-playbook -i inventory/vagrant -l $box.vagrant.dev test.yml | \
         grep -q 'changed=0.*failed=0' && \
         echo -ne "[$box] idempotence test: ${GREEN}PASS${NC}\n" || \
-        (echo -ne "[$box] idempotence test: ${RED}FAIL${NC}\n" && exit 1)
+        (echo -ne "[$box] idempotence test: ${RED}FAILED${NC}\n" && exit 1)
 
     vagrant destroy -f $box
 done
