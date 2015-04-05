@@ -124,7 +124,7 @@ vagrant:
   # Ubuntu
 
   precise32.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/precise32
     network:
       name: private_network
@@ -148,7 +148,7 @@ vagrant:
         cpus: 1
 
   trusty32.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/trusty32
     network:
       name: private_network
