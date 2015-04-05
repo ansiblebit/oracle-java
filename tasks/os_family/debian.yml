@@ -1,0 +1,24 @@
+---
+# task file for Debian OS family
+
+- name: debian is supported
+  set_fact:
+    os_supported: yes
+
+- name: accept Oracle license
+  shell: "echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
+  changed_when: no
+  sudo: yes
+
+- name: ensure Java is installed
+  apt:
+    name="oracle-java{{ oracle_java_version }}-installer"
+    state={{ oracle_java_state }}
+  sudo: yes
+
+- name: set Java version as default
+  apt:
+    name="oracle-java{{ oracle_java_version }}-set-default"
+    state=latest
+  sudo: yes
+  when: oracle_java_default
