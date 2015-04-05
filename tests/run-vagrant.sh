@@ -1,8 +1,5 @@
 #!/bin/bash
 
-PYTHON_VERSION=27
-ANSIBLE_VERSION=182
-
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
@@ -10,8 +7,6 @@ NC='\033[0m'
 DIR="$(dirname "$0")"
 
 cd $DIR
-
-source ../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}/bin/activate
 
 cat requirements.txt | xargs -I {} ansible-galaxy install {}
 
