@@ -1,2 +1,6 @@
 ---
 # defaults file
+
+oracle_java_version: 8
+oracle_java_state: latest
+oracle_java_default: no

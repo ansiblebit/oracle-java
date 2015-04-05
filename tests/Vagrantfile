@@ -1,7 +1,17 @@
 Vagrant.configure('2') do |config|
   {
+
+    # debian
+
+    wheezy64: {
+      :box => 'nfq/wheezy',
+      :hostname => 'wheezy64',
+      :ip => '192.168.128.13'},
+
+    # ubuntu
+
     precise64: {
-      :box => 'hashicorp/precise64',
+      :box => 'ubuntu/precise64',
       :hostname => 'precise64',
       :ip => '192.168.128.11'},
 

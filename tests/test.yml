@@ -1,8 +1,0 @@
----
-# file: tests/site.yml
-
-- hosts: all
-  connection: local
-  gather_facts: yes
-  roles:
-    - primogen

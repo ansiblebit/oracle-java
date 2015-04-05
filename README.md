@@ -1,9 +1,9 @@
-# Role Name
+# ansiblebit.oracle-java
 
-[![Build Status](https://travis-ci.org/ansiblebit/primogen.svg?branch=master)](https://travis-ci.org/ansiblebit/primogen)
-[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/primogen/master/LICENSE)
+[![Build Status](https://travis-ci.org/ansiblebit/oracle-java.svg?branch=master)](https://travis-ci.org/ansiblebit/oracle-java)
+[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/oracle-java/master/LICENSE)
 
-[![Project Stats](https://www.openhub.net/p/ansiblebit-primogen/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-primogen/)
+[![Project Stats](https://www.openhub.net/p/ansiblebit-oracle-java/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-oracle-java/)
 
 A brief description of the role goes here.
 
@@ -51,5 +51,4 @@ BSD
 
 ## Author Information
 
-An optional section for the role authors to include contact information or
-a website (HTML is not allowed).
+- [steenzout](http://github.com/steenzout)

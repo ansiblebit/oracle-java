@@ -1,3 +1,4 @@
 [local]
 precise64.vagrant.dev
 trusty64.vagrant.dev
+wheezy64.vagrant.dev
