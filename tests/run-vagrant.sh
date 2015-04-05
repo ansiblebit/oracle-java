@@ -13,6 +13,10 @@ cd $DIR
 
 source ../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}/bin/activate
 
+cat requirements.txt | xargs -I {} ansible-galaxy install {}
+
+
+# WARNING: box names must match Vagrantfile!
 for box in precise64 trusty64
 do
     vagrant up $box
