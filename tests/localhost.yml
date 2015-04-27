@@ -1,0 +1,8 @@
+---
+# file: primogen/tests/tox.yml
+
+- hosts: localhost
+  gather_facts: yes
+  connection: local
+  roles:
+    - primogen
