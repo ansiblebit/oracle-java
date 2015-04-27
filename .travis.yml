@@ -5,5 +5,5 @@ install:
 - pip install tox
 
 script:
-- tox
+- tox -e travis
 
