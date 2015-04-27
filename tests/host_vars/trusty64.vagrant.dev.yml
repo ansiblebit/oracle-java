@@ -1,0 +1,12 @@
+---
+# file: primogen/tests/host_vars/trusty64.vagrant.dev.yml
+
+box: ubuntu/trusty64
+network:
+  name: private_network
+  ip: 192.168.128.12
+
+provider:
+  name: virtualbox
+  memory: 1024
+  cpus: 1

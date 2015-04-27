@@ -1,8 +1,8 @@
 ---
-# file: tests/site.yml
+# file: primogen/tests/test.yml
 
 - hosts: all
-  connection: local
   gather_facts: yes
+  remote_user: vagrant
   roles:
     - primogen
