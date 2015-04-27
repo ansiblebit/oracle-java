@@ -11,7 +11,7 @@
 #
 #   # in case you want to use one of tox virtualenvs
 #
-#   bash vagrant.sh --virtualenv $PWD/.tox/py27-ansible184
+#   bash vagrant.sh --virtualenv $PWD/.tox/py27-ansible184 --virtualenv-name py27-ansible184
 #   # or
 #   bash vagrant.sh --python 27 --ansible 184
 #
@@ -52,10 +52,14 @@ key="$1"
         ANSIBLE_VERSION="$2"
         shift;;
 
+        --virtualenv-name)
+        # The tox virtualenv name
+        VIRTUALENV_NAME="$2"
+        shift;;
+
         --virtualenv)
         # The virtualenv directory to be used on the test.
         VIRTUALENV="$2"
-        echo "${VIRTUALENV}"
         shift;;
 
         *)
@@ -71,6 +75,7 @@ DIR=$(dirname "$0")
 if [[ ! -z ${PYTHON_VERSION} ]] && [[ ! -z ${ANSIBLE_VERSION} ]]; then
     echo '[INFO] loading Python / Ansible virtualenv...'
     VIRTUALENV="${DIR}/../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}/bin/activate"
+    VIRTUALENV_NAME="py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}"
 fi
 
 source ${VIRTUALENV}/bin/activate

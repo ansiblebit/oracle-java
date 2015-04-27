@@ -23,8 +23,8 @@ RED='\033[0;31m'
 # SGR code to set text color (foreground) to no color.
 NC='\033[0m'
 
-echo '[INFO] running idempotence test...'
+echo '[INFO] $NAME running idempotence test...'
 ansible-playbook -i ${INVENTORY} ${PLAYBOOK} | \
     grep -q "${PASS_CRITERIA}" && \
-    echo -ne "[TEST] idempotence : ${GREEN}PASS${NC}\n" || \
-    (echo -ne "[TEST] idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
+    echo -ne "[TEST] $VIRTUALENV_NAME idempotence : ${GREEN}PASS${NC}\n" || \
+    (echo -ne "[TEST] $VIRTUALENV_NAME idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
