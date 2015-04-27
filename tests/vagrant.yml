@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/test.yml
+# file: primogen/tests/vagrant.yml
 
 - hosts: all
   gather_facts: yes
