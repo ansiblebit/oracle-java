@@ -10,6 +10,10 @@
 #   - INVENTORY : the inventory to be used to run the test against.
 #   - PLAYBOOK : the path to the Ansible playbook.
 #
+# optional variables:
+#
+#   - VIRTUALENV_NAME : the name of the virtualenv being used.
+#
 # author(s):
 #   - Pedro Salgado <steenzout@ymail.com>
 #
