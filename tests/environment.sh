@@ -4,4 +4,4 @@
 PASS_CRITERIA="changed=0.*failed=0"
 
 # The location of the requirements file
-REQUIREMENTS_FILE="requirements.txt"
+REQUIREMENTS_FILE="requirements.yml"
