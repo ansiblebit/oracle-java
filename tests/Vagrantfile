@@ -6,6 +6,10 @@ PLAYBOOK = 'vagrant.yml'
 
 Vagrant.configure('2') do |config|
 
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+
   Dir.glob('host_vars/*').each do |host_var_file|
 
     puts "[INFO] loading #{host_var_file} box settings..."
