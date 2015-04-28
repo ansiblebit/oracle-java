@@ -30,4 +30,8 @@ INVENTORY="localhost,"
 PLAYBOOK="localhost.yml"
 VIRTUALENV_NAME="localhost"
 
+# provision
+ansible-playbook -i ${INVENTORY} ${PLAYBOOK}
+
+# run tests
 . test_idempotence.sh
