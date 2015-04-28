@@ -20,7 +20,7 @@ DIR="$(dirname "$0")"
 
 cd $DIR
 
-source ${DIR}/environment.sh
+source environment.sh
 
 
 . install_role_dependencies.sh
