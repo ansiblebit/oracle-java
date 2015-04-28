@@ -96,5 +96,5 @@ do
     . test_idempotence.sh
 
     echo "[INFO] destroying ${box}..."
-    # vagrant destroy -f $box
+    vagrant destroy -f $box
 done
