@@ -74,7 +74,7 @@ DIR=$(dirname "$0")
 
 if [[ ! -z ${PYTHON_VERSION} ]] && [[ ! -z ${ANSIBLE_VERSION} ]]; then
     echo '[INFO] loading Python / Ansible virtualenv...'
-    VIRTUALENV="${DIR}/../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}/bin/activate"
+    VIRTUALENV="${DIR}/../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}"
     VIRTUALENV_NAME="py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}"
 fi
 
@@ -98,5 +98,5 @@ do
     . test_idempotence.sh
 
     echo "[INFO] destroying ${box}..."
-    vagrant destroy -f $box
+    #vagrant destroy -f $box
 done
