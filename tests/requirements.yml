@@ -1,1 +1,2 @@
-- src: ansiblebit.primogen
+- src: ansiblebit.launchpad-ppa-webupd8
+  version: v1.0.4

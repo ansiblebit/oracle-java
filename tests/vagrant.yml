@@ -28,7 +28,7 @@
   remote_user: vagrant
 
   roles:
-    - primogen
+    - oracle-java
 
 
 - name: clear host entries play
