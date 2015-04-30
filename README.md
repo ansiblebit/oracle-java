@@ -38,7 +38,7 @@ For Debian and Ubuntu this role depends on:
 
 - v0.0.8 : 30 April 2015
     - initial release of this role with support for Debian
-    - dependency on ansiblebit.launchpad-ppa-webupd8 v1.0.4
+    - dependency on ansiblebit.launchpad-ppa-webupd8 v1.1.0
 
 
 ## Links
