@@ -18,7 +18,7 @@
         follow=yes
         insertafter=EOF
       with_dict: vagrant
-      when: item.value.enabledixe
+      when: item.value.enabled
       sudo: yes
 
 

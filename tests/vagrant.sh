@@ -85,7 +85,7 @@ do
 
     echo "[INFO] preparing ${box}..."
     vagrant up ${box} 2> /dev/null
-    if [ ! -z $? ]; then
+    if [ $? -ne 0 ]; then
         # box not enabled
         continue
     fi
