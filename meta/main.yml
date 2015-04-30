@@ -1,4 +1,8 @@
 ---
+# file: primogen/meta/main.yml
+#
+# meta file
+#
 galaxy_info:
   author: First Last
   description: Template role.
