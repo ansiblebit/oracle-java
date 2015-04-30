@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-PYTHON_VERSION=27
-ANSIBLE_VERSION=182
+# The idempotence pass criteria.
+PASS_CRITERIA="changed=0.*failed=0"
 
-source ../.tox/py${PYTHON_VERSION}-ansible${ANSIBLE_VERSION}/bin/activate
+# The location of the requirements file
+REQUIREMENTS_FILE="requirements.yml"

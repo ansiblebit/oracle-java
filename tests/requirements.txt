@@ -1,1 +1,0 @@
-ansiblebit.launchpad-ppa-webupd8

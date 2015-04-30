@@ -1,30 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+
+PLAYBOOK = 'vagrant.yml'
+CONFIGURATION_FILE = 'group_vars/all.yml'
+
 Vagrant.configure('2') do |config|
-  {
 
-    # debian
+  puts "[INFO] loading box settings from #{CONFIGURATION_FILE}..."
+  vagrant_environment = YAML.load_file(File.expand_path(CONFIGURATION_FILE, File.dirname(__FILE__)))
 
-    wheezy64: {
-      :box => 'nfq/wheezy',
-      :hostname => 'wheezy64',
-      :ip => '192.168.128.13'},
-
-    # ubuntu
-
-    precise64: {
-      :box => 'ubuntu/precise64',
-      :hostname => 'precise64',
-      :ip => '192.168.128.11'},
-
-    trusty64: {
-      :box => 'ubuntu/trusty64',
-      :hostname => 'trusty64',
-      :ip => '192.168.128.12'}
-
-  }.each do |os, settings|
-    config.vm.define os do |host|
-      host.vm.box = settings[:box]
-      host.vm.network 'private_network', ip: settings[:ip]
-      host.vm.hostname = "#{settings[:hostname]}.vagrant.dev"
+  vagrant_environment['vagrant'].each do |box_name, box_settings|
+    if not box_settings['enabled']
+        puts "[INFO] #{box_name} is not enabled. skipping..."
+        next
     end
+
+    puts "[INFO] applying #{box_name} settings..."
+    config.vm.define "#{box_name}" do |host|
+
+      host.vm.box = box_settings['box'] unless not box_settings.key? 'box'
+      host.vm.hostname = box_name
+
+      host.vm.network box_settings['network']['name'], ip: box_settings['network']['ip'] unless box_settings.key? 'network'
+
+      puts "[INFO] applying virtualbox provider settings for #{box_name} box..."
+      config.vm.provider "#{box_settings['provider']}" do | provider |
+        box_settings['provider'].each do |key, value|
+          next if key == 'name'
+          provider.send("#{key}=", value)
+        end
+      end
+
+      puts "[INFO] provisioning #{box_name} using ansible vagrant playbook..."
+      config.vm.provision 'ansible' do |ansible|
+        ansible.playbook = PLAYBOOK
+        ansible.verbose = 'v'
+      end
+    end
+
   end
 end

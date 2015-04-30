@@ -17,4 +17,5 @@ galaxy_info:
   - development
   - system
 dependencies:
-  - ansiblebit.launchpad-ppa-webupd8
+  - role: ansiblebit.launchpad-ppa-webupd8
+    when: (ansible_distribution | lower == 'debian') or (ansible_distribution | lower == 'ubuntu')
