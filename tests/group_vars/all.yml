@@ -47,7 +47,7 @@ vagrant:
   # Debian
 
   jessie64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: debian/jessie64
     network:
       name: private_network
@@ -59,7 +59,7 @@ vagrant:
       cpus: 1
 
   wheezy64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: debian/wheezy64
     network:
       name: private_network
@@ -124,7 +124,7 @@ vagrant:
   # Ubuntu
 
   precise32.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/precise32
     network:
       name: private_network
@@ -136,7 +136,7 @@ vagrant:
       cpus: 1
 
   precise64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/precise64
     network:
       name: private_network
@@ -148,7 +148,7 @@ vagrant:
       cpus: 1
 
   trusty32.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/trusty32
     network:
       name: private_network
@@ -160,7 +160,7 @@ vagrant:
       cpus: 1
 
   trusty64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/trusty64
     network:
       name: private_network
