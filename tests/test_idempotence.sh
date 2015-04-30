@@ -7,8 +7,12 @@
 #
 # mandatory variables:
 #
+#   from environment.sh
 #   - INVENTORY : the inventory to be used to run the test against.
 #   - PLAYBOOK : the path to the Ansible playbook.
+#
+#   from <playbook_name>.sh
+#   - box : the name of the vagrant box
 #
 # optional variables:
 #
@@ -28,7 +32,8 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 echo "[INFO] $VIRTUALENV_NAME running idempotence test..."
-ansible-playbook -i ${INVENTORY} ${PLAYBOOK} | \
-    grep -q "${PASS_CRITERIA}" && \
+ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK}
+ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK} | \
+    grep "${box}" | grep -q "${PASS_CRITERIA}" && \
     echo -ne "[TEST] $VIRTUALENV_NAME idempotence : ${GREEN}PASS${NC}\n" || \
     (echo -ne "[TEST] $VIRTUALENV_NAME idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)

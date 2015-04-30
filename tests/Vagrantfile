@@ -3,37 +3,36 @@
 require 'yaml'
 
 PLAYBOOK = 'vagrant.yml'
+CONFIGURATION_FILE = 'group_vars/all.yml'
 
 Vagrant.configure('2') do |config|
 
-  config.hostmanager.enabled = true
-  config.hostmanager.manage_host = true
-  config.hostmanager.ignore_private_ip = false
+  puts "[INFO] loading box settings from #{CONFIGURATION_FILE}..."
+  vagrant_environment = YAML.load_file(File.expand_path(CONFIGURATION_FILE, File.dirname(__FILE__)))
 
-  Dir.glob('host_vars/*').each do |host_var_file|
+  vagrant_environment['vagrant'].each do |box_name, box_settings|
+    if not box_settings['enabled']
+        puts "[INFO] #{box_name} is not enabled. skipping..."
+        next
+    done
 
-    puts "[INFO] loading #{host_var_file} box settings..."
-    vagrant_host_var = YAML.load_file(host_var_file)
+    puts "[INFO] applying #{box_name} settings..."
+    config.vm.define "#{box_name}" do |host|
 
-    # removed 'host_vars/' prefix and '.yml' suffix
-    vagrant_box_name = host_var_file[10..-5]
+      host.vm.box = box_settings['box'] unless not box_settings.key? 'box'
+      host.vm.hostname = box_name
 
-    puts "[INFO] applying #{vagrant_box_name} settings..."
-    config.vm.define "#{vagrant_box_name}" do |host|
-      host.vm.box = vagrant_host_var['box'] unless not vagrant_host_var.key? 'box'
-      host.vm.hostname = vagrant_host_var['name'] unless not vagrant_host_var.key? 'name'
+      host.vm.network box_settings['network']['name'], ip: box_settings['network']['ip'] unless box_settings.key? 'network'
 
-      host.vm.network vagrant_host_var['network']['name'], ip: vagrant_host_var['network']['ip'] unless vagrant_host_var.key? 'network'
-
-      puts "[INFO] applying virtualbox provider settings for #{vagrant_box_name} box..."
-      config.vm.provider "#{vagrant_host_var['provider']}" do | provider |
-        vagrant_host_var['provider'].each do |key, value|
+      puts "[INFO] applying virtualbox provider settings for #{box_name} box..."
+      config.vm.provider "#{box_settings['provider']}" do | provider |
+        box_settings['provider'].each do |key, value|
           next if key == 'name'
           provider.send("#{key}=", value)
         end
       end
 
-      puts "[INFO] provisioning #{vagrant_box_name} using ansible vagrant playbook..."
+      puts "[INFO] provisioning #{box_name} using ansible vagrant playbook..."
       config.vm.provision 'ansible' do |ansible|
         ansible.playbook = PLAYBOOK
         ansible.verbose = 'v'

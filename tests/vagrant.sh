@@ -7,13 +7,9 @@
 #
 # usage:
 #
-#   bash vagrant.sh
+#   $ bash vagrant.sh --python 27 --ansible 1901
 #
-#   # in case you want to use one of tox virtualenvs
-#
-#   bash vagrant.sh --virtualenv $PWD/.tox/py27-ansible184 --virtualenv-name py27-ansible184
-#   # or
-#   bash vagrant.sh --python 27 --ansible 184
+#   $ bash vagrant.sh --virtualenv ../.tox/py27-ansible1901 --virtualenv-name py27-ansible1901
 #
 # author(s):
 #   - Pedro Salgado <steenzout@ymail.com>
@@ -81,19 +77,20 @@ source ${VIRTUALENV}/bin/activate
 
 . install_role_dependencies.sh
 
+# force Ansible to ask for sudo password when running tests against Vagrant
+export ANSIBLE_ASK_SUDO_PASS=True
 
-for box_yml in host_vars/*.yml
+for box in `grep vagrant.dev group_vars/all.yml | sed 's/://g'`
 do
-    filename=$(basename "$box_yml")
-    box=${filename%.*}
 
     echo "[INFO] preparing ${box}..."
-    vagrant up ${box}
+    vagrant up ${box} 2> /dev/null
+    if [ ! -z $? ]; then
+        # box not enabled
+        continue
+    fi
 
-    # force tests to be run against this Vagrant box
-    INVENTORY="${box},"
-
-    . test_idempotence.sh
+    # . test_idempotence.sh
 
     echo "[INFO] destroying ${box}..."
     vagrant destroy -f $box
