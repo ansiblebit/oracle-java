@@ -7,16 +7,16 @@ CONFIGURATION_FILE = 'group_vars/all.yml'
 
 Vagrant.configure('2') do |config|
 
-  puts "[INFO] loading box settings from #{CONFIGURATION_FILE}..."
+  # puts "[DEBUG] loading box settings from #{CONFIGURATION_FILE}..."
   vagrant_environment = YAML.load_file(File.expand_path(CONFIGURATION_FILE, File.dirname(__FILE__)))
 
   vagrant_environment['vagrant'].each do |box_name, box_settings|
     if not box_settings['enabled']
-        puts "[INFO] #{box_name} is not enabled. skipping..."
+        # puts "[DEBUG] #{box_name} is not enabled. skipping..."
         next
     end
 
-    puts "[INFO] applying #{box_name} settings..."
+    # puts "[DEBUG] applying #{box_name} settings..."
     config.vm.define "#{box_name}" do |host|
 
       host.vm.box = box_settings['box'] unless not box_settings.key? 'box'
@@ -24,7 +24,7 @@ Vagrant.configure('2') do |config|
 
       host.vm.network box_settings['network']['name'], ip: box_settings['network']['ip'] unless box_settings.key? 'network'
 
-      puts "[INFO] applying virtualbox provider settings for #{box_name} box..."
+      # puts "[DEBUG] applying virtualbox provider settings for #{box_name} box..."
       config.vm.provider "#{box_settings['provider']}" do | provider |
         box_settings['provider'].each do |key, value|
           next if key == 'name'
@@ -32,7 +32,7 @@ Vagrant.configure('2') do |config|
         end
       end
 
-      puts "[INFO] provisioning #{box_name} using ansible vagrant playbook..."
+      # puts "[DEBUG] provisioning #{box_name} using ansible vagrant playbook..."
       config.vm.provision 'ansible' do |ansible|
         ansible.playbook = PLAYBOOK
         ansible.verbose = 'v'

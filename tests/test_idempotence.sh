@@ -33,7 +33,7 @@ NC='\033[0m'
 # the logfile to hold the output of the playbook run
 LOGFILE="log/${BOX}_${VIRTUALENV_NAME}.log"
 
-echo "[INFO] #{BOX} ${VIRTUALENV_NAME} running idempotence test..."
+echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
 ansible-playbook -i ${INVENTORY} --limit ${BOX} ${PLAYBOOK} 2>&1 | tee ${LOGFILE} | \
     grep "${BOX}" | grep -q "${PASS_CRITERIA}" && \
     echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || \
