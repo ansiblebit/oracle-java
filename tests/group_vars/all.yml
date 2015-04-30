@@ -7,7 +7,7 @@ vagrant:
 
   # CentOS
 
-  centos66-64.vagrant.dev:
+  centos64-64.vagrant.dev:
     enabled: false
     box: hansode/centos-6.4-x86_64
     network:
