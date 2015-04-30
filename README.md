@@ -27,12 +27,8 @@ For Debian and Ubuntu this role depends on:
 
 - ansiblebit.launchpad-ppa-webupd8
 
-<<<<<<< HEAD
-=======
-## Playbooks
->>>>>>> 8474690162d1072e9f1839c4e11cb5033a534e94
 
-## Example Playbook
+## Playbooks
 
     - hosts: servers
       roles:
@@ -42,6 +38,8 @@ For Debian and Ubuntu this role depends on:
 
 - v0.0.8 : 30 April 2015
     - initial release of this role with support for Debian
+    - dependency on ansiblebit.launchpad-ppa-webupd8 v1.0.4
+
 
 ## Links
 
@@ -49,6 +47,7 @@ For Debian and Ubuntu this role depends on:
 ## License
 
 BSD
+
 
 ## Author Information
 
