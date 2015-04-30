@@ -6,5 +6,4 @@
   connection: local
 
   roles:
-    - ansiblebit.oracle-java
     - primogen
