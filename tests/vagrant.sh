@@ -80,11 +80,11 @@ source ${VIRTUALENV}/bin/activate
 # force Ansible to ask for sudo password when running tests against Vagrant
 export ANSIBLE_ASK_SUDO_PASS=True
 
-for box in `grep vagrant.dev group_vars/all.yml | sed 's/://g'`
+for BOX in `grep vagrant.dev group_vars/all.yml | sed 's/://g'`
 do
 
     echo "[INFO] preparing ${box}..."
-    vagrant up ${box} 2> /dev/null
+    vagrant up ${BOX} 2> /dev/null
     if [ $? -ne 0 ]; then
         # box not enabled
         continue
@@ -92,6 +92,6 @@ do
 
     . test_idempotence.sh
 
-    echo "[INFO] destroying ${box}..."
-    vagrant destroy -f $box
+    echo "[INFO] destroying ${BOX}..."
+    vagrant destroy -f ${BOX}
 done

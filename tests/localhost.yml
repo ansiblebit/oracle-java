@@ -1,10 +1,9 @@
 ---
-# file: primogen/tests/tox.yml
+# file: oracle-java/tests/localhost.yml
 
 - hosts: localhost
   gather_facts: yes
   connection: local
 
   roles:
-    - ansiblebit.oracle-java
-    - primogen
+    - oracle-java

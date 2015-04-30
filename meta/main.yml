@@ -1,4 +1,8 @@
 ---
+# file: oracle-java/meta/main.yml
+#
+# meta file
+#
 galaxy_info:
   author: Pedro Salgado
   description: Role to install Oracle Java.
