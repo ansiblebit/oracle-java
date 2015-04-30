@@ -12,8 +12,8 @@ galaxy_info:
   platforms:
   - name: Debian
     versions:
-    - wheezy
     - jessie
+    - wheezy
   - name: Ubuntu
     versions:
     - vivid
