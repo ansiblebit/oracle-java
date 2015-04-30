@@ -30,7 +30,7 @@ INVENTORY="localhost,"
 PLAYBOOK="localhost.yml"
 VIRTUALENV_NAME="localhost"
 
-box="localhost"
+BOX="localhost"
 
 # provision
 ansible-playbook -i ${INVENTORY} ${PLAYBOOK}
