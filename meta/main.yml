@@ -73,8 +73,8 @@ galaxy_info:
   #  - 9.1
   #  - 9.1
   #  - 9.2
-  - name: Ubuntu
-    versions:
+  #- name: Ubuntu
+  #  versions:
   #  - all
   #  - lucid
   #  - maverick
@@ -109,7 +109,7 @@ galaxy_info:
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
-  #categories:
+  categories:
   #- cloud
   #- cloud:ec2
   #- cloud:gce
@@ -118,7 +118,7 @@ galaxy_info:
   #- database
   #- database:nosql
   #- database:sql
-  #- development
+  - development
   #- monitoring
   #- networking
   #- packaging
