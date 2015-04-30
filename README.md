@@ -5,45 +5,39 @@
 
 [![Project Stats](https://www.openhub.net/p/ansiblebit-oracle-java/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-oracle-java/)
 
-A brief description of the role goes here.
+An [Ansible](http://www.ansible.com) role to setup Oracle Java Development Kit. 
+
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here.
-For instance, if the role uses the EC2 module,
-it may be a good idea to mention in this section that the boto package is required.
-
 - ansible >= 1.7.2
+
 
 ## Role Variables
 
-A description of the settable variables for this role should go here,
-including any variables that are in defaults/main.yml, vars/main.yml and
-any variables that can/should be set via parameters to the role.
 
-Any variables that are read from other roles and/or
-the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+oracle_java_version | 8 | the Oracle JDK version to be installed. |
+oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
+oracle_java_default | no | make the newly installed Java the default runtime environment. |
+
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here,
-plus any details in regards to parameters that may need to be set for other roles
-or variables that are used from other roles.
+For Debian and Ubuntu this role depends on:
+
+- ansiblebit.launchpad-ppa-webupd8
+
 
 ## Example Playbook
 
-Including an example of how to use your role
-(for instance, with variables passed in as parameters)
-is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: ansiblebit.oracle-java, oracle_java_default: yes }
 
 ## Changelog
 
-- vx.y.z : day month year
-    - the change
+- v0.0.8 : 30 April 2015
+    - initial release of this role with support for Debian
 
 ## License
 
