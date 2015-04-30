@@ -70,30 +70,6 @@ vagrant:
       memory: 1024
       cpus: 1
 
-  precise32.vagrant.dev:
-    enabled: false
-    box: hansode/fedora-20-i386
-    network:
-      name: private_network
-      ip: 192.168.122.3
-
-    provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
-
-  precise64.vagrant.dev:
-    enabled: false
-    box: ubuntu/precise64
-    network:
-      name: private_network
-      ip: 192.168.122.4
-
-    provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
-
 
   # Fedora
 
