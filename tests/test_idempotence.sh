@@ -12,7 +12,7 @@
 #   - PLAYBOOK : the path to the Ansible playbook.
 #
 #   from <playbook_name>.sh
-#   - box : the name of the vagrant box
+#   - BOX : the name of the vagrant box
 #
 # optional variables:
 #
@@ -31,10 +31,10 @@ RED='\033[0;31m'
 # SGR code to set text color (foreground) to no color.
 NC='\033[0m'
 # the logfile to hold the output of the playbook run
-LOGFILE="log/${box}_${VIRTUALENV_NAME}.log"
+LOGFILE="log/${BOX}_${VIRTUALENV_NAME}.log"
 
-echo "[INFO] ${VIRTUALENV_NAME} running idempotence test..."
-ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK} 2>&1 | tee ${LOGFILE} | \
-    grep "${box}" | grep -q "${PASS_CRITERIA}" && \
-    echo -ne "[TEST] ${box} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || \
-    (echo -ne "[TEST] ${box} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
+echo "[INFO] #{BOX} ${VIRTUALENV_NAME} running idempotence test..."
+ansible-playbook -i ${INVENTORY} --limit ${BOX} ${PLAYBOOK} 2>&1 | tee ${LOGFILE} | \
+    grep "${BOX}" | grep -q "${PASS_CRITERIA}" && \
+    echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || \
+    (echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
