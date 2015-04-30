@@ -48,9 +48,6 @@ For Debian and Ubuntu this role depends on:
     - ansible dependency set to 1.8.4
 
 
-## Links
-
-
 ## License
 
 BSD
