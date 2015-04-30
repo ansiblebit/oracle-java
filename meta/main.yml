@@ -8,15 +8,17 @@ galaxy_info:
   description: Role to install Oracle Java.
   company: ansiblebit.org
   license: BSD
-  min_ansible_version: 1.7.2
+  min_ansible_version: 1.8.4
   platforms:
   - name: Debian
     versions:
     - wheezy
+    - jessie
   - name: Ubuntu
     versions:
-    - precise
+    - vivid
     - trusty
+    - precise
   categories:
   - development
   - system
