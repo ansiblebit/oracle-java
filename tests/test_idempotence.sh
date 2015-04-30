@@ -32,7 +32,6 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 echo "[INFO] $VIRTUALENV_NAME running idempotence test..."
-ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK}
 ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK} | \
     grep "${box}" | grep -q "${PASS_CRITERIA}" && \
     echo -ne "[TEST] $VIRTUALENV_NAME idempotence : ${GREEN}PASS${NC}\n" || \
