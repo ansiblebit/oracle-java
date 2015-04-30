@@ -18,10 +18,12 @@ An [Ansible](http://www.ansible.com) role to setup Oracle Java Development Kit.
 
 ## Role Variables
 
-
-oracle_java_version | 8 | the Oracle JDK version to be installed. |
-oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
-oracle_java_default | no | make the newly installed Java the default runtime environment. |
+| variable | default | description |
+|:--------:|:-------:|:------------|
+| oracle_java_version | 8 | the Oracle JDK version to be installed. |
+| oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
+| oracle_java_default | no | make the newly installed Java the default runtime environment. |
+| oracle_java_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 
 
 ## Dependencies
@@ -36,6 +38,7 @@ For Debian and Ubuntu this role depends on:
     - hosts: servers
       roles:
          - { role: ansiblebit.oracle-java, oracle_java_default: yes }
+
 
 ## Changelog
 
