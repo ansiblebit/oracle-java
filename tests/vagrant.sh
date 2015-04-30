@@ -90,7 +90,7 @@ do
         continue
     fi
 
-    # . test_idempotence.sh
+    . test_idempotence.sh
 
     echo "[INFO] destroying ${box}..."
     vagrant destroy -f $box
