@@ -30,9 +30,11 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 # SGR code to set text color (foreground) to no color.
 NC='\033[0m'
+# the logfile to hold the output of the playbook run
+LOGFILE="log/${box}_${VIRTUALENV_NAME}.log"
 
-echo "[INFO] $VIRTUALENV_NAME running idempotence test..."
-ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK} | \
+echo "[INFO] ${VIRTUALENV_NAME} running idempotence test..."
+ansible-playbook -i ${INVENTORY} --limit ${box} ${PLAYBOOK} 2>&1 | tee ${LOGFILE} | \
     grep "${box}" | grep -q "${PASS_CRITERIA}" && \
-    echo -ne "[TEST] ${box} $VIRTUALENV_NAME idempotence : ${GREEN}PASS${NC}\n" || \
-    (echo -ne "[TEST] ${box} $VIRTUALENV_NAME idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
+    echo -ne "[TEST] ${box} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || \
+    (echo -ne "[TEST] ${box} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
