@@ -22,90 +22,608 @@ galaxy_info:
   # platform on this list, let us know and we'll get it added!
   #
   platforms:
-  #- name: EL
-  #  versions:
-  #  - all
-  #  - 5
-  #  - 6
-  #  - 7
-  #- name: GenericUNIX
-  #  versions:
-  #  - all
-  #  - any
-  #- name: Fedora
-  #  versions:
-  #  - all
-  #  - 16
-  #  - 17
-  #  - 18
-  #  - 19
-  #  - 20
-  #- name: SmartOS
-  #  versions:
-  #  - all
-  #  - any
-  #- name: opensuse
-  #  versions:
-  #  - all
-  #  - 12.1
-  #  - 12.2
-  #  - 12.3
-  #  - 13.1
-  #  - 13.2
-  #- name: Amazon
-  #  versions:
-  #  - all
-  #  - 2013.03
-  #  - 2013.09
-  #- name: GenericBSD
-  #  versions:
-  #  - all
-  #  - any
-  #- name: FreeBSD
-  #  versions:
-  #  - all
-  #  - 8.0
-  #  - 8.1
-  #  - 8.2
-  #  - 8.3
-  #  - 8.4
-  #  - 9.0
-  #  - 9.1
-  #  - 9.1
-  #  - 9.2
-  #- name: Ubuntu
-  #  versions:
-  #  - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-    - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-  #  - trusty
-  #- name: SLES
-  #  versions:
-  #  - all
-  #  - 10SP3
-  #  - 10SP4
-  #  - 11
-  #  - 11SP1
-  #  - 11SP2
-  #  - 11SP3
-  #- name: GenericLinux
-  #  versions:
-  #  - all
-  #  - any
-  #- name: Debian
-  #  versions:
-  #  - all
-  #  - etch
-  #  - lenny
-  #  - squeeze
-  #  - wheezy
-  #
+    # - name: AIX
+    #   versions:
+        # - all
+        # - any
+        # - 7.1
+        # - 6.1
+        # - 5.3
+        # - 5.2
+        # - 5.1
+        # - 4.3.3
+        # - 4.3.2
+        # - 4.3.1
+        # - 4.3
+        # - 4.2.1
+        # - 4.2
+        # - 4.1.5
+        # - 4.1.4
+        # - 4.1.3
+        # - 4.1.1
+        # - 4.1
+        # - 4.0
+        # - 3.2
+        # - 3.1
+        # - 3.0
+    # - name: Alpine
+    #   versions:
+        # - all
+        # - any
+        # - 3.2
+        # - 3.1
+        # - 3.0
+        # - 2.7
+        # - 2.6
+        # - 2.5
+        # - 2.4
+        # - 2.3
+    # - name: Amazon
+    #   versions:
+        # - all
+        # - any
+        # - 2015.03
+        # - 2014.09
+        # - 2014.03
+        # - 2013.09
+        # - 2013.03
+        # - 2012.09
+        # - 2012.03
+        # - 2011.09
+    # - name: Archlinux
+    #   versions:
+        # - all
+        # - any
+        # - 2015.05.01
+        # - 2015.04.01
+        # - 2015.03.01
+        # - 2015.02.01
+        # - 2015.01.01
+        # - 2014.12.01
+        # - 2014.11.01
+        # - 2014.10.01
+        # - 2014.09.03
+        # - 2014.08.01
+        # - 2014.07.03
+        # - 2014.06.01
+        # - 2014.05.01
+        # - 2014.04.01
+        # - 2014.03.01
+        # - 2014.02.01
+        # - 2014.01.05
+        # - 2013.12.01
+        # - 2013.11.01
+        # - 2013.10.01
+        # - 2013.09.01
+        # - 2013.08.01
+        # - 2013.07.01
+        # - 2013.06.01
+        # - 2013.05.01
+        # - 2013.04.02
+        # - 2013.03.01
+        # - 2013.02.01
+        # - 2013.01.04
+        # - 2012.12.01
+        # - 2012.11.01
+        # - 2012.10.06
+        # - 2012.09.07
+        # - 2012.08.04
+        # - 2012.07.15
+        # - 2011.08.19
+        # - 2010.05
+        # - 2009.08
+        # - 2009.02
+        # - 2008.06
+        # - 2007.08-2
+        # - 2007.08.1
+        # - 2007.08
+    # - name: Ascendos
+    #   versions:
+        # - all
+        # - any
+    # - name: CentOS
+    #   versions:
+        # - all
+        # - any
+        # - 7
+        # - 6
+        # - 5
+        # - 4
+        # - 3
+    # - name: CloudLinux
+    #   versions:
+        # - all
+        # - any
+    # - name: Debian
+    #   versions:
+        # - all
+        # - any
+        # - jessie
+        # - wheezy
+        # - squeeze
+        # - lenny
+        # - etch
+        # - sarge
+        # - woody
+        # - potato
+        # - slink
+        # - hamm
+        # - bo
+        # - rex
+        # - buzz
+        # - 0.93R6
+        # - 0.93R5
+        # - 0.91
+    # - name: Fedora
+    #   versions:
+        # - all
+        # - any
+        # - 21
+        # - 20
+        # - 19
+        # - 18
+        # - 17
+        # - 16
+        # - 15
+        # - 14
+        # - 13
+        # - 12
+        # - 11
+        # - 10
+        # - 9
+        # - 8
+        # - 7
+        # - 6
+        # - 5
+        # - 4
+        # - 3
+        # - 2
+        # - 1
+    # - name: FreeBSD
+    #   versions:
+        # - all
+        # - any
+        # - 10.1
+        # - 10.0
+        # - 9.3
+        # - 9.2
+        # - 9.1
+        # - 9.0
+        # - 8.4
+        # - 8.3
+        # - 8.2
+        # - 8.1
+        # - 8.0
+        # - 7.4
+        # - 7.3
+        # - 7.2
+        # - 7.1
+        # - 7.0
+        # - 6.4
+        # - 6.3
+        # - 6.2
+        # - 6.1
+        # - 6.0
+        # - 5.5
+        # - 5.4
+        # - 5.3
+        # - 5.2.1
+        # - 5.2
+        # - 5.1
+        # - 5.0
+        # - 4.11
+        # - 4.10
+        # - 4.9
+        # - 4.8
+        # - 4.7
+        # - 4.6.2
+        # - 4.6
+        # - 4.5
+        # - 4.4
+        # - 4.3
+        # - 4.2
+        # - 4.1.1
+        # - 4.1
+        # - 4.0
+        # - 3.5
+        # - 3.4
+        # - 3.3
+        # - 3.2
+        # - 3.1
+        # - 3.0
+        # - 2.2.8
+        # - 2.2.7
+        # - 2.2.6
+        # - 2.2.5
+        # - 2.2.2
+        # - 2.2.1
+        # - 2.2
+        # - 2.1.7
+        # - 2.1.6
+        # - 2.1.5
+        # - 2.1
+        # - 2.0.5
+        # - 2.0
+        # - 1.1.5.1
+        # - 1.1.5
+        # - 1.1
+        # - 1.0
+    # - name: GenericBSD
+    #   versions:
+        # - all
+        # - any
+    # - name: GenericLinux
+    #   versions:
+        # - all
+        # - any
+    # - name: GenericUNIX
+    #   versions:
+        # - all
+        # - any
+    # - name: Gentoo
+    #   versions:
+        # - all
+        # - any
+        # - 20140826
+        # - 20121221
+        # - 12.1
+        # - 12.0
+        # - 11.0
+        # - 10.1
+        # - 10.0
+        # - 2008
+        # - 2007
+        # - 2006.1
+        # - 2006
+        # - 2005.1-r1
+        # - 2005.1
+        # - 2005.0
+        # - 2004.3
+        # - 2004.2
+        # - 2004.1
+        # - 2004.0
+        # - 1.4-r1
+        # - 1.4
+        # - 1.2
+        # - 1.1a
+        # - 1.0
+    # - name: HPUX
+    #   versions:
+        # - all
+        # - any
+        # - 11.31
+        # - 11.23
+        # - 11.22
+        # - 11.20
+        # - 11.11
+        # - 11.10
+        # - 11.04
+        # - 11.00
+        # - 10.30
+        # - 10.24
+        # - 10.20
+        # - 10.0
+        # - 9
+        # - 8
+        # - 7
+        # - 6
+        # - 5.0
+        # - 3
+        # - 2.0
+        # - 1.0
+    # - name: MacOSX
+    #   versions:
+        # - all
+        # - any
+        # - 10.10
+        # - 10.9
+        # - 10.8
+        # - 10.7
+        # - 10.6
+    # - name: Mandrake
+    #   versions:
+        # - all
+        # - any
+        # - 2011
+        # - 2010
+        # - 2009
+        # - 2007
+        # - 2006
+        # - 10
+        # - 9
+        # - 8
+        # - 7
+        # - 6
+        # - 5
+    # - name: Mandriva
+    #   versions:
+        # - all
+        # - any
+        # - 2011
+        # - 2010
+        # - 2009
+        # - 2007
+        # - 2006
+        # - 10
+        # - 9
+        # - 8
+        # - 7
+        # - 6
+        # - 5
+    # - name: Nexenta
+    #   versions:
+        # - all
+        # - any
+        # - 1
+    # - name: OEL  # Oracle Enterprise Linux or Oracle Linux
+    #   versions:
+        # - all
+        # - any
+    # - name: OVS
+    #   versions:
+        # - all
+        # - any
+       # - 2.3
+       # - 2.1
+       # - 2.0
+       # - 1.11
+       # - 1.10
+       # - 1.9
+       # - 1.7
+       # - 1.6
+       # - 1.5
+       # - 1.4
+       # - 1.3
+       # - 1.2
+       # - 1.1
+       # - 1.0
+       # - 0.99
+       # - 0.90
+    # - name: OmniOS
+    #   versions:
+        # - all
+        # - any
+        # - r151014
+        # - r151012
+        # - r151010
+        # - r151008
+        # - r151006
+        # - r151004
+        # - r151002
+    # - name: OpenIndiana
+    #   versions:
+        # - all
+        # - any
+    # - name: OpenSuSE
+    #   versions:
+        # - all
+        # - any
+        # - 13.2
+        # - 13.1
+        # - 12.3
+        # - 12.2
+        # - 12.1
+        # - 11.4
+        # - 11.3
+        # - 11.2
+        # - 11.1
+        # - 10.3
+        # - 10.2
+        # - 10.1
+        # - 10.0
+    # - name: OracleLinux
+    #   versions:
+        # - all
+        # - any
+        # - 7.1
+        # - 7.0
+        # - 6.6
+        # - 6.5
+        # - 6.4
+        # - 6.3
+        # - 6.2
+        # - 6.1
+        # - 6.0
+        # - 5.11
+        # - 5.10
+        # - 5.9
+        # - 5.8
+        # - 5.7
+        # - 5.6
+        # - 5.5
+        # - 5.4
+        # - 5.3
+        # - 5.2
+        # - 5.1
+        # - 5.0
+        # - 4.9
+        # - 4.8
+        # - 4.7
+        # - 4.6
+        # - 4.5
+    # - name: PSBM
+    #   versions:
+        # - all
+        # - any
+    # - name: RedHat
+    #   versions:
+        # - all
+        # - any
+        # - 7
+        # - 6
+        # - 5
+        # - 4
+        # - 3
+        # - 2.1
+    # - name: SLC  # CERN Scientific Linux
+    #   versions:
+        # - all
+        # - any
+        # - 7.3
+        # - 7
+        # - 6.1
+        # - 6
+        # - 5
+        # - 4
+        # - 3
+    # - name: SLED  # Suse Linux Enterprise Desktop
+    #   versions:
+        # - all
+        # - any
+        # - 12
+        # - 11SP3
+        # - 11SP2
+        # - 11SP1
+        # - 11
+        # - 10SP4
+        # - 10SP3
+        # - 10SP2
+        # - 10SP1
+        # - 10
+    # - name: SLES  # Suse Linux Enterprise Server
+    #   versions:
+        # - all
+        # - any
+        # - 12
+        # - 11SP3
+        # - 11SP2
+        # - 11SP1
+        # - 11
+        # - 10SP4
+        # - 10SP3
+        # - 10SP2
+        # - 10SP1
+        # - 10
+        # - 9SP4
+        # - 9SP3
+        # - 9SP2
+        # - 9SP1
+        # - 9
+        # - 8SP4
+        # - 8SP3
+        # - 8SP2a
+        # - 8SP2
+        # - 8SP1
+        # - 8
+        # - 7
+    # - name: Scientific  # or SL or Scientific Linux
+    #   versions:
+        # - all
+        # - any
+        # - 7
+        # - 6
+        # - 5
+    # - name: SmartOS
+    #   versions:
+        # - all
+        # - any
+    # - name: Solaris
+    #   versions:
+        # - all
+        # - any
+        # - 11.2
+        # - 11.1
+        # - 11
+        # - 11-2010.11
+        # - 10
+        # - 9
+        # - 8
+        # - 2.6
+        # - 2.5.1
+        # - 2.5
+        # - 2.4
+        # - 2.3
+        # - 2.2
+        # - 2.1
+        # - 2.0
+        # - 1
+    # - name: SuSE
+    #   versions:
+        # - all
+        # - any
+        # - 12.0
+        # - 11.3
+        # - 11.2
+        # - 11.1
+        # - 11
+        # - 10.4
+        # - 10.3
+        # - 10.2
+        # - 10.1
+        # - 10
+        # - 9.3
+        # - 9.2
+        # - 9.1
+        # - 9.0
+        # - 8.2
+        # - 8.1
+        # - 8.0
+        # - 7.3
+        # - 7.2
+        # - 7.1
+        # - 7.0
+        # - 6.4
+        # - 6.3
+        # - 6.2
+        # - 6.1
+        # - 6.0
+        # - 5.3
+        # - 5.2
+        # - 5.1
+        # - 5.0
+        # - 4.4.1
+        # - 4.4
+        # - 4.3
+        # - 4.2
+        # - 11/95
+        # - 8/95
+        # - 4/95
+        # - 11/94
+        # - 7/94
+        # - 3/94
+    - name: Ubuntu
+      versions:
+       # - all
+       # - any
+       # - vivid
+       # - utopic
+       # - trusty
+       - precise
+       # - saucy
+       # - raring
+       # - quantal
+       # - oneiric
+       # - natty
+       # - maverick
+       # - lucid
+       # - karmic
+       # - jaunty
+       # - intrepid
+       # - hardy
+       # - gutsy
+       # - feisty
+       # - edgy
+       # - dapper
+       # - breezy
+       # - hoary
+       # - warty
+    # - name: XenServer
+    #   versions:
+        # - all
+        # - any
+        # - 4.5
+        # - 4.4
+        # - 4.3
+        # - 4.2
+        # - 4.1
+        # - 4.0
+        # - 3.4
+        # - 3.3
+        # - 3.2
+        # - 3.1
+        # - 3.0
+        # - 2.0
+        # - 1.0
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
