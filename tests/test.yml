@@ -1,29 +1,6 @@
 ---
 # file: primogen/tests/vagrant.yml
 
-- name: set host entries play
-  hosts: 127.0.0.1
-  connection: local
-  gather_facts: no
-
-  vars:
-    hosts_file: /etc/hosts
-
-  tasks:
-    - name: set entry in /etc/hosts
-      lineinfile:
-        dest="{{ hosts_file }}"
-        line="{{ item.value.network.ip }} {{ item.key }}"
-        state=present
-        follow=yes
-        insertafter=EOF
-      with_dict: vagrant
-      when: item.value.enabled
-      sudo: yes
-  tags:
-    - vagrant
-
-
 - name: tests play
   hosts: all
   gather_facts: yes
@@ -31,24 +8,3 @@
   roles:
     - primogen
     - tests
-
-
-- name: clear host entries play
-  hosts: 127.0.0.1
-  connection: local
-  gather_facts: no
-
-  vars:
-    hosts_file: /etc/hosts
-
-  tasks:
-    - name: clear entry in /etc/hosts
-      lineinfile:
-        dest="{{ hosts_file }}"
-        regexp=".*{{ item.key }}$"
-        state=absent
-        follow=yes
-      with_dict: vagrant
-      sudo: yes
-  tags:
-    - vagrant
