@@ -75,11 +75,11 @@ key="$1"
 done
 
 # the name of the Vagrant box or host name
-BOX=${1:-localhost}
+BOX=${BOX:-localhost}
 # the Ansible inventory in the form of a file or string "host,"
-INVENTORY=${2:-'localhost,'}
+INVENTORY=${INVENTORY:-'localhost,'}
 # the path to the Ansible test playbook
-PLAYBOOK=${3:-test.yml}
+PLAYBOOK=${PLAYBOOK:-test.yml}
 # the logfile to hold the output of the playbook run
 LOGFILE="log/${BOX}_${VIRTUALENV_NAME}.log"
 
