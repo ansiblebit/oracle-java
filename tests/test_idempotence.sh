@@ -39,7 +39,7 @@ RED='\033[0;31m'
 # SGR code to set text color (foreground) to no color.
 NC='\033[0m'
 # The idempotence pass criteria.
-PASS_CRITERIA="changed=0.*failed=0"
+PASS_CRITERIA="changed=0.*unreachable=0.*failed=0"
 
 # the name of the virtualenv
 VIRTUALENV_NAME=$(which python | awk -F / 'NF && NF-2 { print ( $(NF-2) ) }')
