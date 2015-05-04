@@ -1,9 +1,0 @@
----
-# file: oracle-java/tests/localhost.yml
-
-- hosts: localhost
-  gather_facts: yes
-  connection: local
-
-  roles:
-    - oracle-java
