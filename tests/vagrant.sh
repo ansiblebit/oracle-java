@@ -51,7 +51,7 @@ done
 
 for VAGRANT_BOX in `grep vagrant.dev boxes.yml | sed 's/://g'`
 do
-    if [ -n ${BOX} ] && [ "${BOX}" == "${VAGRANT_BOX}" ]; then
+    if [ ! -n "${BOX+1}" ] || [ "${BOX}" = "${VAGRANT_BOX}" ]; then
 
         echo "[INFO] preparing ${VAGRANT_BOX}..."
         vagrant up ${VAGRANT_BOX} 2> /dev/null
