@@ -1,0 +1,11 @@
+---
+# file: primogen/tests/tasks
+#
+# Test tasks to verify role execution.
+#
+
+- debug:
+    msg="You need to define tests here!"
+  tags:
+    - debug
+    - test

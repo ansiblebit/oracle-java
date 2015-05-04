@@ -3,7 +3,7 @@
 require 'yaml'
 
 PLAYBOOK = 'vagrant.yml'
-CONFIGURATION_FILE = 'group_vars/all.yml'
+CONFIGURATION_FILE = 'boxes.yml'
 
 Vagrant.configure('2') do |config|
 
