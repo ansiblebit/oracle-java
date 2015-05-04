@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-PLAYBOOK = 'vagrant.yml'
+PLAYBOOK = 'test.yml'
 CONFIGURATION_FILE = 'boxes.yml'
 
 Vagrant.configure('2') do |config|
