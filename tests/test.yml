@@ -1,10 +1,16 @@
 ---
-# file: primogen/tests/vagrant.yml
+# file: oracle-java/tests/vagrant.yml
 
 - name: tests play
   hosts: all
   gather_facts: yes
 
   roles:
-    - primogen
-    - tests
+    - { role: oracle-java,
+        oracle_java_version: 8 }
+    - { role: tests,
+        expected_java_version: 1.8.0_45 }
+    - { role: oracle-java,
+        oracle_java_version: 7 }
+    - { role: tests,
+        expected_java_version: 1.7.0_80 }

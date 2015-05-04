@@ -4,8 +4,12 @@
 # Test tasks to verify role execution.
 #
 
-- debug:
-    msg="You need to define tests here!"
-  tags:
-    - debug
-    - test
+- name: register currently installed Java version
+  shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F \" '{ print $2 }'
+  register: result_java_version
+  changed_when: no
+
+- name: fail in case the Java version is not what is it is expected
+  fail:
+    msg="java -version output was {{ result_java_version.stdout }} instead of {{ expected_java_version }}"
+  when: result_java_version.stdout != expected_java_version
