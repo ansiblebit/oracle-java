@@ -85,7 +85,7 @@ LOGFILE="log/${BOX}_${VIRTUALENV_NAME}.log"
 
 EXTRA_ARGS=''
 if [ $BOX == "localhost" ]; then
-    EXTRA_ARGS="--connection=local"
+    EXTRA_ARGS="--connection=local --extra-vars idempotence=yes"
 fi
 
 echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
