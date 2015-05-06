@@ -86,10 +86,12 @@ LOGFILE="log/${BOX}_${VIRTUALENV_NAME}.log"
 EXTRA_ARGS=''
 if [ $BOX == "localhost" ]; then
     EXTRA_ARGS="--connection=local --extra-vars idempotence=yes"
+else
+    EXTRA_ARGS="--u vagrant"
 fi
 
 echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
-ansible-playbook -i ${INVENTORY} --limit ${BOX} ${PLAYBOOK} ${EXTRA_ARGS} 2>&1 | tee ${LOGFILE} | \
+ansible-playbook -i ${INVENTORY} --limit ${BOX}, ${PLAYBOOK} ${EXTRA_ARGS} 2>&1 | tee ${LOGFILE} | \
     grep "${BOX}" | grep -q "${PASS_CRITERIA}" && \
     echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || \
     (echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && exit 1)
