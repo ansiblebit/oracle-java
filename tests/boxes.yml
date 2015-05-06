@@ -15,9 +15,9 @@ vagrant:
       ip: 192.168.121.1
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   centos66-64.vagrant.dev:
     enabled: false
@@ -27,9 +27,9 @@ vagrant:
       ip: 192.168.121.2
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   centos7-64.vagrant.dev:
     enabled: false
@@ -39,9 +39,9 @@ vagrant:
       ip: 192.168.121.3
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
 
   # Debian
@@ -54,9 +54,9 @@ vagrant:
       ip: 192.168.122.1
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   wheezy64.vagrant.dev:
     enabled: false
@@ -66,9 +66,9 @@ vagrant:
       ip: 192.168.122.2
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
 
   # Fedora
@@ -81,9 +81,9 @@ vagrant:
       ip: 192.168.123.1
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   fedora20-64.vagrant.dev:
     enabled: false
@@ -93,9 +93,9 @@ vagrant:
       ip: 192.168.123.2
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   fedora21-32.vagrant.dev:
     enabled: false
@@ -105,9 +105,9 @@ vagrant:
       ip: 192.168.123.3
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   fedora21-64.vagrant.dev:
     enabled: false
@@ -117,9 +117,9 @@ vagrant:
       ip: 192.168.123.4
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   # Ubuntu
 
@@ -131,9 +131,9 @@ vagrant:
       ip: 192.168.124.1
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   precise64.vagrant.dev:
     enabled: false
@@ -143,9 +143,9 @@ vagrant:
       ip: 192.168.124.2
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   trusty32.vagrant.dev:
     enabled: false
@@ -155,9 +155,9 @@ vagrant:
       ip: 192.168.124.3
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   trusty64.vagrant.dev:
     enabled: false
@@ -167,9 +167,9 @@ vagrant:
       ip: 192.168.124.4
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   vivid32.vagrant.dev:
     enabled: false
@@ -179,9 +179,9 @@ vagrant:
       ip: 192.168.124.5
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
 
   vivid64.vagrant.dev:
     enabled: false
@@ -191,6 +191,6 @@ vagrant:
       ip: 192.168.124.6
 
     provider:
-      name: virtualbox
-      memory: 1024
-      cpus: 1
+      virtualbox:
+        memory: 1024
+        cpus: 1
