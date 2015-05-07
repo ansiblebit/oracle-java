@@ -42,6 +42,13 @@ For Debian and Ubuntu this role depends on:
 
 ## Changelog
 
+- v3.0.0 : 7 May 2015
+    - synchronized major version with primogen for easier reference
+    - updated ansiblebit.launchpad-ppa-webupd8 == 3.0.0
+    - merged primogen v3.0.4
+- v1.0.4 : 5 May 2015
+    - standardized tests with primogen v2.2.0
+    - implementation of CentOS deployment
 - v1.0.2 : 30 April 2015
     - added support for Ubuntu vivid
     - added support for Debian jessie
