@@ -7,6 +7,10 @@ CONFIGURATION_FILE = 'boxes.yml'
 
 Vagrant.configure('2') do |config|
 
+  # overcome 'stdin: is not a tty' errors when trying to provision on vivid64
+  config.ssh.pty = true
+  config.ssh.shell = 'bash'
+
   # puts "[DEBUG] loading box settings from #{CONFIGURATION_FILE}..."
   vagrant_environment = YAML.load_file(File.expand_path(CONFIGURATION_FILE, File.dirname(__FILE__)))
 
