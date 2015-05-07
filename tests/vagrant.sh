@@ -60,7 +60,7 @@ do
             continue
         fi
 
-        . ${DIR}/test_idempotence.sh --box ${VAGRANT_BOX} --inventory $INVENTORY
+        bash ${DIR}/test_idempotence.sh --box ${VAGRANT_BOX} --inventory $INVENTORY
 
         echo "[INFO] destroy ${VAGRANT_BOX}..."
         vagrant destroy -f ${VAGRANT_BOX}
