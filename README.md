@@ -42,6 +42,8 @@ For Debian and Ubuntu this role depends on:
 
 ## Changelog
 
+- v3.0.2 : 8 May 2015
+    - added oracle_java_home variable
 - v3.0.0 : 7 May 2015
     - synchronized major version with primogen for easier reference
     - updated ansiblebit.launchpad-ppa-webupd8 == 3.0.0
