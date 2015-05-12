@@ -16,23 +16,20 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ## Tests
 
-| Family | Distribution  |  Arch  | Status |
-|:------:|:-------------:|:------:|:------:|
-| RedHat | CentOS 6.4    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | CentOS 6.6    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Centos 7      | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Jessie        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Wheezy        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | fedora 20     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Fedora 20     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Fedora 21     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Fedora 21     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Precise       | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Precise       | x86_64 | [![Status](http://img.shields.io/badge/test-passed-006400.svg?style=flat)](#) |
-| Debian | Trusty        | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Trusty        | x86_64 | [![Status](http://img.shields.io/badge/test-failed-ff0000.svg?style=flat)](#) |
-| Debian | Vivid         | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Vivid         | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Family | Distribution | Version | Test Status |
+|:-:|:-:|:-:|:-:|
+| Debian | Debian  | Jessie  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Debian  | Wheezy  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Ubuntu  | Precise | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-passed-006400?style=flat)](#)  |
+| Debian | Ubuntu  | Trusty  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Ubuntu  | Vivid   | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | CentOS  | 6.4     | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | CentOS  | 6.6     | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Centos  | 7       | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | fedora  | 20      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora  | 20      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora  | 21      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora  | 21      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
 
 ## Requirements
 
