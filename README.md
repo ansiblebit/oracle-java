@@ -14,6 +14,26 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 [Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
 
+## Tests
+
+| Family | Distribution  |  Arch  | Status |
+|:------:|:-------------:|:------:|:------:|
+| RedHat | CentOS 6.4    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | CentOS 6.6    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Centos 7      | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Jessie        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Wheezy        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | fedora 20     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 20     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 21     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 21     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Precise       | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Precise       | x86_64 | [![Status](http://img.shields.io/badge/test-passed-006400.svg?style=flat)](#) |
+| Debian | Trusty        | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Trusty        | x86_64 | [![Status](http://img.shields.io/badge/test-failed-ff0000.svg?style=flat)](#) |
+| Debian | Vivid         | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Vivid         | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+
 ## Requirements
 
 - ansible >= 1.8.4
