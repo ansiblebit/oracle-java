@@ -1,12 +1,21 @@
 ---
-# file: oracle-java/tests/vagrant.yml
+# file: oracle-java/tests/test.yml
 
 - name: tests play
   hosts: all
   gather_facts: yes
 
+  vars:
+    test_java_version: 8
+    test_java_version_update: 45
+    test_java_version_build: 14
+    # test_java_version_update: 40 with test_java_version_build: 26
+
   roles:
     - { role: oracle-java,
-        oracle_java_version: 8 }
+        oracle_java_version: "{{ test_java_version }}",
+        oracle_java_version_update: "{{ test_java_version_update }}", # 45
+        oracle_java_version_build: "{{ test_java_version_build }}" # 14
+        }
     - { role: tests,
-        expected_java_version: 1.8.0_45 }
+        expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}" }
