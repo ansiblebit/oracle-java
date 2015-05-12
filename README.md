@@ -85,7 +85,8 @@ For Debian and Ubuntu this role depends on:
 
     - hosts: servers
       roles:
-         - { role: ansiblebit.oracle-java, oracle_java_default: yes }
+         - { role: ansiblebit.oracle-java,
+             oracle_java_set_as_default: yes }
 
 Use `--skip-tags=debug` if you want to suppress debug information.
 
