@@ -20,6 +20,26 @@
 
 A brief description of the role goes here.
 
+## Tests
+
+| Family | Distribution  |  Arch  | Status |
+|:------:|:-------------:|:------:|:------:|
+| RedHat | CentOS 6.4    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | CentOS 6.6    | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Centos 7      | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Jessie        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Wheezy        | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | fedora 20     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 20     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 21     | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| RedHat | Fedora 21     | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Precise       | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Precise       | x86_64 | [![Status](http://img.shields.io/badge/test-passed-006400.svg?style=flat)](#) |
+| Debian | Trusty        | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Trusty        | x86_64 | [![Status](http://img.shields.io/badge/test-failed-ff0000.svg?style=flat)](#) |
+| Debian | Vivid         | x86    | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Vivid         | x86_64 | [![Status](http://img.shields.io/badge/test-n/a-cccccc.svg?style=flat)](#) |
+
 ## Requirements
 
 Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here.
