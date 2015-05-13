@@ -5,6 +5,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-amazon-ff9900.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-debian-a80030.svg?style=flat)](#)
+[![Platform](http://img.shields.io/badge/platform-centos-932279.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-fedora-3c6eb4.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-freebsd-ae0000.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-macosx-000000.svg?style=flat)](#)
