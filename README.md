@@ -3,8 +3,8 @@
 [![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/oracle-java/master/LICENSE)
 [![Build Status](https://travis-ci.org/ansiblebit/oracle-java.svg?branch=master)](https://travis-ci.org/ansiblebit/oracle-java)
 
-[![Platform](http://img.shields.io/badge/platforms-debian-a80030.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platforms-ubuntu-dd4814.svg?style=flat)](#)
+[![Platform](http://img.shields.io/badge/platform-debian-a80030.svg?style=flat)](#)
+[![Platform](http://img.shields.io/badge/platform-ubuntu-dd4814.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-redhat-cc0000.svg?style=flat)](#)
 
 [![Project Stats](https://www.openhub.net/p/ansiblebit-oracle-java/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-oracle-java/)
