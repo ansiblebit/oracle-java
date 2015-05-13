@@ -4,12 +4,32 @@
 # Test tasks to verify role execution.
 #
 
-- name: register currently installed Java version
+- name: is oracle_java_installed fact set?
+  fail:
+    msg="oracle_java_installed fact is not defined!"
+  when: not oracle_java_installed is defined
+
+- name: is oracle_java_installed fact true?
+  fail:
+    msg="oracle_java_installed fact is false!"
+  when: not oracle_java_installed
+
+- name: is oracle_java_version_installed fact set?
+  fail:
+    msg="oracle_java_installed fact is not defined!"
+  when: not oracle_java_version_installed is defined
+
+- name: is oracle_java_version_installed value correct?
+  fail:
+    msg="oracle_java_version_installed value is {{ oracle_java_version_installed }} instead of {{ expected_java_version }}!"
+  when: oracle_java_version_installed != expected_java_version
+
+- name: register result_java_version with host installed Java version
   shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F \" '{ print $2 }'
   register: result_java_version
   changed_when: no
 
-- name: fail in case the Java version is not what is it is expected
+- name: is installed Java version on host correct?
   fail:
     msg="java -version output was {{ result_java_version.stdout }} instead of {{ expected_java_version }}"
   when: result_java_version.stdout != expected_java_version

@@ -1,0 +1,45 @@
+---
+# file: oracle-java/tasks/redhat/main.yml
+#
+# Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
+#
+
+- name: in case Java needs to be installed, determine if the RPM needs to be downloaded
+  stat:
+    path="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+  when: not oracle_java_installed or oracle_java_version_installed != oracle_java_version_string
+  register: oracle_java_task_rpm_check
+  tags:
+    - installation
+# if {{ not oracle_java_task_rpm_check|skipped }} it means installation is necessary
+
+- debug:
+    msg="tmp_rpm_check={{ oracle_java_task_rpm_check }}"
+  tags:
+    - debug
+
+- name: download Java RPM
+  shell:
+    "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }} {{ oracle_java_rpm_url }}"
+  when: not oracle_java_task_rpm_check|skipped and not oracle_java_task_rpm_check.stat.exists
+  sudo: yes
+  tags:
+    - installation
+
+- name: install RPM
+  shell:
+    "rpm --force -ivh {{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+  when: not oracle_java_task_rpm_check|skipped
+  sudo: yes
+  tags:
+    - installation
+
+- name: set Java version as default
+  shell: "alternatives --set java {{ oracle_java_home }}/jre/bin/java"
+  when: oracle_java_set_as_default
+  sudo: yes
+  register: oracle_java_task_set_default
+
+- name: in case there were changes, check host environment again
+  include: ../check_environment.yml
+  when: not oracle_java_task_rpm_check|skipped or oracle_java_task_set_default|changed

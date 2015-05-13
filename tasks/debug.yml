@@ -1,0 +1,70 @@
+---
+# file: oracle-java/tasks/debug.yml
+#
+# Task that prints variable debug information.
+#
+
+- name: echo oracle_java_cache_valid_time
+  debug:
+    msg="oracle_java_version_build={{ oracle_java_cache_valid_time }}"
+  when: oracle_java_cache_valid_time is defined
+
+- name: echo oracle_java_installed
+  debug:
+    msg="oracle_java_installed={{ oracle_java_installed }}"
+  when: oracle_java_installed is defined
+
+- name: echo oracle_java_rpm_filename
+  debug:
+    msg="oracle_java_rpm_filename={{ oracle_java_rpm_filename }}"
+  when: oracle_java_rpm_filename is defined
+
+- name: echo oracle_java_home
+  debug:
+    msg="oracle_java_home={{ oracle_java_home }}"
+  when: oracle_java_home is defined
+
+- name: echo oracle_java_os_supported
+  debug:
+    msg="oracle_java_os_supported={{ oracle_java_os_supported }}"
+  when: oracle_java_os_supported is defined
+
+- name: echo oracle_java_rpm_url
+  debug:
+    msg="oracle_java_rpm_url={{ oracle_java_rpm_url }}"
+  when: oracle_java_rpm_url is defined
+
+- name: echo oracle_java_state
+  debug:
+    msg="oracle_java_state={{ oracle_java_state }}"
+  when: oracle_java_state is defined
+
+- name: echo oracle_java_version_build
+  debug:
+    msg="oracle_java_version_build={{ oracle_java_version_build }}"
+  when: oracle_java_version_build is defined
+
+- name: echo oracle_java_version_installed
+  debug:
+    msg="oracle_java_version_installed={{ oracle_java_version_installed }}"
+  when: oracle_java_version_installed is defined
+
+- name: echo oracle_java_version_string
+  debug:
+    msg="oracle_java_version_string={{ oracle_java_version_string }}"
+  when: oracle_java_version_string is defined
+
+- name: echo oracle_java_rpm_filename
+  debug:
+    msg="oracle_java_rpm_filename={{ oracle_java_rpm_filename }}"
+  when: oracle_java_rpm_filename is defined
+
+- name: echo oracle_java_rpm_url
+  debug:
+    msg="oracle_java_rpm_url={{ oracle_java_rpm_url }}"
+  when: oracle_java_rpm_url is defined
+
+- name: echo oracle_java_set_as_default
+  debug:
+    msg="oracle_java_set_as_default={{ oracle_java_set_as_default }}"
+  when: oracle_java_set_as_default is defined

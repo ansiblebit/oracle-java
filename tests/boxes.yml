@@ -8,7 +8,7 @@ vagrant:
   # CentOS
 
   centos64-64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: hansode/centos-6.4-x86_64
     network:
       name: private_network
@@ -20,7 +20,7 @@ vagrant:
         cpus: 1
 
   centos66-64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: hansode/centos-6.6-x86_64
     network:
       name: private_network
@@ -32,7 +32,7 @@ vagrant:
         cpus: 1
 
   centos7-64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: relativkreativ/centos-7-minimal
     network:
       name: private_network

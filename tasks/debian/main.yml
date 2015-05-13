@@ -1,9 +1,8 @@
 ---
-# task file for Debian OS family
-
-- name: debian is supported
-  set_fact:
-    os_supported: yes
+# file: oracle-java/tasks/debian/main.yml
+#
+# Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
+#
 
 - name: accept Oracle license
   shell: "echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
@@ -15,11 +14,18 @@
     name="oracle-java{{ oracle_java_version }}-installer"
     state={{ oracle_java_state }}
     cache_valid_time={{ oracle_java_cache_valid_time }}
+  register: oracle_java_task_apt_install
   sudo: yes
 
 - name: set Java version as default
   apt:
     name="oracle-java{{ oracle_java_version }}-set-default"
     state=latest
+  register: oracle_java_task_set_default
+  when: oracle_java_set_as_default
   sudo: yes
-  when: oracle_java_default
+  when: oracle_java_set_as_default
+
+- name: in case there were changes, check host environment again
+  include: ../check_environment.yml
+  when: oracle_java_task_apt_install|changed or oracle_java_task_set_default|changed

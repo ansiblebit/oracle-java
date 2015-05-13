@@ -1,0 +1,15 @@
+---
+# file: oracle-java/defaults/debian.yml
+#
+# Default variables for Debian-based Linux distributions.
+#
+
+launchpad_ppa_webupd8_cache_valid_time: 3600
+
+oracle_java_cache_valid_time: "{{ launchpad_ppa_webupd8_cache_valid_time }}"
+
+oracle_java_home: "/usr/lib/jvm/java-{{ oracle_java_version }}-oracle"
+
+oracle_java_os_supported: yes
+
+oracle_java_state: latest

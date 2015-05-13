@@ -4,13 +4,34 @@
 # tasks file
 #
 
+- name: check host environment
+  include: check_environment.yml
+
+## include OS family specific variables
+
+- name: include OS family/distribution specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../defaults/{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "../defaults/{{ ansible_distribution | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}.yml"
+
+- name: debug variables
+  include: debug.yml
+  tags:
+    - debug
+
 ## include OS family specific task file
 
 - name: if debian, include family specific task file
-  include: "os_family/debian.yml"
+  include: "debian/main.yml"
   when: ansible_os_family| lower == 'debian'
+
+- name: if redhat, include family specific task file
+  include: "redhat/main.yml"
+  when: ansible_os_family| lower == 'redhat'
 
 - name: check if operating system is suported
   fail:
     msg: "The operating system ({{ ansible_os_family }}) of the target machine ({{ inventory_hostname }}) is not currently supported."
-  when: os_supported is not defined
+  when: oracle_java_os_supported is not defined or not oracle_java_os_supported

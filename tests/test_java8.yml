@@ -9,7 +9,7 @@
     - expected_java_version: 1.8.0_40
 
   roles:
-    - { role: oracle-java, oracle_java_version: 8, oracle_java_default: yes }
+    - { role: oracle-java, oracle_java_version: 8, oracle_java_set_as_default: yes }
 
   post_tasks:
 

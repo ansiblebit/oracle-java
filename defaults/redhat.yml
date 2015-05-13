@@ -1,0 +1,12 @@
+---
+# file: oracle-java/defaults/redhat.yml
+#
+# Default variables for Redhat-based Linux distributions.
+#
+
+oracle_java_home: "/usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }}"
+
+oracle_java_os_supported: yes
+
+oracle_java_rpm_filename: "jdk-{{ oracle_java_version }}u{{ oracle_java_version_update }}-linux-x64.rpm"
+oracle_java_rpm_url: "http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }}"
