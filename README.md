@@ -93,7 +93,7 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 
 ## Changelog
 
-- v4.0.0 : 12 May 2015
+- v4.0.0 : 13 May 2015
     - added support for RedHat-based systems
     - separated Debian from Redhat variables
     - oracle_java_default (default:no) replaced by oracle_java_set_default (default:no)
@@ -101,6 +101,7 @@ Use `--skip-tags=debug` if you want to suppress debug information.
         - tasks/os_family/<family name>.yml changed in favor of task/<family name>/main.yml
     - added debug task
     - role-specific facts now used to set if an installation process is necessary in Debian or RedHat
+    - fixed build issues related to tox 2.0.1
 - v3.0.2 : 8 May 2015
     - added oracle_java_home variable
 - v3.0.0 : 7 May 2015
