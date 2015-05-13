@@ -588,10 +588,10 @@ galaxy_info:
        # - vivid
        # - utopic
        # - trusty
-       - precise
        # - saucy
        # - raring
        # - quantal
+       - precise
        # - oneiric
        # - natty
        # - maverick
