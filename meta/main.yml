@@ -10,18 +10,30 @@ galaxy_info:
   license: BSD
   min_ansible_version: 1.8.4
   platforms:
-  - name: Debian
-    versions:
-    - jessie
-    - wheezy
-  - name: Ubuntu
-    versions:
-    - vivid
-    - trusty
-    - precise
+    - name: CentOS
+      versions:
+        - all
+        - any
+        - 7
+        - 6
+    - name: Debian
+      versions:
+        - jessie
+        - wheezy
+    - name: RedHat
+      versions:
+        - all
+        - any
+        - 7
+        - 6
+    - name: Ubuntu
+      versions:
+        - vivid
+        - trusty
+        - precise
   categories:
-  - development
-  - system
+    - development
+    - system
 dependencies:
   - role: ansiblebit.launchpad-ppa-webupd8
     when: (ansible_distribution | lower == 'debian') or (ansible_distribution | lower == 'ubuntu')
