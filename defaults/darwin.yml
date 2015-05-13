@@ -1,0 +1,7 @@
+---
+# file: oracle-java/defaults/darwin.yml
+#
+# Default variables for Darwin-based distributions.
+#
+
+oracle_java_os_supported: no

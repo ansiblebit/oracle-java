@@ -4,13 +4,6 @@
 # Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
 #
 
-- name: redhat is supported
-  set_fact:
-    oracle_java_os_supported: yes
-
-
-# installation
-
 - name: in case Java needs to be installed, determine if the RPM needs to be downloaded
   stat:
     path="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"

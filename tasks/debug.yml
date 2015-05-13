@@ -24,6 +24,11 @@
     msg="oracle_java_home={{ oracle_java_home }}"
   when: oracle_java_home is defined
 
+- name: echo oracle_java_os_supported
+  debug:
+    msg="oracle_java_os_supported={{ oracle_java_os_supported }}"
+  when: oracle_java_os_supported is defined
+
 - name: echo oracle_java_rpm_url
   debug:
     msg="oracle_java_rpm_url={{ oracle_java_rpm_url }}"

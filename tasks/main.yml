@@ -12,9 +12,9 @@
 - name: include OS family/distribution specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "../defaults/{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
-    - "../defaults/{{ ansible_distribution }}.yml"
-    - "../defaults/{{ ansible_os_family }}.yml"
+    - "../defaults/{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "../defaults/{{ ansible_distribution | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}.yml"
 
 - name: debug variables
   include: debug.yml
@@ -34,4 +34,4 @@
 - name: check if operating system is suported
   fail:
     msg: "The operating system ({{ ansible_os_family }}) of the target machine ({{ inventory_hostname }}) is not currently supported."
-  when: oracle_java_os_supported is not defined
+  when: oracle_java_os_supported is not defined or not oracle_java_os_supported

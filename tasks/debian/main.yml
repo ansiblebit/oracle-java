@@ -4,13 +4,6 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
-- name: debian is supported
-  set_fact:
-    oracle_java_os_supported: yes
-
-
-# installation
-
 - name: accept Oracle license
   shell: "echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
   changed_when: no
