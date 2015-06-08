@@ -7,4 +7,4 @@
 
   roles:
     - primogen
-    - tests
+    - { role: tests, tags: test }
