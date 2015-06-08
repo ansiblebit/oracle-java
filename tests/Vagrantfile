@@ -38,6 +38,7 @@ Vagrant.configure('2') do |config|
       host.vm.provision 'ansible' do |ansible|
         ansible.playbook = PLAYBOOK
         ansible.verbose = 'v'
+        ansible.skip_tags = 'test'
       end
     end
   end
