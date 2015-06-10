@@ -1,10 +1,18 @@
 ---
 # file: primogen/tests/vagrant.yml
 
-- name: tests play
+- name: provisioning play
   hosts: all
   gather_facts: yes
 
   roles:
     - primogen
-    - { role: tests, tags: test }
+
+- name: tests play
+  hosts: all
+  gather_facts: yes
+  tags: test
+
+  roles:
+    - { role: tests,
+        when: idempotence is defined and idempotence }
