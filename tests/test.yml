@@ -4,7 +4,6 @@
 - name: provisioning play
   hosts: all
   gather_facts: yes
-  tags: test
 
   vars:
     test_java_version: 8
