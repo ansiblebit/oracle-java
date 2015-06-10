@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/vagrant.yml
+# file: primogen/tests/test.yml
 
 - name: provisioning play
   hosts: all
