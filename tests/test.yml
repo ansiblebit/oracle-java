@@ -1,9 +1,10 @@
 ---
 # file: oracle-java/tests/test.yml
 
-- name: tests play
+- name: provisioning play
   hosts: all
   gather_facts: yes
+  tags: test
 
   vars:
     test_java_version: 8
@@ -16,8 +17,7 @@
         oracle_java_version: "{{ test_java_version }}",
         oracle_java_version_update: "{{ test_java_version_update }}",
         oracle_java_version_build: "{{ test_java_version_build }}",
-        oracle_java_set_as_default: yes,
-        tags: test }
+        oracle_java_set_as_default: yes }
     - { role: tests,
         expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}",
-        tags: test }
+        when: idempotence is defined and idempotence }
