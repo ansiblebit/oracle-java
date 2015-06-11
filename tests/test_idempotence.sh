@@ -29,7 +29,7 @@
 #
 # changelog:
 #
-#   v1.2.2
+#   v1.2
 #     - added env option
 #
 # author(s):
