@@ -3,7 +3,7 @@
 #
 # Bash script to run idempotence tests.
 #
-# version: 1.2.2
+# version: 1.4
 #
 # usage:
 #
@@ -23,12 +23,14 @@
 #
 #   # on a Vagrant box
 #   bash test_idempotence.sh \
-#       --box precise64
+#       --box precise64.vagrant.dev
 #       --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 #
 #
 # changelog:
 #
+#   v1.4 : 10 Jul 2015
+#     - added extra variables to force running idempotence tests on vagrant
 #   v1.2
 #     - added env option
 #
@@ -98,7 +100,7 @@ EXTRA_ARGS=''
 if [ $BOX == "localhost" ]; then
     EXTRA_ARGS="--connection=local --extra-vars idempotence=yes --extra-vars env=${ENV}"
 else
-    EXTRA_ARGS="--u vagrant"
+    EXTRA_ARGS="--u vagrant --extra-vars idempotence=yes --extra-vars env=vagrant"
 fi
 
 echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
