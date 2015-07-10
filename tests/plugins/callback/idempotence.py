@@ -17,7 +17,7 @@ class CallbackModule(object):
         if (u'%s' % VAR_IDEMPOTENCE) in self.playbook.extra_vars.keys() and self.playbook.extra_vars[VAR_IDEMPOTENCE]:
 
             if len(stats.unreachable) > 0:
-                print ('idempotence test failed! unreachable=%s > 0') % stats.unreachable
+                print ('idempotence test failed! unreachable=%s > 0') % stats.dark
                 sys.exit(os.EX_SOFTWARE)
 
             if len(stats.changed) > 0:
