@@ -56,6 +56,13 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_version_string | 1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }} | the Java version string to verify installation against. |
 | oracle_java_os_supported variable | - | role internal variable to check if a OS family is supported or not. | 
 
+### Darwin/MacOSX-only
+
+| variable | default | description |
+|:-:|:-:|:--|
+| oracle_java_dir_source | ${HOME}/Downloads | directory where to store the DMG files. |
+| oracle_java_dmg_filename | the name of the DMG file. | 
+| oracle_java_dmg_url | | the URL where to download the DMG file from. |
 
 ### Debian-only
 
@@ -71,7 +78,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 | variable | default | description |
 |:-:|:-:|:--|
-| oracle_java_dir_source | /usr/local/src | directory where to store RPMs (Redhat-only). |
+| oracle_java_dir_source | /usr/local/src | directory where to store the RPM files. |
 | oracle_java_home | /usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }} | the location of the Java home directory. |
 | oracle_java_rpm_filename | jdk-{{ oracle_java_version }}u{{ oracle_java_version_update }}-linux-x64.rpm | the filename of the RPM. |
 | oracle_java_rpm_url | http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }} | the URL where the RPM can be downloaded from. |

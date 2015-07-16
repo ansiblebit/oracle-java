@@ -1,0 +1,35 @@
+---
+# file: oracle-java/tasks/darwin/macosx.yml
+#
+# Task file to install Oracle Java Development Kit in a system with a OSX based Darwin distribution.
+#
+
+- name: download DMG file
+  shell:
+    "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }} {{ oracle_java_dmg_url }}"
+  when: not oracle_java_task_rpm_check|skipped and not oracle_java_task_rpm_check.stat.exists
+  args:
+    creates: "{{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }}"
+  tags:
+    - installation
+
+- name: mount DMG image
+  tags:
+    - installation
+
+- name: install JDK
+  tags:
+    - installation
+
+- name: unmount DMG image
+  tags:
+    - installation
+
+- name: set Java version as default
+  shell:
+  when: oracle_java_set_as_default
+  register: oracle_java_task_set_default
+  sudo: yes
+
+- name: in case there were changes, check host environment again
+  include: ../check_environment.yml
