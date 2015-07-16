@@ -96,6 +96,13 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 
 ## Changelog
 
+- v4.7.0 : 16 Jul 2015
+    - added support for MacOSX
+    - minor version number will now match primogen major version number
+    - merge with ansiblebit.primogen v7
+        - upgrade tests to use ansible v1.9.2 instead of v1.9.1
+        - pass ANSIBLE_ASK_SUDO_PASS environment variable to the tox test environment
+        - improved idempotence test
 - v4.0.0 : 13 May 2015
     - added support for RedHat-based systems
     - separated Debian from Redhat variables
