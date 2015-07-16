@@ -1,0 +1,7 @@
+---
+# file: oracle-java/defaults/darwin-macosx.yml
+#
+# Default variables for OSX-based Darwin distributions.
+#
+
+oracle_java_os_supported: yes

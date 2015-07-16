@@ -23,13 +23,17 @@
 
 ## include OS family specific task file
 
+- name: if darwin/macosx, include distribution specific task file
+  include: "darwin/macosx.yml"
+  when: ansible_os_family | lower == 'darwin' and ansible_distribution | lower == 'macosx'
+
 - name: if debian, include family specific task file
   include: "debian/main.yml"
-  when: ansible_os_family| lower == 'debian'
+  when: ansible_os_family | lower == 'debian'
 
 - name: if redhat, include family specific task file
   include: "redhat/main.yml"
-  when: ansible_os_family| lower == 'redhat'
+  when: ansible_os_family | lower == 'redhat'
 
 - name: check if operating system is suported
   fail:
