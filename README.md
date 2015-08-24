@@ -103,6 +103,8 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 
 ## Changelog
 
+- v4.7.2 : 24 Aug 2015
+    - usage of alternatives module to set Java default version on RedHat environments
 - v4.7.0 : 16 Jul 2015
     - added support for MacOSX
     - minor version number will now match primogen major version number
