@@ -7,9 +7,8 @@
 
   vars:
     test_java_version: 8
-    test_java_version_update: 45
-    test_java_version_build: 14
-    # test_java_version_update: 40 with test_java_version_build: 26
+    test_java_version_update: 60
+    test_java_version_build: 27
 
   roles:
     - { role: oracle-java,
@@ -25,9 +24,8 @@
 
   vars:
     test_java_version: 8
-    test_java_version_update: 45
-    test_java_version_build: 14
-    # test_java_version_update: 40 with test_java_version_build: 26
+    test_java_version_update: 60
+    test_java_version_build: 27
 
   roles:
     - { role: tests,
