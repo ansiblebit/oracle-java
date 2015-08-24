@@ -4,45 +4,40 @@
 # Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
 #
 
-- name: in case Java needs to be installed, determine if the RPM needs to be downloaded
-  stat:
-    path="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
-  when: not oracle_java_installed or oracle_java_version_installed != oracle_java_version_string
-  register: oracle_java_task_rpm_check
-  tags:
-    - installation
-# if {{ not oracle_java_task_rpm_check|skipped }} it means installation is necessary
-
-- debug:
-    msg="tmp_rpm_check={{ oracle_java_task_rpm_check }}"
-  tags:
-    - debug
-
 - name: download Java RPM
   shell:
     "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }} {{ oracle_java_rpm_url }}"
-  when: not oracle_java_task_rpm_check|skipped and not oracle_java_task_rpm_check.stat.exists
+  args:
+    creates: "{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+  register: oracle_java_task_rpm_download
   sudo: yes
   tags:
     - installation
 
 - name: install RPM
-  shell:
-    "rpm --force -ivh {{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
-  when: not oracle_java_task_rpm_check|skipped
+  yum:
+    name="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+    state=present
+  when: not oracle_java_task_rpm_download|skipped
   sudo: yes
   tags:
     - installation
 
 - name: set Java version as default
   alternatives:
-    name=java
-    link=/usr/bin/java
-    path="{{ oracle_java_home }}/jre/bin/java"
+    name="{{ item.exe }}"
+    link="/usr/bin/{{ item.exe }}"
+    path="{{ item.path }}/{{ item.exe }}"
   when: oracle_java_set_as_default
+  with_items:
+    - { path: "{{ oracle_java_home }}/jre/bin", exe: 'java' }
+    - { path: "{{ oracle_java_home }}/jre/bin", exe: 'keytool' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
   sudo: yes
+  when: oracle_java_task_rpm_download|changed or (oracle_java_installed and oracle_java_version_installed != oracle_java_version_string)
   register: oracle_java_task_set_default
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml
-  when: not oracle_java_task_rpm_check|skipped or oracle_java_task_set_default|changed
+  when: not oracle_java_task_rpm_download|skipped or oracle_java_task_set_default|changed

@@ -105,6 +105,9 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 
 - v4.7.2 : 24 Aug 2015
     - usage of alternatives module to set Java default version on RedHat environments
+    - updated default version to Java 1.8u60-b27
+    - improved RPM download task on RedHat environments
+    - fixed problem with task setting default JDK always flagging itself as changed
 - v4.7.0 : 16 Jul 2015
     - added support for MacOSX
     - minor version number will now match primogen major version number
