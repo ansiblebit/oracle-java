@@ -35,7 +35,10 @@
     - installation
 
 - name: set Java version as default
-  shell: "alternatives --set java {{ oracle_java_home }}/jre/bin/java"
+  alternatives:
+    name=java
+    link=/usr/bin/java
+    path="{{ oracle_java_home }}/jre/bin/java"
   when: oracle_java_set_as_default
   sudo: yes
   register: oracle_java_task_set_default
