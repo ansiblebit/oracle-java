@@ -29,6 +29,7 @@
     test_java_version_build: 14
     # test_java_version_update: 40 with test_java_version_build: 26
 
+  roles:
     - { role: tests,
         expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}",
         when: idempotence is defined and idempotence }
