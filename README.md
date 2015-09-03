@@ -102,7 +102,7 @@ Use `--skip-tags=debug` if you want to suppress debug information.
     - fixed problem with task setting default JDK always flagging itself as changed
     - removed support for Ansible 1.8
 - v4.7.0 : 16 Jul 2015
-    - added support for MacOSX
+    - added building blocks for MacOSX support
     - minor version number will now match primogen major version number
     - merge with ansiblebit.primogen v7
         - upgrade tests to use ansible v1.9.2 instead of v1.9.1
