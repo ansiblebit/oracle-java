@@ -21,8 +21,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 | Family | Distribution | Version | Test Status |
 |:-:|:-:|:-:|:-:|
-| Darwin | MacOSX  | Yosemite  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
-| Darwin | MacOSX  | Mavericks | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Debian  | Jessie    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Debian  | Wheezy    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Precise   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#)  |
@@ -56,13 +54,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_version_string | 1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }} | the Java version string to verify installation against. |
 | oracle_java_os_supported variable | - | role internal variable to check if a OS family is supported or not. | 
 
-### Darwin/MacOSX-only
-
-| variable | default | description |
-|:-:|:-:|:--|
-| oracle_java_dir_source | ${HOME}/Downloads | directory where to store the DMG files. |
-| oracle_java_dmg_filename | the name of the DMG file. | 
-| oracle_java_dmg_url | | the URL where to download the DMG file from. |
 
 ### Debian-only
 
