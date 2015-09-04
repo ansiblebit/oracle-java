@@ -5,7 +5,6 @@
 
 [![Platform](http://img.shields.io/badge/platform-centos-932279.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-debian-a80030.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-macosx-000000.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-redhat-cc0000.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-ubuntu-dd4814.svg?style=flat)](#)
 
