@@ -2,6 +2,8 @@ language: python
 python: 2.7
 sudo: yes
 
+cache: apt
+
 install:
   - pip install tox
 
