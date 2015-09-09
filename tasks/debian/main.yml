@@ -24,7 +24,6 @@
   register: oracle_java_task_set_default
   when: oracle_java_set_as_default
   sudo: yes
-  when: oracle_java_set_as_default
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml
