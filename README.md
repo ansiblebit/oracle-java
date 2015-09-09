@@ -93,12 +93,14 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 
 ## Changelog
 
+- v4.9.2 : 9 Sep 2015
+    - run test play as provisioning and idempotence test depending on context
+    - update dependency ansiblebit.launchpad-ppa-webupd8 v3.9.4
 - v4.9.0 : 9 Sep 2015
     - merged with primogen v9
     - [pull request #5: removed duplicate parameter](https://github.com/ansiblebit/oracle-java/pull/4) [cyfdecyf](https://github.com/cyfdecyf)
     - remove duplicate provision task
     - ansible 1.9.3 requirement
-    - run test play as provisioning and idempotence test depending on context
 - v4.7.2 : 24 Aug 2015
     - usage of alternatives module to set Java default version on RedHat environments
     - updated default version to Java 1.8u60-b27
