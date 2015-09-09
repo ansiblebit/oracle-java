@@ -1,13 +1,6 @@
 ---
 # file: primogen/tests/test.yml
 
-- name: provisioning play
-  hosts: all
-  gather_facts: yes
-
-  roles:
-    - primogen
-
 - name: tests play
   hosts: all
   gather_facts: yes
