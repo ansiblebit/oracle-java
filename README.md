@@ -91,57 +91,6 @@ For Debian and Ubuntu this role depends on:
 Use `--skip-tags=debug` if you want to suppress debug information.
 
 
-## Changelog
-
-- v4.9.2 : 9 Sep 2015
-    - run test play as provisioning and idempotence test depending on context
-    - update dependency ansiblebit.launchpad-ppa-webupd8 v3.9.4
-- v4.9.0 : 9 Sep 2015
-    - merged with primogen v9
-    - [pull request #5: removed duplicate parameter](https://github.com/ansiblebit/oracle-java/pull/4) [cyfdecyf](https://github.com/cyfdecyf)
-    - remove duplicate provision task
-    - ansible 1.9.3 requirement
-- v4.7.2 : 24 Aug 2015
-    - usage of alternatives module to set Java default version on RedHat environments
-    - updated default version to Java 1.8u60-b27
-    - NOTE: Debian systems will always install the latest version of the JDK
-    - improved RPM download task on RedHat environments
-    - fixed problem with task setting default JDK always flagging itself as changed
-    - removed support for Ansible 1.8
-- v4.7.0 : 16 Jul 2015
-    - added building blocks for MacOSX support
-    - minor version number will now match primogen major version number
-    - merge with ansiblebit.primogen v7
-        - upgrade tests to use ansible v1.9.2 instead of v1.9.1
-        - pass ANSIBLE_ASK_SUDO_PASS environment variable to the tox test environment
-        - improved idempotence test
-- v4.0.0 : 13 May 2015
-    - added support for RedHat-based systems
-    - separated Debian from Redhat variables
-    - oracle_java_default (default:no) replaced by oracle_java_set_default (default:no)
-    - directory structure changes
-        - tasks/os_family/<family name>.yml changed in favor of task/<family name>/main.yml
-    - added debug task
-    - role-specific facts now used to set if an installation process is necessary in Debian or RedHat
-    - fixed build issues related to tox 2.0.1
-- v3.0.2 : 8 May 2015
-    - added oracle_java_home variable
-- v3.0.0 : 7 May 2015
-    - synchronized major version with primogen for easier reference
-    - updated ansiblebit.launchpad-ppa-webupd8 == 3.0.0
-    - merged primogen v3.0.4
-- v1.0.4 : 5 May 2015
-    - standardized tests with primogen v2.2.0
-    - implementation of CentOS deployment
-- v1.0.2 : 30 April 2015
-    - added support for Ubuntu vivid
-    - added support for Debian jessie
-- v1.0.0 : 30 April 2015
-    - initial release of this role with support for Debian
-    - dependency on ansiblebit.launchpad-ppa-webupd8 v1.1.0
-    - ansible dependency set to 1.8.4
-
-
 ## License
 
 BSD
