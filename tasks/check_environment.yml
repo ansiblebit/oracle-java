@@ -39,7 +39,7 @@
 # determine which Java version is installed
 
 - name: if Java is installed, check version
-  shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F \" '{ print $2 }'
+  shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
   when: oracle_java_installed
   register: oracle_java_task_version
   changed_when: False
