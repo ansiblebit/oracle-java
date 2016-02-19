@@ -22,7 +22,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 |:-:|:-:|:-:|:-:|
 | Debian | Debian  | Jessie    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Debian  | Wheezy    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
-| Debian | Ubuntu  | Precise   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#)  |
+| Debian | Ubuntu  | Precise   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Trusty    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Vivid     | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | RedHat | CentOS  | 6.4       | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
@@ -48,8 +48,8 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_set_as_default | no | make the newly installed Java the default runtime environment. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
 | oracle_java_version | 8 | the Oracle JDK version to be installed. |
-| oracle_java_version_update | 45 | the Oracle JDK version update. |
-| oracle_java_version_build | 14 | the Oracle JDK version update build number. |
+| oracle_java_version_update | 74 | the Oracle JDK version update. |
+| oracle_java_version_build | 02 | the Oracle JDK version update build number. |
 | oracle_java_version_string | 1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }} | the Java version string to verify installation against. |
 | oracle_java_os_supported variable | - | role internal variable to check if a OS family is supported or not. | 
 
