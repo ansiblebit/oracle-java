@@ -20,15 +20,6 @@ galaxy_info:
       versions:
         - jessie
         - wheezy
-    - name: MacOSX
-      versions:
-        - 10.10.2
-        - 10.10.1
-        - 10.9.5
-        - 10.9.4
-        - 10.9.3
-        - 10.9.2
-        - 10.9.1
     - name: RedHat
       versions:
         - all
@@ -40,8 +31,9 @@ galaxy_info:
         - vivid
         - trusty
         - precise
-  categories:
+  galaxy_tags:
     - development
+    - java
     - system
 dependencies:
   - role: ansiblebit.launchpad-ppa-webupd8
