@@ -16,9 +16,8 @@
 # oracle_java_installed.rc == 0 : installed
 # oracle_java_installed.rc == 1 : not installed
 
-- name: echo oracle_java_task_installed
-  debug:
-    msg="oracle_java_task_installed={{ oracle_java_task_installed }}"
+- debug:
+    var=oracle_java_task_installed
   when: oracle_java_task_installed is defined
   tags:
     - debug
@@ -26,11 +25,11 @@
 - name: set fact oracle_java_installed
   set_fact:
     oracle_java_installed={{ oracle_java_task_installed.rc == 0 }}
+  when: oracle_java_task_installed is defined and oracle_java_task_installed.rc is defined
   changed_when: False
 
-- name: echo oracle_java_installed
-  debug:
-    msg="oracle_java_installed={{ oracle_java_installed }}"
+- debug:
+    var=oracle_java_installed
   when: oracle_java_installed is defined
   tags:
     - debug
@@ -40,13 +39,12 @@
 
 - name: if Java is installed, check version
   shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
-  when: oracle_java_installed
+  when: oracle_java_installed is defined
   register: oracle_java_task_version
   changed_when: False
 
-- name: echo oracle_java_task_version
-  debug:
-    msg="oracle_java_task_version={{ oracle_java_task_version }}"
+- debug:
+    var=oracle_java_task_version
   when: oracle_java_task_version is defined
   tags:
     - debug
@@ -54,19 +52,17 @@
 - name: set fact oracle_java_installed_version
   set_fact:
     oracle_java_version_installed={{ oracle_java_task_version.stdout }}
-  when: oracle_java_installed
+  when: oracle_java_task_version is defined and oracle_java_task_version.stdout is defined
   changed_when: False
 
-- name: echo oracle_java_version_installed
-  debug:
-    msg="oracle_java_version_installed={{ oracle_java_version_installed }}"
+- debug:
+    var=oracle_java_version_installed
   when: oracle_java_version_installed is defined
   tags:
     - debug
 
-- name: echo oracle_java_version_string
-  debug:
-    msg="oracle_java_version_string={{ oracle_java_version_string }}"
+- debug:
+    var=oracle_java_version_string
   when: oracle_java_version_string is defined
   tags:
     - debug
