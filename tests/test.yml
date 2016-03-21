@@ -7,7 +7,7 @@
 
   vars:
     test_java_version: 8
-    test_java_version_update: 72
+    test_java_version_update: 74
     test_java_version_build: 15
 
   roles:
