@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # #################
 #
-# Bash script to run idempotence tests.
+# Bash script to run check mode tests.
 #
 # version: 1.5
 #
 # usage:
 #
-#   test_idempotence [options]
+#   test_checkmode [options]
 #
 # options:
 #
@@ -19,10 +19,10 @@
 # example:
 #
 #   # on localhost
-#   bash test_idempotence.sh
+#   bash test_checkmode.sh
 #
 #   # on a Vagrant box
-#   bash test_idempotence.sh \
+#   bash test_checkmode.sh \
 #       --box precise64.vagrant.dev \
 #       --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 #
@@ -97,22 +97,21 @@ INVENTORY=${INVENTORY:-'.vagrant/provisioners/ansible/inventory/vagrant_ansible_
 # the path to the Ansible test playbook
 PLAYBOOK=${PLAYBOOK:-test.yml}
 # the logfile to hold the output of the playbook run
-LOGFILE="log/${BOX}_idempotence_${VIRTUALENV_NAME}.log"
+LOGFILE="log/${BOX}_checkmode_${VIRTUALENV_NAME}.log"
 
 EXTRA_ARGS=''
 if [ $BOX == "localhost" ]; then
     INVENTORY='localhost,'
-    EXTRA_ARGS="--connection=local -e env=${ENV} -e vagrant_box=localhost"
+    EXTRA_ARGS="--connection=local -e env=${ENV} -e vagrant_box=localhost --skip-tags=test"
 else
-    EXTRA_ARGS="--user vagrant -e env=vagrant -e vagrant_box=${BOX}"
+    EXTRA_ARGS="--user vagrant -e env=vagrant -e vagrant_box=${BOX} --skip-tags=test"
 fi
 
-echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
-IDEMPOTENCE='yes' \
-    ansible-playbook -vvvv -i ${INVENTORY} --limit ${BOX}, ${EXTRA_ARGS} ${PLAYBOOK} 2>&1 | \
+echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running checkmode test..."
+ansible-playbook -vvvv --check --diff -i ${INVENTORY} --limit ${BOX}, ${EXTRA_ARGS} ${PLAYBOOK} 2>&1 | \
     tee ${LOGFILE} | \
     grep "${BOX}" | grep -q "${PASS_CRITERIA}" && \
-    echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${GREEN}PASS${NC}\n" || ( \
+    echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} checkmode : ${GREEN}PASS${NC}\n" || ( \
         cat ${LOGFILE} &&
-        echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && \
+        echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} checkmode : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && \
         exit 1)

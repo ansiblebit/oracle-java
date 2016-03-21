@@ -28,14 +28,14 @@
     name="{{ item.exe }}"
     link="/usr/bin/{{ item.exe }}"
     path="{{ item.path }}/{{ item.exe }}"
-  when: oracle_java_set_as_default
   with_items:
     - { path: "{{ oracle_java_home }}/jre/bin", exe: 'java' }
     - { path: "{{ oracle_java_home }}/jre/bin", exe: 'keytool' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
   sudo: yes
-  when: oracle_java_task_rpm_download|changed or (oracle_java_installed and oracle_java_version_installed != oracle_java_version_string)
+  when: (oracle_java_set_as_default and oracle_java_task_rpm_download|changed) or
+        (oracle_java_set_as_default and oracle_java_installed and oracle_java_version_installed != oracle_java_version_string)
   register: oracle_java_task_set_default
 
 - name: in case there were changes, check host environment again
