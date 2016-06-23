@@ -4,57 +4,18 @@
 # Task that prints variable debug information.
 #
 
-- name: echo oracle_java_cache_valid_time
-  debug:
-    var=oracle_java_cache_valid_time
-  when: oracle_java_cache_valid_time is defined
-
-- name: echo oracle_java_home
-  debug:
-    var=oracle_java_home
-  when: oracle_java_home is defined
-
-- name: echo oracle_java_installed
-  debug:
-    var=oracle_java_installed
-  when: oracle_java_installed is defined
-
-- name: echo oracle_java_os_supported
-  debug:
-    var=oracle_java_os_supported
-  when: oracle_java_os_supported is defined
-
-- name: echo oracle_java_rpm_filename
-  debug:
-    var=oracle_java_rpm_filename
-  when: oracle_java_rpm_filename is defined
-
-- name: echo oracle_java_set_as_default
-  debug:
-    var=oracle_java_set_as_default
-  when: oracle_java_set_as_default is defined
-
-- name: echo oracle_java_rpm_url
-  debug:
-    var=oracle_java_rpm_url
-  when: oracle_java_rpm_url is defined
-
-- name: echo oracle_java_state
-  debug:
-    var=oracle_java_state
-  when: oracle_java_state is defined
-
-- name: echo oracle_java_version_build
-  debug:
-    var=oracle_java_version_build
-  when: oracle_java_version_build is defined
-
-- name: echo oracle_java_version_installed
-  debug:
-    var=oracle_java_version_installed
-  when: oracle_java_version_installed is defined
-
-- name: echo oracle_java_version_string
-  debug:
-    var=oracle_java_version_string
-  when: oracle_java_version_string is defined
+- debug:
+    var="{{ item }}"
+  when: "{{ item }} is defined"
+  with_items:
+    - oracle_java_cache_valid_time
+    - oracle_java_home
+    - oracle_java_installed
+    - oracle_java_os_supported
+    - oracle_java_rpm_filename
+    - oracle_java_set_as_default
+    - oracle_java_rpm_url
+    - oracle_java_state
+    - oracle_java_version_build
+    - oracle_java_version_installed
+    - oracle_java_version_string

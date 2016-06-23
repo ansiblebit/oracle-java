@@ -1,15 +1,28 @@
 language: python
-python: 2.7
 sudo: yes
 
-cache: apt
-
-before_install:
-  - sudo apt-get update
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27-ansible21
+    - python: 2.7
+      env: TOXENV=py27-ansible20
+    - python: 2.7
+      env: TOXENV=py27-ansible19
 
 install:
   - pip install tox
 
 script:
-  - tox -e travis
+  - tox
+
+notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
+before_cache:
+  - rm -f ${HOME}/.cache/pip/log/debug.log
+
+cache:
+  directories:
+    - ${HOME}/.cache/pip
 

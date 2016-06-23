@@ -47,3 +47,4 @@ class CallbackModule(parent):
     def v2_playbook_on_stats(self, stats):
         """Verify that playbook ran without any changes or failures."""
         self.playbook_on_stats(stats)
+

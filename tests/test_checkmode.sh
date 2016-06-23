@@ -115,3 +115,4 @@ ansible-playbook -vvvv --check --diff -i ${INVENTORY} --limit ${BOX}, ${EXTRA_AR
         cat ${LOGFILE} &&
         echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} checkmode : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && \
         exit 1)
+

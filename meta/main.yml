@@ -3,6 +3,7 @@
 #
 # meta file
 #
+
 galaxy_info:
   author: Pedro Salgado
   description: Role to install Oracle Java.
@@ -35,6 +36,7 @@ galaxy_info:
     - development
     - java
     - system
+
 dependencies:
   - role: ansiblebit.launchpad-ppa-webupd8
-    when: (ansible_distribution | lower == 'debian') or (ansible_distribution | lower == 'ubuntu')
+    when: ansible_distribution | lower == 'debian' or ansible_distribution | lower == 'ubuntu'

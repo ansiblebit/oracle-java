@@ -6,21 +6,14 @@
 #   - which Java version is installed?
 #
 
-# determine if Java is already installed
-
-- name: register oracle_java_installed
-  shell: "which java"
+- name: determine if Java is already installed
+  shell: which java
   register: oracle_java_task_installed
   ignore_errors: yes
   changed_when: False
 # oracle_java_installed.rc == 0 : installed
 # oracle_java_installed.rc == 1 : not installed
 
-- debug:
-    var=oracle_java_task_installed
-  when: oracle_java_task_installed is defined
-  tags:
-    - debug
 
 - name: set fact oracle_java_installed
   set_fact:
@@ -28,26 +21,11 @@
   when: oracle_java_task_installed is defined and oracle_java_task_installed.rc is defined
   changed_when: False
 
-- debug:
-    var=oracle_java_installed
-  when: oracle_java_installed is defined
-  tags:
-    - debug
-
-
-# determine which Java version is installed
-
-- name: if Java is installed, check version
+- name: determine which Java version is installed
   shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
   when: oracle_java_installed is defined
   register: oracle_java_task_version
   changed_when: False
-
-- debug:
-    var=oracle_java_task_version
-  when: oracle_java_task_version is defined
-  tags:
-    - debug
 
 - name: set fact oracle_java_installed_version
   set_fact:
@@ -56,13 +34,11 @@
   changed_when: False
 
 - debug:
-    var=oracle_java_version_installed
-  when: oracle_java_version_installed is defined
-  tags:
-    - debug
-
-- debug:
-    var=oracle_java_version_string
-  when: oracle_java_version_string is defined
-  tags:
-    - debug
+    var="{{ item }}"
+  when: "{{ item }} is defined and debug | default(false)"
+  with_items:
+    - oracle_java_installed
+    - oracle_java_task_installed
+    - oracle_java_task_version
+    - oracle_java_version_installed
+    - oracle_java_version_string
