@@ -6,6 +6,7 @@
   gather_facts: yes
 
   vars:
+    debug: yes
     test_java_version: 8
     test_java_version_update: 74
     test_java_version_build: 15

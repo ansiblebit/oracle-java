@@ -16,10 +16,9 @@
     - "../defaults/{{ ansible_distribution | lower }}.yml"
     - "../defaults/{{ ansible_os_family | lower }}.yml"
 
-- name: debug variables
-  include: debug.yml
-  tags:
-    - debug
+- include: debug.yml
+  when: debug | default(false)
+  tags: debug
 
 ## include OS family specific task file
 
