@@ -116,3 +116,4 @@ IDEMPOTENCE='yes' \
         cat ${LOGFILE} &&
         echo -ne "[TEST] ${BOX} ${VIRTUALENV_NAME} idempotence : ${RED}FAILED${NC} ${PASS_CRITERIA}\n" && \
         exit 1)
+
