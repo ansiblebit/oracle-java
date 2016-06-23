@@ -15,9 +15,7 @@
     - installation
 
 - name: install RPM
-  yum:
-    name="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
-    state=present
+  action: "{{ ansible_pkg_mgr }} name={{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }} state=present"
   when: not oracle_java_task_rpm_download|skipped
   sudo: yes
   tags:
