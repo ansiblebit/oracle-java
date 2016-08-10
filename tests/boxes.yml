@@ -7,30 +7,6 @@ vagrant:
 
   # CentOS
 
-  centos64-64.vagrant.dev:
-    enabled: false
-    box: hansode/centos-6.4-x86_64
-    network:
-      name: private_network
-      ip: 192.168.121.1
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-  centos66-64.vagrant.dev:
-    enabled: false
-    box: hansode/centos-6.6-x86_64
-    network:
-      name: private_network
-      ip: 192.168.121.2
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
   centos7-64.vagrant.dev:
     enabled: true
     box: centos/7
@@ -58,82 +34,8 @@ vagrant:
         memory: 1024
         cpus: 1
 
-  wheezy64.vagrant.dev:
-    enabled: false
-    box: debian/wheezy64
-    network:
-      name: private_network
-      ip: 192.168.122.2
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-
-  # Fedora
-
-  fedora20-32.vagrant.dev:
-    enabled: false
-    box: hansode/fedora-20-i386
-    network:
-      name: private_network
-      ip: 192.168.123.1
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-  fedora20-64.vagrant.dev:
-    enabled: false
-    box: hansode/fedora-20-x86_64
-    network:
-      name: private_network
-      ip: 192.168.123.2
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-  fedora21-32.vagrant.dev:
-    enabled: false
-    box: hansode/fedora-21-i386
-    network:
-      name: private_network
-      ip: 192.168.123.3
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-  fedora21-64.vagrant.dev:
-    enabled: false
-    box: hansode/fedora-21-x86_64
-    network:
-      name: private_network
-      ip: 192.168.123.4
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
 
   # Ubuntu
-
-  precise32.vagrant.dev:
-    enabled: true
-    box: ubuntu/precise32
-    network:
-      name: private_network
-      ip: 192.168.124.1
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
 
   precise64.vagrant.dev:
     enabled: true
@@ -141,18 +43,6 @@ vagrant:
     network:
       name: private_network
       ip: 192.168.124.2
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
-  trusty32.vagrant.dev:
-    enabled: true
-    box: ubuntu/trusty32
-    network:
-      name: private_network
-      ip: 192.168.124.3
 
     provider:
       virtualbox:
@@ -171,18 +61,6 @@ vagrant:
         memory: 1024
         cpus: 1
 
-  vivid32.vagrant.dev:
-    enabled: false
-    box: ubuntu/vivid32
-    network:
-      name: private_network
-      ip: 192.168.124.5
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
   vivid64.vagrant.dev:
     enabled: true
     box: ubuntu/vivid64
@@ -195,24 +73,36 @@ vagrant:
         memory: 1024
         cpus: 1
 
-  wily32.vagrant.dev:
-    enabled: false
-    box: ubuntu/wily32
-    network:
-      name: private_network
-      ip: 192.168.124.7
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
   wily64.vagrant.dev:
     enabled: true
     box: ubuntu/vivid64
     network:
       name: private_network
       ip: 192.168.124.8
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  xenial64.vagrant.dev:
+    enabled: true
+    box: ubuntu/xenial64
+    network:
+      name: private_network
+      ip: 192.168.124.10
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  yakkety64.vagrant.dev:
+    enabled: true
+    box: ubuntu/yakkety64
+    network:
+      name: private_network
+      ip: 192.168.124.12
 
     provider:
       virtualbox:
