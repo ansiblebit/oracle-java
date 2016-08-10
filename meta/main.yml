@@ -29,6 +29,8 @@ galaxy_info:
         - 6
     - name: Ubuntu
       versions:
+        - yakkety
+        - xenial
         - vivid
         - trusty
         - precise
