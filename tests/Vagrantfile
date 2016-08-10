@@ -26,6 +26,7 @@ Vagrant.configure('2') do |config|
       host.vm.box = box_settings['box'] unless not box_settings.key? 'box'
 
       host.vm.network box_settings['network']['name'], ip: box_settings['network']['ip'] unless box_settings.key? 'network'
+      host.vm.synced_folder '.', '/vagrant', disabled: true
 
       # puts "[DEBUG] applying virtualbox settings for #{box_name} box..."
       customize_args = [ "modifyvm", :id ]
@@ -36,9 +37,25 @@ Vagrant.configure('2') do |config|
 
       # puts "[DEBUG] provision using ansible vagrant playbook..."
       host.vm.provision 'ansible' do |ansible|
+
+        ansible.host_vars = {
+            'xenial64.vagrant.dev' => {
+                'ansible_python_interpreter' => '/usr/bin/python2.7',
+                'playbook_python2' => true
+            },
+            'yakkety64.vagrant.dev' => {
+                'ansible_python_interpreter' => '/usr/bin/python2.7',
+                'playbook_python2' => true
+            }
+        }
+
         ansible.playbook = PLAYBOOK
         ansible.verbose = 'v'
         ansible.skip_tags = 'test'
+        ansible.extra_vars = {
+            'env': 'vagrant',
+            'vagrant_box': "#{box_name}"
+        }
       end
     end
   end
