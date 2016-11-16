@@ -7,7 +7,7 @@
 - name: accept Oracle license
   shell: "echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
   changed_when: no
-  sudo: yes
+  become: yes
 
 - name: ensure Java is installed
   apt:
@@ -16,7 +16,7 @@
     cache_valid_time={{ oracle_java_cache_valid_time }}
     update_cache=yes
   register: oracle_java_task_apt_install
-  sudo: yes
+  become: yes
 
 - name: set Java version as default
   apt:
@@ -24,7 +24,7 @@
     state=latest
   register: oracle_java_task_set_default
   when: oracle_java_set_as_default
-  sudo: yes
+  become: yes
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml
