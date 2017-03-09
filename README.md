@@ -90,13 +90,3 @@ For Debian and Ubuntu this role depends on:
              oracle_java_set_as_default: yes }
 
 Use `--skip-tags=debug` if you want to suppress debug information.
-
-
-## License
-
-BSD
-
-
-## Author Information
-
-- [steenzout](http://github.com/steenzout)
