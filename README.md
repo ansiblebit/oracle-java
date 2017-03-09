@@ -52,7 +52,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_version_update | 74 | the Oracle JDK version update. |
 | oracle_java_version_build | 02 | the Oracle JDK version update build number. |
 | oracle_java_version_string | 1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }} | the Java version string to verify installation against. |
-| oracle_java_os_supported variable | - | role internal variable to check if a OS family is supported or not. | 
+| oracle_java_os_supported | - | role internal variable to check if a OS family is supported or not. | 
 
 
 ### Debian-only
