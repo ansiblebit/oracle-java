@@ -31,7 +31,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ## Requirements
 
-- ansible == 1.9.x
+- ansible >= 1.9.x
 
 
 # Facts
