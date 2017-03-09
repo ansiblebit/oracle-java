@@ -36,7 +36,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 # Facts
 | variable | description |
-|:-:|:--|
+|--:|:--|
 | oracle_java_installed         | fact set by this role that contains a flag that indicates if Java is installed on the host. |
 | oracle_java_version_installed | fact set by this role that contains the string of the Java version installed in the system. |
 
@@ -44,7 +44,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ## Role Variables
 
 | variable | default | description |
-|:--------:|:-------:|:------------|
+|--:|:-:|:--|
 | debug | undefined | flag to make role more verbose. |
 | oracle_java_set_as_default | no | make the newly installed Java the default runtime environment. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
@@ -58,7 +58,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ### Debian-only
 
 | variable | default | description |
-|:-:|:-:|:--|
+|--:|:-:|:--|
 | launchpad_ppa_webupd8_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
@@ -68,7 +68,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ### Redhat-only
 
 | variable | default | description |
-|:-:|:-:|:--|
+|--:|:-:|:--|
 | oracle_java_dir_source | /usr/local/src | directory where to store the RPM files. |
 | oracle_java_home | /usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }} | the location of the Java home directory. |
 | oracle_java_rpm_filename | jdk-{{ oracle_java_version }}u{{ oracle_java_version_update }}-linux-x64.rpm | the filename of the RPM. |
