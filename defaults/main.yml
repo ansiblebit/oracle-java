@@ -6,7 +6,7 @@
 
 oracle_java_dir_source: '/usr/local/src'
 
-oracle_java_set_as_default: no
+oracle_java_set_as_default: yes
 
 oracle_java_version: 8
 oracle_java_version_update: 74

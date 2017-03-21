@@ -59,7 +59,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 | variable | default | description |
 |--:|:-:|:--|
-| launchpad_ppa_webupd8_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
 | oracle_java_home | /usr/lib/jvm/java-{{ oracle_java_version }}-oracle | the location of the Java home directory. |
@@ -75,18 +74,11 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_rpm_url | http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }} | the URL where the RPM can be downloaded from. |
 
 
-## Dependencies
-
-For Debian and Ubuntu this role depends on:
-
-- ansiblebit.launchpad-ppa-webupd8
-
-
 ## Playbooks
 
     - hosts: servers
       roles:
-         - { role: ansiblebit.oracle-java,
-             oracle_java_set_as_default: yes }
+         - role: ansiblebit.oracle-java,
+           oracle_java_set_as_default: yes
 
 Use `--skip-tags=debug` if you want to suppress debug information.
