@@ -15,6 +15,7 @@
     - "../defaults/{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
     - "../defaults/{{ ansible_distribution | lower }}.yml"
     - "../defaults/{{ ansible_os_family | lower }}.yml"
+  tags: installation
 
 - include: debug.yml
   when: debug | default(false)

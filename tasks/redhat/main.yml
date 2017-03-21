@@ -5,10 +5,10 @@
 #
 
 - name: download Java RPM
-  shell:
-    "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }} {{ oracle_java_rpm_url }}"
-  args:
-    creates: "{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+  get_url:
+    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+    dest: "{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+    url: "{{ oracle_java_rpm_url }}"
   register: oracle_java_task_rpm_download
   become: yes
   tags:
