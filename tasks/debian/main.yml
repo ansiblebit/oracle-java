@@ -27,8 +27,8 @@
     with_items:
       - deb
       - deb-src
+    become: yes
   when: "{{ ansible_distribution == 'Debian' }}"
-  become: yes
 
 - name: debian | ubuntu | check if oracle license is already accepted
   shell: debconf-get-selections |grep "oracle-java{{ oracle_java_version }}-installer\sshared/accepted-oracle-license-v1-1\sboolean\strue"
