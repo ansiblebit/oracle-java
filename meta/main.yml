@@ -9,7 +9,7 @@ galaxy_info:
   description: Role to install Oracle Java.
   company: ansiblebit.org
   license: BSD
-  min_ansible_version: 1.9.4
+  min_ansible_version: 2.0
   platforms:
     - name: CentOS
       versions:
@@ -37,7 +37,3 @@ galaxy_info:
     - development
     - java
     - system
-
-dependencies:
-  - role: ansiblebit.launchpad-ppa-webupd8
-    when: ansible_distribution | lower == 'debian' or ansible_distribution | lower == 'ubuntu'

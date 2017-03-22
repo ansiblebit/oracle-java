@@ -31,7 +31,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ## Requirements
 
-- ansible >= 1.9.x
+- ansible >= 2.x
 
 
 # Facts
@@ -46,11 +46,11 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | variable | default | description |
 |--:|:-:|:--|
 | debug | undefined | flag to make role more verbose. |
-| oracle_java_set_as_default | no | make the newly installed Java the default runtime environment. |
+| oracle_java_set_as_default | yes | make the newly installed Java the default runtime environment. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
 | oracle_java_version | 8 | the Oracle JDK version to be installed. |
-| oracle_java_version_update | 74 | the Oracle JDK version update. |
-| oracle_java_version_build | 02 | the Oracle JDK version update build number. |
+| oracle_java_version_update | 121 | the Oracle JDK version update. |
+| oracle_java_version_build | 13 | the Oracle JDK version update build number. |
 | oracle_java_version_string | 1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }} | the Java version string to verify installation against. |
 | oracle_java_os_supported | - | role internal variable to check if a OS family is supported or not. | 
 
@@ -59,7 +59,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 | variable | default | description |
 |--:|:-:|:--|
-| launchpad_ppa_webupd8_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_cache_valid_time | 3600 | the amount of time in seconds the apt cache is valid. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
 | oracle_java_home | /usr/lib/jvm/java-{{ oracle_java_version }}-oracle | the location of the Java home directory. |
@@ -75,18 +74,11 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_rpm_url | http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }} | the URL where the RPM can be downloaded from. |
 
 
-## Dependencies
-
-For Debian and Ubuntu this role depends on:
-
-- ansiblebit.launchpad-ppa-webupd8
-
-
 ## Playbooks
 
     - hosts: servers
       roles:
-         - { role: ansiblebit.oracle-java,
-             oracle_java_set_as_default: yes }
+         - role: ansiblebit.oracle-java,
+           oracle_java_set_as_default: yes
 
 Use `--skip-tags=debug` if you want to suppress debug information.
