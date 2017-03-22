@@ -18,7 +18,7 @@
   vars:
     debug: yes
     test_java_version: 8
-    test_java_version_update: 111
+    test_java_version_update: 121
     test_java_version_build: 14
 
   roles:
