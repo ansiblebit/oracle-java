@@ -46,7 +46,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | variable | default | description |
 |--:|:-:|:--|
 | debug | undefined | flag to make role more verbose. |
-| oracle_java_set_as_default | no | make the newly installed Java the default runtime environment. |
+| oracle_java_set_as_default | yes | make the newly installed Java the default runtime environment. |
 | oracle_java_state   | latest | the package state (see Ansible apt module for more information). |
 | oracle_java_version | 8 | the Oracle JDK version to be installed. |
 | oracle_java_version_update | 74 | the Oracle JDK version update. |
