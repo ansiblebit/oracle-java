@@ -19,6 +19,8 @@
     test_java_version: 8
     test_java_version_update: 112
     test_java_version_build: 15
+    test_latest_java_version_update: 121
+    test_latest_java_version_build: 13
 
   roles:
     - role: oracle-java
@@ -31,3 +33,9 @@
     - role: tests
       expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}"
       tags: test
+      when: ansible_os_family | lower == 'redhat'
+
+    - role: tests
+      expected_java_version: "1.{{ test_java_version }}.0_{{ test_latest_java_version_update }}"
+      tags: test
+      when: ansible_os_family | lower == 'debian'
