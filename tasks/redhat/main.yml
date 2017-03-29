@@ -6,21 +6,18 @@
 
 - name: download Java RPM
   get_url:
-    headers='Cookie:oraclelicense=accept-securebackup-cookie'
-    dest="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+    headers='Cookie:gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'    dest="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
     url="{{ oracle_java_rpm_url }}"
     validate_certs="{{ oracle_java_rpm_validate_certs }}"
   register: oracle_java_task_rpm_download
   become: yes
-  tags:
-    - installation
+  tags: [ installation ]
 
 - name: install RPM
   action: "{{ ansible_pkg_mgr }} name={{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }} state=present"
   when: not oracle_java_task_rpm_download|skipped
   become: yes
-  tags:
-    - installation
+  tags: [ installation ]
 
 - name: set Java version as default
   alternatives:

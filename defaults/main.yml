@@ -9,6 +9,6 @@ oracle_java_dir_source: '/usr/local/src'
 oracle_java_set_as_default: yes
 
 oracle_java_version: 8
-oracle_java_version_update: 121
-oracle_java_version_build: 13
+oracle_java_version_update: 102
+oracle_java_version_build: 14
 oracle_java_version_string: "1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }}"

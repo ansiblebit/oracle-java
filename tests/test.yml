@@ -14,12 +14,11 @@
 - name: tests play
   hosts: all
   gather_facts: yes
-
   vars:
     debug: yes
     test_java_version: 8
-    test_java_version_update: 121
-    test_java_version_build: 13
+    test_java_version_update: 102
+    test_java_version_build: 14
 
   roles:
     - role: oracle-java
@@ -27,6 +26,7 @@
       oracle_java_version_update: "{{ test_java_version_update }}"
       oracle_java_version_build: "{{ test_java_version_build }}"
       oracle_java_set_as_default: yes
+      oracle_java_rpm_validate_certs: no
 
     - role: tests
       expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}"
