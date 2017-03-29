@@ -15,7 +15,7 @@ An [Ansible](http://www.ansible.com) role to setup Oracle Java Development Kit.
 DISCLAIMER: usage of any version of this role implies you have accepted the
 [Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
-**WARNING**: using `oracle_java_version_update: 121` or above will fail for RedHat (see #34).
+**WARNING**: using `oracle_java_version_update: 121` or above will fail for RedHat (see [#34](https://github.com/ansiblebit/oracle-java/issues/34)).
 
 
 ## Tests
