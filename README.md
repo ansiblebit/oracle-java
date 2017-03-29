@@ -72,6 +72,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | oracle_java_home | /usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }} | the location of the Java home directory. |
 | oracle_java_rpm_filename | jdk-{{ oracle_java_version }}u{{ oracle_java_version_update }}-linux-x64.rpm | the filename of the RPM. |
 | oracle_java_rpm_url | http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }} | the URL where the RPM can be downloaded from. |
+| oracle_java_rpm_validate_certs | yes | flag to indicate if you want SSL certificate validation. |
 
 
 ## Playbooks
