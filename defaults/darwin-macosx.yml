@@ -8,4 +8,4 @@ oracle_java_dir_source: "{{ ansible_env.HOME }}/Downloads"
 oracle_java_dmg_filename: ""
 oracle_java_dmg_url: "/{{ oracle_java_dmg_filename }}"
 
-oracle_java_os_supported: yes
+oracle_java_os_supported: no
