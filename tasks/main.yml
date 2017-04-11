@@ -9,12 +9,6 @@
 
 ## include OS family specific variables
 
-- debug:
-    msg="{{ item }}"
-  with_items:
-    - "vars/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
-    - "vars/{{ ansible_os_family | lower }}.yml"
-
 - name: include OS family/distribution specific variables
   include_vars: "{{ item }}"
   with_first_found:
