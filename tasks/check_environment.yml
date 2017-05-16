@@ -9,7 +9,7 @@
 - name: determine if Java is already installed
   shell: which java
   register: oracle_java_task_installed
-  changed_when: "{{ oracle_java_task_installed.rc != 0 }}"
+  changed_when: oracle_java_task_installed.rc != 0
   failed_when: no
 # oracle_java_installed.rc == 0 : installed
 # oracle_java_installed.rc == 1 : not installed
@@ -32,7 +32,7 @@
 
 - debug:
     var="{{ item }}"
-  when: "{{ item }} is defined and debug | default(false)"
+  when: item is defined and debug | default(false)
   with_items:
     - oracle_java_installed
     - oracle_java_task_installed

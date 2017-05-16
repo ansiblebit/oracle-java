@@ -6,7 +6,7 @@
 
 - debug:
     var="{{ item }}"
-  when: "{{ item }} is defined"
+  when: item is defined
   with_items:
     - oracle_java_cache_valid_time
     - oracle_java_home

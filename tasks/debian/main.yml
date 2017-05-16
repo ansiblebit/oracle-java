@@ -18,7 +18,7 @@
     changed_when: licence_not_accepted.rc != 0
     become: yes
 
-  when: "{{ ansible_distribution == 'Ubuntu' }}"
+  when: ansible_distribution == 'Ubuntu'
 
 - block:
   - name: debian | ensure the webupd8 launchpad apt repository key is present
@@ -38,11 +38,11 @@
       - deb-src
     become: yes
 
-  when: "{{ ansible_distribution == 'Debian' }}"
+  when: ansible_distribution == 'Debian'
 
 - name: debian | set license as accepted
   debconf: name='oracle-java{{ oracle_java_version }}-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-  when: "{{ licence_not_accepted|changed or licence_not_accepted|skipped }}"
+  when: licence_not_accepted|changed or licence_not_accepted|skipped
   become: yes
 
 - name: debian | ensure Java is installed
