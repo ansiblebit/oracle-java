@@ -4,20 +4,11 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
-- block:
-  - name: debian | ubuntu | add java ppa repo
-    apt_repository:
-      repo=ppa:webupd8team/java
-      state=present
-    become: yes
-
-  - name: debian | ubuntu | check if oracle license is already accepted
-    shell: debconf-get-selections |grep "oracle-java{{ oracle_java_version }}-installer\sshared/accepted-oracle-license-v1-1\sboolean\strue"
-    register: licence_not_accepted
-    failed_when: false
-    changed_when: licence_not_accepted.rc != 0
-    become: yes
-
+- name: debian | ubuntu | add java ppa repo
+  apt_repository:
+    repo=ppa:webupd8team/java
+    state=present
+  become: yes
   when: ansible_distribution == 'Ubuntu'
 
 - block:
@@ -42,7 +33,6 @@
 
 - name: debian | set license as accepted
   debconf: name='oracle-java{{ oracle_java_version }}-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-  when: licence_not_accepted|changed or licence_not_accepted|skipped
   become: yes
 
 - name: debian | ensure Java is installed
