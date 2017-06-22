@@ -4,6 +4,8 @@ sudo: yes
 matrix:
   include:
     - python: 2.7
+      env: TOXENV=py27-ansible23
+    - python: 2.7
       env: TOXENV=py27-ansible22
     - python: 2.7
       env: TOXENV=py27-ansible21
@@ -25,4 +27,3 @@ before_cache:
 cache:
   directories:
     - ${HOME}/.cache/pip
-
