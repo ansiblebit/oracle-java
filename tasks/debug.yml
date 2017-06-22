@@ -12,9 +12,7 @@
     - oracle_java_home
     - oracle_java_installed
     - oracle_java_os_supported
-    - oracle_java_rpm_filename
     - oracle_java_set_as_default
-    - oracle_java_rpm_url
     - oracle_java_state
     - oracle_java_version_build
     - oracle_java_version_installed

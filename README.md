@@ -15,8 +15,6 @@ An [Ansible](http://www.ansible.com) role to setup Oracle Java Development Kit.
 DISCLAIMER: usage of any version of this role implies you have accepted the
 [Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
-**WARNING**: in RedHat based distributions, if you want to use `oracle_java_version_update: 121`, you'll have to set `oracle_java_rpm_url: "http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/e9e7ea248e2c4826b92b3f075a80e441/{{ oracle_java_rpm_filename }}"`.
-
 
 ## Tests
 
@@ -70,8 +68,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 |--:|:-:|:--|
 | oracle_java_dir_source | /usr/local/src | directory where to store the RPM files. |
 | oracle_java_home | /usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }} | the location of the Java home directory. |
-| oracle_java_rpm_filename | jdk-{{ oracle_java_version }}u{{ oracle_java_version_update }}-linux-x64.rpm | the filename of the RPM. |
-| oracle_java_rpm_url | http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/{{ oracle_java_rpm_filename }} | the URL where the RPM can be downloaded from. |
 | oracle_java_rpm_validate_certs | yes | flag to indicate if you want SSL certificate validation. |
 
 
