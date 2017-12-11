@@ -13,3 +13,7 @@ oracle_java_version_string: "1.{{ oracle_java_version }}.0_{{ oracle_java_versio
 oracle_java_ansible_arch_mappings:
   x86_64: x64
   i386: i586
+
+# codename hash to convert mint to ubuntu releases
+oracle_java_ppa_mint:
+  sonya: xenial

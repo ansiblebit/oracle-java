@@ -33,7 +33,7 @@
 
 - name: if debian, include family specific task file
   include: "debian/main.yml"
-  when: ansible_os_family | lower == 'debian'
+  when: ansible_os_family | lower == 'debian' or ansible_os_family | lower == 'linuxmint'
 
 - name: if redhat, include family specific task file
   include: "redhat/main.yml"

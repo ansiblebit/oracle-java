@@ -4,12 +4,13 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
-- name: debian | ubuntu | add java ppa repo
+- name: debian | (ubuntu or mint) | add java ppa repo
   apt_repository:
     repo=ppa:webupd8team/java
     state=present
+    codename='{{ oracle_java_ppa_mint[ansible_lsb.codename]|default(ansible_lsb.codename) }}'
   become: yes
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Linuxmint'
 
 - block:
   - name: debian | ensure the webupd8 launchpad apt repository key is present
