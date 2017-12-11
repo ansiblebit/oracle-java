@@ -17,3 +17,4 @@ oracle_java_ansible_arch_mappings:
 # codename hash to convert mint to ubuntu releases
 oracle_java_ppa_mint:
   sonya: xenial
+  sylvia: xenial
