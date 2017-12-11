@@ -36,6 +36,7 @@ galaxy_info:
     - name: Linuxmint
       versions:
         - sonya
+        - sylvia
   galaxy_tags:
     - development
     - java
