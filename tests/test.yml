@@ -19,7 +19,7 @@
     test_java_version: 8
     test_java_version_update: 112
     test_java_version_build: 15
-    test_latest_java_version_update: 144
+    test_latest_java_version_update: 151
     test_latest_java_version_build: 13
 
   roles:
