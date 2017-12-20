@@ -1,0 +1,11 @@
+---
+# file: oracle-java/tasks/debian/ubuntu.yml
+#
+# Task file to install Oracle Java Development Kit ppa for ubuntu
+#
+
+- name: debian | ubuntu | add java ppa repo
+  apt_repository:
+    repo=ppa:webupd8team/java
+    state=present
+  become: yes
