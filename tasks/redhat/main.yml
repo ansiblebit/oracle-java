@@ -19,7 +19,7 @@
   
 - block:
   
-  - name: get lastest JDK rpm url
+  - name: get latest JDK rpm url
     uri: url="{{ result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/archive-.*?.html).*','http://www.oracle.com/\1') }}"
          return_content=yes
     register: result
@@ -32,7 +32,7 @@
 - name: show download page URL
   debug: msg="{{ download_page_url }}"
 
-- name: get lastest JDK rpm url
+- name: get latest JDK rpm url
   uri: url="{{ download_page_url }}"
        return_content=yes
   register: result
