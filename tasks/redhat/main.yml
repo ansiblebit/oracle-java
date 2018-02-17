@@ -11,7 +11,10 @@
   register: result
 
 - name: determine latest java download page and version
-  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(\d+)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
+  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(9)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
+
+- name: show latest java page and version page URL
+  debug: msg="{{ latest_java_page_and_version }}"
 
 - name: define download page URL based on latest version
   set_fact: download_page_url="{{ latest_java_page_and_version[0] }}"
@@ -38,11 +41,14 @@
   register: result
 
 - name: set oracle_java_rpm_url
-  set_fact: oracle_java_rpm_url="{{ result.content|regex_search('https?://download.oracle.com/.*?/jdk-\w+-linux-' + oracle_java_ansible_arch_mappings[ansible_architecture] + '.rpm') }}"
+  set_fact: oracle_java_rpm_url="{{ result.content|regex_search('https?://download.oracle.com/.*?/jdk-.*(-|_)linux-' + oracle_java_ansible_arch_mappings[ansible_architecture] + '(_bin)?.rpm') }}"
+
+- name: show rpm URL
+  debug: msg="{{ oracle_java_rpm_url }}"
 
 - name: set some variables
   set_fact: oracle_java_rpm_filename="{{ oracle_java_rpm_url | basename }}"
-            oracle_java_version="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(\d+)u(\d+)-linux.*','\1') }}"
+            oracle_java_version="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(.*)(-|_)linux.*','\1') }}"
             oracle_java_version_update="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(\d+)u(\d+)-linux.*','\2') }}"
 
 - debug: msg="Downloading java {{ oracle_java_version }}u{{ oracle_java_version_update }} to {{ oracle_java_rpm_filename }} from {{ oracle_java_rpm_url }}"
@@ -63,6 +69,9 @@
   when: not oracle_java_task_rpm_download|skipped
   become: yes
   tags: [ installation ]
+
+- name: show oracle version
+  debug: msg="{{ oracle_java_version }}"
 
 - name: set Java version as default
   alternatives:
