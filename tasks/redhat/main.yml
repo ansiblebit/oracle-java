@@ -54,6 +54,7 @@
     validate_certs="{{ oracle_java_rpm_validate_certs }}"
     timeout={{ oracle_java_download_timeout }}
   register: oracle_java_task_rpm_download
+  until: oracle_java_task_rpm_download|succeeded 
   become: yes
   tags: [ installation ]
 
