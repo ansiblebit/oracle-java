@@ -11,38 +11,44 @@
   register: result
 
 - name: determine latest java download page and version
-  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(\d+)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
+  set_fact: latest_java_page_and_version="{{ (result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/downloads/jdk(9)-downloads.*?.html).*', 'http://www.oracle.com/\1\n\2')).split('\n') }}"
+
+- name: show latest java page and version page URL
+  debug: msg="{{ latest_java_page_and_version }}"
 
 - name: define download page URL based on latest version
   set_fact: download_page_url="{{ latest_java_page_and_version[0] }}"
-  when: "{{ latest_java_page_and_version[1]|version_compare(oracle_java_version,'=') }}"
-  
+  when: latest_java_page_and_version[1] | version_compare(oracle_java_version,'=')
+
 - block:
-  
-  - name: get lastest JDK rpm url
+
+  - name: get latest JDK rpm url
     uri: url="{{ result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/archive-.*?.html).*','http://www.oracle.com/\1') }}"
          return_content=yes
     register: result
-    
+
   - name: define download page URL for "{{ oracle_java_version }}"
     set_fact: download_page_url="{{ result.content|regex_search('href=\"[^\"]+\">Java SE\s+' + (oracle_java_version|string) + '\s?<')|regex_replace('.*href=\"([^\"]+)\".*','http://www.oracle.com/\1') }}"
-  
-  when: "{{ latest_java_page_and_version[1]|version_compare(oracle_java_version,'!=') and oracle_java_version }}"
+
+  when: latest_java_page_and_version[1] | version_compare(oracle_java_version,'!=') and oracle_java_version
 
 - name: show download page URL
   debug: msg="{{ download_page_url }}"
 
-- name: get lastest JDK rpm url
+- name: get latest JDK rpm url
   uri: url="{{ download_page_url }}"
        return_content=yes
   register: result
 
 - name: set oracle_java_rpm_url
-  set_fact: oracle_java_rpm_url="{{ result.content|regex_search('https?://download.oracle.com/.*?/jdk-\w+-linux-' + oracle_java_ansible_arch_mappings[ansible_architecture] + '.rpm') }}"
+  set_fact: oracle_java_rpm_url="{{ result.content|regex_search('https?://download.oracle.com/.*?/jdk-.*(-|_)linux-' + oracle_java_ansible_arch_mappings[ansible_architecture] + '(_bin)?.rpm') }}"
+
+- name: show rpm URL
+  debug: msg="{{ oracle_java_rpm_url }}"
 
 - name: set some variables
   set_fact: oracle_java_rpm_filename="{{ oracle_java_rpm_url | basename }}"
-            oracle_java_version="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(\d+)u(\d+)-linux.*','\1') }}"
+            oracle_java_version="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(.*)(-|_)linux.*','\1') }}"
             oracle_java_version_update="{{ oracle_java_rpm_url | basename|regex_replace('jdk-(\d+)u(\d+)-linux.*','\2') }}"
 
 - debug: msg="Downloading java {{ oracle_java_version }}u{{ oracle_java_version_update }} to {{ oracle_java_rpm_filename }} from {{ oracle_java_rpm_url }}"
@@ -54,6 +60,7 @@
     validate_certs="{{ oracle_java_rpm_validate_certs }}"
     timeout={{ oracle_java_download_timeout }}
   register: oracle_java_task_rpm_download
+  until: oracle_java_task_rpm_download|succeeded 
   become: yes
   tags: [ installation ]
 
@@ -63,14 +70,17 @@
   become: yes
   tags: [ installation ]
 
+- name: show oracle version
+  debug: msg="{{ oracle_java_version }}"
+
 - name: set Java version as default
   alternatives:
     name="{{ item.exe }}"
     link="/usr/bin/{{ item.exe }}"
     path="{{ item.path }}/{{ item.exe }}"
   with_items:
-    - { path: "{{ oracle_java_home }}/jre/bin", exe: 'java' }
-    - { path: "{{ oracle_java_home }}/jre/bin", exe: 'keytool' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'java' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'keytool' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
   become: yes
