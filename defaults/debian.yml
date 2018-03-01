@@ -11,3 +11,8 @@ oracle_java_home: "/usr/lib/jvm/java-{{ oracle_java_version }}-oracle"
 oracle_java_os_supported: yes
 
 oracle_java_state: latest
+
+# codename hash to convert mint to ubuntu releases
+oracle_java_ppa_mint:
+  sonya: xenial
+  sylvia: xenial

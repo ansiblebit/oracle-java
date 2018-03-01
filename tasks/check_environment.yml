@@ -4,6 +4,7 @@
 # task to set host facts:
 #   - Java is installed?
 #   - which Java version is installed?
+#   - is ansible version correct ?
 #
 
 - name: determine if Java is already installed
@@ -39,3 +40,15 @@
     - oracle_java_task_version
     - oracle_java_version_installed
     - oracle_java_version_string
+
+  # prior to 2.4, ansible facts for linux mint are:
+  # "ansible_os_family": "Linuxmint"
+  # "ansible_distribution": "Linuxmint"
+  # after 2.4, the facts change to something more sane
+  # "ansible_os_family": "Debian"
+  # "ansible_distribution": "Linux Mint"
+- name: check ansible version
+  when: ansible_distribution == 'Linux Mint' or ansible_distribution == 'Linuxmint'
+  assert:
+    that: "ansible_version.full | version_compare('2.4', '>=')"
+    msg: "You must update Ansible to at least 2.4 to use this role with Linux Mint"
