@@ -15,19 +15,19 @@
 
 - name: define download page URL based on latest version
   set_fact: download_page_url="{{ latest_java_page_and_version[0] }}"
-  when: "{{ latest_java_page_and_version[1]|version_compare(oracle_java_version,'=') }}"
-  
+  when: latest_java_page_and_version[1] | version_compare(oracle_java_version,'=')
+
 - block:
-  
+
   - name: get lastest JDK rpm url
     uri: url="{{ result.content.replace('\n','')|regex_replace('.*(/technetwork/java/javase/archive-.*?.html).*','http://www.oracle.com/\1') }}"
          return_content=yes
     register: result
-    
+
   - name: define download page URL for "{{ oracle_java_version }}"
     set_fact: download_page_url="{{ result.content|regex_search('href=\"[^\"]+\">Java SE\s+' + (oracle_java_version|string) + '\s?<')|regex_replace('.*href=\"([^\"]+)\".*','http://www.oracle.com/\1') }}"
-  
-  when: "{{ latest_java_page_and_version[1]|version_compare(oracle_java_version,'!=') and oracle_java_version }}"
+
+  when: latest_java_page_and_version[1] | version_compare(oracle_java_version,'!=') and oracle_java_version
 
 - name: show download page URL
   debug: msg="{{ download_page_url }}"
