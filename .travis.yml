@@ -4,6 +4,8 @@ sudo: yes
 matrix:
   include:
     - python: 2.7
+      env: TOXENV=py27-ansible24
+    - python: 2.7
       env: TOXENV=py27-ansible23
     - python: 2.7
       env: TOXENV=py27-ansible22
