@@ -109,3 +109,16 @@ vagrant:
         memory: 1024
         cpus: 1
 
+  # Linux mint
+
+  mint_sylvia64.vagrant.dev:
+    enabled: true
+    box: ajxb/mint-18.3
+    network:
+      name: private_network
+      ip: 192.168.124.14
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1

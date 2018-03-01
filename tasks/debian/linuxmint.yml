@@ -1,0 +1,12 @@
+---
+# file: oracle-java/tasks/debian/linuxmint.yml
+#
+# Task file to install Oracle Java Development Kit ppa for linux mint
+#
+
+- name: debian | mint | add java ppa repo
+  apt_repository:
+    repo=ppa:webupd8team/java
+    state=present
+    codename='{{ oracle_java_ppa_mint[ansible_lsb.codename] }}'
+  become: yes

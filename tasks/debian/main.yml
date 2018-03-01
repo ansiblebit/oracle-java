@@ -4,32 +4,8 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
-- name: debian | ubuntu | add java ppa repo
-  apt_repository:
-    repo=ppa:webupd8team/java
-    state=present
-  become: yes
-  when: ansible_distribution == 'Ubuntu'
-
-- block:
-  - name: debian | ensure the webupd8 launchpad apt repository key is present
-    apt_key:
-      id=0xC2518248EEA14886
-      keyserver=keyserver.ubuntu.com
-      state=present
-    become: yes
-
-  - name: debian | ensure the webupd8 launchpad apt repository is present
-    apt_repository:
-      repo="{{ item }} http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
-      update_cache=yes
-      state=present
-    with_items:
-      - deb
-      - deb-src
-    become: yes
-
-  when: ansible_distribution == 'Debian'
+  # Linux mint reprts "ansible_distribution" as "Linux Mint", hence the whitespace trimming
+- include: debian/{{ansible_distribution|lower|replace(' ', '') }}.yml
 
 - name: debian | set license as accepted
   debconf: name='oracle-java{{ oracle_java_version }}-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'

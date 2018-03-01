@@ -33,6 +33,10 @@ galaxy_info:
         - vivid
         - trusty
         - precise
+    - name: Linuxmint
+      versions:
+        - sonya
+        - sylvia
   galaxy_tags:
     - development
     - java
