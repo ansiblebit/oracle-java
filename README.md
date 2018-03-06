@@ -75,7 +75,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
     - hosts: servers
       roles:
-         - role: ansiblebit.oracle-java,
+         - role: ansiblebit.oracle-java
            oracle_java_set_as_default: yes
 
 Use `--skip-tags=debug` if you want to suppress debug information.
