@@ -8,8 +8,8 @@ oracle_java_apt_distribution: trusty
 oracle_java_cache_valid_time: 3600
 oracle_java_os_supported: yes
 oracle_java_state: latest
-oracle_java_version: 9
+oracle_java_version: 1.8.0_181
 
-oracle_java_deb_package: 'oracle-java9-installer'
-oracle_java_debconf_package_default: 'oracle-java9-set-default'
-oracle_java_home: "/usr/lib/jvm/java-{{ oracle_java_version }}-oracle"
+oracle_java_deb_package: 'oracle-java8-installer'
+oracle_java_debconf_package_default: 'oracle-java8-set-default'
+oracle_java_home: "/usr/lib/jvm/java-8-oracle"
