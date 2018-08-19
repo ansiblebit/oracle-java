@@ -56,8 +56,9 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ### Redhat-only
 
 - **oracle_java_dir_source**: directory where to store the RPM files (default: `/usr/local/src`).
+- **oracle_java_rpm_filename**: file name used for the download destination (default: `jdk-10.0.2_linux-x64_bin.rpm`).
 - **oracle_java_home**: the location of the Java home directory (default: `/usr/java/default`).
-- **oracle_java_download_url**: where to download the rpm from.
+- **oracle_java_download_url**: where to download the rpm from (default: `http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm`).
 - **oracle_java_download_timeout**: download timeout, in seconds (default: `60`).
 - **oracle_java_rpm_validate_certs**: flag to indicate if you want SSL certificate validation (default: `yes`).
 
