@@ -17,7 +17,7 @@
   vars:
     debug: yes
     test_redhat_java_version: '10.0.2'
-    test_debian_java_version: '1.9.0'
+    test_debian_java_version: '1.8.0_151'
 
   roles:
     - role: oracle-java
@@ -32,7 +32,7 @@
       when: ansible_os_family | lower == 'redhat'
 
     - role: oracle-java
-      oracle_java_version: "{{ test_redhat_java_version }}"
+      oracle_java_version: "{{ test_debian_java_version }}"
       oracle_java_set_as_default: yes
       oracle_java_rpm_validate_certs: no
       when: ansible_os_family | lower == 'debian'
