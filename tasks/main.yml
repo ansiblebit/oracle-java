@@ -25,21 +25,14 @@
     msg: "The operating system ({{ ansible_os_family }}) of the target machine ({{ inventory_hostname }}) is not currently supported."
   when: oracle_java_os_supported is not defined or not oracle_java_os_supported
 
-## include OS family specific task file
+## include OS family/distribution specific task file
 
-- name: if darwin/macosx, include distribution specific task file
-  include: "darwin/macosx.yml"
-  when: ansible_os_family | lower == 'darwin' and ansible_distribution | lower == 'macosx'
-  tags: [ installation ]
-
-- name: if debian, include family specific task file
-  include: "debian/main.yml"
-  when: ansible_os_family | lower == 'debian'
-  tags: [ installation ]
-
-- name: if redhat, include family specific task file
-  include: "redhat/main.yml"
-  when: ansible_os_family | lower == 'redhat'
+- name: include OS family/distribution specific task file
+  include: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}/main.yml"
   tags: [ installation ]
 
 - name: check host environment
