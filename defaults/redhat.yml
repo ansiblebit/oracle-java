@@ -4,7 +4,7 @@
 # Default variables for Redhat-based Linux distributions.
 #
 
-oracle_java_download_timeout: 10
+oracle_java_download_timeout: 60
 oracle_java_rpm_filename: 'jdk-10.0.2_linux-x64_bin.rpm'
 oracle_java_home: '/usr/java/default'
 oracle_java_os_supported: yes
