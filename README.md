@@ -56,7 +56,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ### Redhat-only
 
 - **oracle_java_dir_source**: directory where to store the RPM files (default: `/usr/local/src`).
-- **oracle_java_home**: the location of the Java home directory (default: `/usr/java/jdk1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }}`).
+- **oracle_java_home**: the location of the Java home directory (default: `/usr/java/default`).
 - **oracle_java_download_url**: where to download the rpm from.
 - **oracle_java_rpm_validate_certs | yes | flag to indicate if you want SSL certificate validation (default: `yes`).
 
