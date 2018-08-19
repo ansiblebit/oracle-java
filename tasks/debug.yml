@@ -15,6 +15,5 @@
     - oracle_java_set_as_default
     - oracle_java_state
     - oracle_java_version
-    - oracle_java_version_build
     - oracle_java_version_installed
     - oracle_java_version_string
