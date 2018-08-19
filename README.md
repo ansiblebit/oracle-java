@@ -59,7 +59,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 - **oracle_java_home**: the location of the Java home directory (default: `/usr/java/default`).
 - **oracle_java_download_url**: where to download the rpm from.
 - **oracle_java_download_timeout**: download timeout, in seconds (default: `60`).
-- **oracle_java_rpm_validate_certs | yes | flag to indicate if you want SSL certificate validation (default: `yes`).
+- **oracle_java_rpm_validate_certs**: flag to indicate if you want SSL certificate validation (default: `yes`).
 
 ## Playbooks
 
