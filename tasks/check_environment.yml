@@ -38,4 +38,3 @@
     - oracle_java_task_installed
     - oracle_java_task_version
     - oracle_java_version_installed
-    - oracle_java_version_string
