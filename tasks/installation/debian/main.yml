@@ -1,5 +1,47 @@
 ---
-# file: oracle-java/tasks/debian/main.yml
+# file: oracle-java/tasks/debian/debian.yml
 #
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
+
+- name: debian | ensure the webupd8 launchpad apt repository key is present
+  apt_key:
+    id=0xC2518248EEA14886
+    keyserver=keyserver.ubuntu.com
+    state=present
+  become: yes
+
+- name: debian | ensure the webupd8 launchpad apt repository is present
+  apt_repository:
+    repo="{{ item }} http://ppa.launchpad.net/webupd8team/java/ubuntu {{ oracle_java_apt_distribution }} main"
+    update_cache=yes
+    state=present
+  with_items:
+    - deb
+    - deb-src
+  become: yes
+
+- name: debian | set license as accepted
+  debconf:
+    name="{{ oracle_java_deb_package }}"
+    question='shared/accepted-oracle-license-v1-1'
+    value='true'
+    vtype='select'
+  become: yes
+
+- name: debian | ensure Java is installed
+  apt:
+    name="{{ oracle_java_deb_package }}"
+    state={{ oracle_java_state }}
+    cache_valid_time={{ oracle_java_cache_valid_time }}
+    update_cache=yes
+  register: oracle_java_task_apt_install
+  become: yes
+
+- name: debian | set Java version as default
+  apt:
+    name="{{ oracle_java_debconf_package_default }}"
+    state=latest
+  register: oracle_java_task_set_default
+  when: oracle_java_set_as_default
+  become: yes
