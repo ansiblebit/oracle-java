@@ -20,6 +20,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 | Family | Distribution | Version | Test Status |
 |:-:|:-:|:-:|:-:|
 | Debian | Debian  | Jessie    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](x) |
+| Debian | Debian  | Stretch   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](x) |
 | Debian | Ubuntu  | Precise   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](x) |
 | Debian | Ubuntu  | Yakkety   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](x) |
 | Debian | Ubuntu  | Xenial    | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](x) |
@@ -74,31 +75,30 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
   roles:
       - role: ansiblebit.oracle-java
 
+# debian | Java 10
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+        oracle_java_apt_repository: "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu trusty main"
+        oracle_java_apt_repository_key: '0xC2518248EEA14886'
 
 # debian | Java 8
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
-        oracle_java_apt_repository: "http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main"
+        oracle_java_apt_repository: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
         oracle_java_apt_repository_key: '0xC2518248EEA14886'
-
-# debian | Java 10
-- hosts: servers
-  roles:
-      - role: ansiblebit.oracle-java
-        oracle_java_apt_repository: "http://ppa.launchpad.net/linuxuprising/java/ubuntu {{ ansible_distribution | lower }} main"
-        oracle_java_apt_repository_key: '0xC2518248EEA14886'
-
-# debian | ubuntu | Java 8
-- hosts: servers
-  roles:
-      - role: ansiblebit.oracle-java
-        oracle_java_apt_repository: "ppa:webupd8team/java {{ ansible_distribution | lower }} main"
 
 # debian | ubuntu | Java 10
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+
+# debian | ubuntu | Java 8
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+        oracle_java_apt_repository: "ppa:webupd8team/java"
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
@@ -109,6 +109,30 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 tox -e py27-ansible26 -- --box centos7-64.vagrant.dev
 
 tox -e py27-ansible26 -- --box bionic64.vagrant.dev
+
+# manual
+source .tox/py27-ansible26/bin/activate
+cd tests
+vagrant up bionic64.vagrant.dev
+
+bash test_idempotence.sh \
+  --box bionic64.vagrant.dev \
+  --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
+
+## look at idempotence test logs
+less log/bionic64.vagrant.dev_idempotence_py27-ansible26.log
+
+## debug
+vagrant ssh bionic64.vagrant.dev
+
+bash test_checkmode.sh \
+  --box bionic64.vagrant.dev \
+  --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
+
+## look at checkmode test logs
+less log/bionic64.vagrant.dev_checkmode_py27-ansible26.log
+
+vagrant destroy bionic64.vagrant.dev
 ```
 
 ## Links
