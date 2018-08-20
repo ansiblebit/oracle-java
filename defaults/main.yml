@@ -4,12 +4,8 @@
 # defaults file
 #
 
-oracle_java_dir_source: '/usr/local/src'
+oracle_java_downloads:
+  10.0.2:
+    redhat: http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm
 
 oracle_java_set_as_default: yes
-
-oracle_java_version: 8
-oracle_java_version_string: "1.{{ oracle_java_version }}.0_{{ oracle_java_version_update }}"
-oracle_java_ansible_arch_mappings:
-  x86_64: x64
-  i386: i586

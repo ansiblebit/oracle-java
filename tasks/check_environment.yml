@@ -19,14 +19,14 @@
     oracle_java_installed={{ not oracle_java_task_installed.changed }}
 
 - name: determine which Java version is installed
-  shell: java -version
-  when: oracle_java_installed
+  shell: java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
   register: oracle_java_task_version
+  when: oracle_java_installed
   changed_when: False
 
 - name: set fact oracle_java_installed_version
   set_fact:
-    oracle_java_version_installed="{{ oracle_java_task_version.stderr.split('\n')[0]|regex_replace('.*\"(.*)\"','\\1') }}"
+    oracle_java_version_installed="{{ oracle_java_task_version.stdout }}"
   when: oracle_java_task_version is defined and oracle_java_task_version.stdout is defined
   changed_when: False
 
@@ -38,4 +38,3 @@
     - oracle_java_task_installed
     - oracle_java_task_version
     - oracle_java_version_installed
-    - oracle_java_version_string

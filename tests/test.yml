@@ -10,32 +10,43 @@
       when: playbook_python2 is defined and
             playbook_python2
 
+- name: setup stretch
+  hosts: "{{ vagrant_box }}"
+
+  tasks:
+    - apt:
+        name=software-properties-common
+        state=present
+        become=yes
+      when: ansible_distribution | lower == 'stretch'
 
 - name: tests play
   hosts: all
   gather_facts: yes
   vars:
     debug: yes
-    test_java_version: 8
-    test_java_version_update: 112
-    test_java_version_build: 15
-    test_latest_java_version_update: 161
-    test_latest_java_version_build: 13
+    test_redhat_java_version: '10.0.2'
+    test_debian_java_version: '10.0.2'
 
   roles:
     - role: oracle-java
-      oracle_java_version: "{{ test_java_version }}"
-      oracle_java_version_update: "{{ test_java_version_update }}"
-      oracle_java_version_build: "{{ test_java_version_build }}"
+      oracle_java_version: "{{ test_redhat_java_version }}"
       oracle_java_set_as_default: yes
       oracle_java_rpm_validate_certs: no
-
-    - role: tests
-      expected_java_version: "1.{{ test_java_version }}.0_{{ test_java_version_update }}"
-      tags: test
       when: ansible_os_family | lower == 'redhat'
 
     - role: tests
-      expected_java_version: "1.{{ test_java_version }}.0_{{ test_latest_java_version_update }}"
-      tags: test
+      expected_java_version: "{{ test_redhat_java_version }}"
+      tags: [ test ]
+      when: ansible_os_family | lower == 'redhat'
+
+    - role: oracle-java
+      oracle_java_version: "{{ test_debian_java_version }}"
+      oracle_java_set_as_default: yes
+      oracle_java_rpm_validate_certs: no
+      when: ansible_os_family | lower == 'debian'
+
+    - role: tests
+      expected_java_version: "{{ test_debian_java_version }}"
+      tags: [ test ]
       when: ansible_os_family | lower == 'debian'

@@ -1,0 +1,47 @@
+---
+# file: oracle-java/tasks/installation/redhat/main.yml
+#
+# Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
+#
+
+- name: download Java RPM
+  get_url:
+    headers='Cookie:gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+    dest="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+    url="{{ oracle_java_rpm_url }}"
+    validate_certs="{{ oracle_java_rpm_validate_certs }}"
+    timeout={{ oracle_java_download_timeout }}
+    force=no
+  register: oracle_java_task_rpm_download
+  until: oracle_java_task_rpm_download|succeeded 
+  become: yes
+
+- name: install RPM
+  yum:
+    name="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
+    state=present
+  when: not oracle_java_task_rpm_download|skipped
+  become: yes
+
+- name: set Java version as default
+  alternatives:
+    name="{{ item.exe }}"
+    link="/usr/bin/{{ item.exe }}"
+    path="{{ item.path }}/{{ item.exe }}"
+  with_items:
+    - { path: "{{ oracle_java_home }}/bin", exe: 'java' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'keytool' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
+    - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
+  become: yes
+  when: (
+          oracle_java_set_as_default and
+          oracle_java_task_rpm_download is defined and
+          oracle_java_task_rpm_download|changed
+        ) or (
+          oracle_java_set_as_default and
+          oracle_java_installed is defined and
+          oracle_java_installed and
+          oracle_java_version_installed is defined and
+          oracle_java_version_installed != oracle_java_version_string)
+  register: oracle_java_task_set_default
