@@ -1,5 +1,5 @@
 ---
-# file: oracle-java/tasks/debian/debian.yml
+# file: oracle-java/tasks/installation/debian/main.yml
 #
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #

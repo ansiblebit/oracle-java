@@ -1,5 +1,5 @@
 ---
-# file: oracle-java/tasks/redhat/main.yml
+# file: oracle-java/tasks/installation/redhat/main.yml
 #
 # Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
 #
