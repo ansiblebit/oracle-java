@@ -13,7 +13,7 @@
 
 - name: debian | ensure the webupd8 launchpad apt repository is present
   apt_repository:
-    repo="{{ item }} http://ppa.launchpad.net/webupd8team/java/ubuntu {{ oracle_java_apt_distribution }} main"
+    repo="{{ item }} {{ oracle_java_ppa }}"
     update_cache=yes
     state=present
   with_items:

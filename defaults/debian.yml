@@ -7,6 +7,7 @@
 oracle_java_apt_distribution: trusty
 oracle_java_cache_valid_time: 3600
 oracle_java_os_supported: yes
+oracle_java_ppa: "http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main"
 oracle_java_state: latest
 oracle_java_version: 1.8.0_181
 

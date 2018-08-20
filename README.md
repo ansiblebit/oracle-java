@@ -53,6 +53,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 - **oracle_java_apt_distribution**: (default: `trusty`).
 - **oracle_java_cache_valid_time**: the amount of time in seconds the apt cache is valid (default: `3600`).
+- **oracle_java_ppa**: Personal Package Archive from where to install Java (default: `http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main`).
 - **oracle_java_state**:** the package state (see Ansible apt module for more information).
 - **oracle_java_home**: the location of the Java home directory (default: `/usr/lib/jvm/java-{{ oracle_java_version }}-oracle`).
 
