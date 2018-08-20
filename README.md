@@ -45,8 +45,17 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 - **debug**: flag to make role more verbose.
 - **oracle_java_os_supported**: role internal variable to check if a OS family is supported or not.
+- **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
+- **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
+  **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
+  See `* | Java 8` examples in the _Playbooks_ section.
 
 ### Debian
+
+**WARNING** to override **any** of the following variables (even if it's only one),
+you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
+OS family defaults will no longer be loaded.
+See `debian | Java 8` example in the _Playbooks_ section.
 
 - **oracle_java_apt_repository**: Personal Package Archive (PPA) from where to install Java.
 - **oracle_java_apt_repository_key**: PPA repository key.
@@ -58,6 +67,11 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ### Debian/Ubuntu
 
+**WARNING** to override **any** of the following variables (even if it's only one),
+you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
+OS family defaults will no longer be loaded.
+See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
+
 - **oracle_java_apt_repository**: Personal Package Archive (PPA) from where to install Java.
 - **oracle_java_cache_valid_time**: the amount of time in seconds the apt cache is valid.
 - **oracle_java_deb_package**: name of debian package.
@@ -67,13 +81,17 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ### Redhat-only
 
+**WARNING** to override **any** of the following variables (even if it's only one),
+you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
+OS family defaults will no longer be loaded.
+See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
+
 - **oracle_java_dir_source**: directory where to store the RPM files.
 - **oracle_java_download_timeout**: download timeout, in seconds.
 - **oracle_java_home**: the location of the Java home directory.
 - **oracle_java_rpm_filename**: file name used for the download destination.
 - **oracle_java_rpm_url**: where to download the rpm from.
 - **oracle_java_rpm_validate_certs**: flag to indicate if you want SSL certificate validation.
-- **oracle_java_set_as_default**: flag to indicate if this should be set as the default version.
 - **oracle_java_version_string**: the Java version string to verify installation against.
 
 ## Playbooks
@@ -88,68 +106,65 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
-        oracle_java_apt_repository: 'deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main'
-        oracle_java_apt_repository_key: 'EA8CACC073C3DB2A'
-        oracle_java_cache_valid_time: 3600
-        oracle_java_deb_package: 'oracle-java10-installer'
-        oracle_java_debconf_package_default: 'oracle-java10-set-default'
-        oracle_java_home: "/usr/lib/jvm/java-10-oracle"
-        oracle_java_state: latest
+
+## explicitely passing default parameters
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
 
 # debian | Java 8
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+        oracle_java_use_defaults: no
         oracle_java_apt_repository: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu bionic main'
         oracle_java_apt_repository_key: 'EA8CACC073C3DB2A'
         oracle_java_cache_valid_time: 3600
         oracle_java_deb_package: 'oracle-java8-installer'
         oracle_java_debconf_package_default: 'oracle-java8-set-default'
         oracle_java_home: "/usr/lib/jvm/java-8-oracle"
+        oracle_java_set_as_default: no
         oracle_java_state: latest
 
 # debian | ubuntu | Java 10
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
-        oracle_java_apt_repository: "ppa:linuxuprising/java"
-        oracle_java_cache_valid_time: 3600
-        oracle_java_deb_package: 'oracle-java10-installer'
-        oracle_java_debconf_package_default: 'oracle-java10-set-default'
-        oracle_java_home: "/usr/lib/jvm/java-10-oracle"
-        oracle_java_state: latest
 
 # debian | ubuntu | Java 8
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+        oracle_java_use_defaults: no
         oracle_java_apt_repository: "ppa:webupd8team/java"
         oracle_java_cache_valid_time: 3600
         oracle_java_deb_package: 'oracle-java10-installer'
         oracle_java_debconf_package_default: 'oracle-java10-set-default'
         oracle_java_home: "/usr/lib/jvm/java-10-oracle"
+        oracle_java_set_as_default: no
         oracle_java_state: latest
 
 # redhat | centos 7 | Java 10
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+
+# redhat | centos 7 | Java 8
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
         oracle_java_dir_source: '/usr/local/src'
-        oracle_java_download_timeout: 60
+        oracle_java_download_timeout: 60  
+        oracle_java_rpm_filename: 'jdk-8u181-linux-x64.rpm'
         oracle_java_home: '/usr/java/default'
-        oracle_java_rpm_filename: 'jdk-10.0.2_linux-x64_bin.rpm'
-        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm'
+        oracle_java_os_supported: yes
+        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm'
         oracle_java_rpm_validate_certs: yes
-        oracle_java_set_as_default: yes
-        oracle_java_version_string: 10.0.2
+        oracle_java_set_as_default: no
+        oracle_java_version_string: 1.8.0_181
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
-
-```yaml
-# URLs from where you can download the RPM
-  redhat:
-    10.0.2: http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm
 ```
 
 ## Test

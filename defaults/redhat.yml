@@ -4,4 +4,12 @@
 # Default variables for Redhat-based Linux distributions.
 #
 
+oracle_java_dir_source: '/usr/local/src'
+oracle_java_download_timeout: 60
+oracle_java_rpm_filename: 'jdk-10.0.2_linux-x64_bin.rpm'
+oracle_java_home: '/usr/java/default'
 oracle_java_os_supported: yes
+oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm'
+oracle_java_rpm_validate_certs: yes
+oracle_java_version: 10
+oracle_java_version_string: 10.0.2
