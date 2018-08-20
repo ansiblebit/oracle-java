@@ -31,7 +31,7 @@ vagrant:
       ip: 192.168.122.1
 
   stretch64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: debian/stretch64
     network:
       name: private_network
