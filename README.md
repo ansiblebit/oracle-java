@@ -78,7 +78,7 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 ## Test
 
 ```bash
-tox -e py27-ansible26 -- --box centos7
+tox -e py27-ansible26 -- --box centos7-64.vagrant.dev
 
-tox -e py27-ansible26 -- --box bionic
+tox -e py27-ansible26 -- --box bionic64.vagrant.dev
 ```
