@@ -30,7 +30,6 @@
 
   roles:
     - role: oracle-java
-      oracle_java_version: "{{ test_redhat_java_version }}"
       oracle_java_set_as_default: yes
       oracle_java_rpm_validate_certs: no
       when: ansible_os_family | lower == 'redhat'
@@ -41,9 +40,10 @@
       when: ansible_os_family | lower == 'redhat'
 
     - role: oracle-java
-      oracle_java_version: "{{ test_debian_java_version }}"
       oracle_java_set_as_default: yes
       oracle_java_rpm_validate_certs: no
+      oracle_java_apt_repository: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu bionic main'
+      oracle_java_apt_repository_key: 'C2518248EEA14886'
       when: ansible_os_family | lower == 'debian'
 
     - role: tests

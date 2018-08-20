@@ -74,8 +74,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 - **oracle_java_home**: the location of the Java home directory (default: `/usr/java/default`).
 - **oracle_java_rpm_filename**: file name used for the download destination (default: `jdk-10.0.2_linux-x64_bin.rpm`).
 - **oracle_java_rpm_validate_certs**: flag to indicate if you want SSL certificate validation (default: `yes`).
-- **oracle_java_version**: the Oracle JDK version to be installed (default: `10`).
-- **oracle_java_version_string**: the Java version string to verify installation against (default: `1.{{ oracle_java_version }}.0_u{{ oracle_java_version_update }}`).
+- **oracle_java_version_string**: the Java version string to verify installation against (default: `1.10.2`).
 
 ## Playbooks
 
