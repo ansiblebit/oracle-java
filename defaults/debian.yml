@@ -4,7 +4,6 @@
 # Default variables for Debian-based Linux distributions.
 #
 
-oracle_java_apt_distribution: trusty
 oracle_java_cache_valid_time: 3600
 oracle_java_os_supported: yes
 oracle_java_apt_repository: "ppa:linuxuprising/java {{ ansible_distribution | lower }} main"
