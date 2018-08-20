@@ -53,9 +53,10 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 - **oracle_java_apt_distribution**: (default: `trusty`).
 - **oracle_java_cache_valid_time**: the amount of time in seconds the apt cache is valid (default: `3600`).
-- **oracle_java_ppa**: Personal Package Archive from where to install Java (default: `http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main`).
+- **oracle_java_apt_repository**: Personal Package Archive (PPA) from where to install Java (default: `http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main`).
+- **oracle_java_apt_repository_key**: PPA repository key (default: `0xC2518248EEA14886`).
 - **oracle_java_state**:** the package state (see Ansible apt module for more information).
-- **oracle_java_home**: the location of the Java home directory (default: `/usr/lib/jvm/java-{{ oracle_java_version }}-oracle`).
+- **oracle_java_home**: the location of the Java home directory (default: `/usr/lib/jvm/java-10-oracle`).
 
 ### Redhat-only
 
@@ -68,10 +69,38 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 
 ## Playbooks
 
-    - hosts: servers
-      roles:
-         - role: ansiblebit.oracle-java
-           oracle_java_set_as_default: yes
+```yaml
+# generic
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+
+
+# debian | Java 8
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+        oracle_java_apt_repository: "http://ppa.launchpad.net/webupd8team/java/ubuntu {{ ansible_distribution | lower }} main"
+        oracle_java_apt_repository_key: '0xC2518248EEA14886'
+
+# debian | Java 10
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+        oracle_java_apt_repository: "http://ppa.launchpad.net/linuxuprising/java/ubuntu {{ ansible_distribution | lower }} main"
+        oracle_java_apt_repository_key: '0xC2518248EEA14886'
+
+# debian | ubuntu | Java 8
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+        oracle_java_apt_repository: "ppa:webupd8team/java {{ ansible_distribution | lower }} main"
+
+# debian | ubuntu | Java 10
+- hosts: servers
+  roles:
+      - role: ansiblebit.oracle-java
+```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
 
@@ -82,3 +111,8 @@ tox -e py27-ansible26 -- --box centos7-64.vagrant.dev
 
 tox -e py27-ansible26 -- --box bionic64.vagrant.dev
 ```
+
+## Links
+
+- [launchpad > WebUpd8 > Oracle Java (JDK) 8 / 9 Installer PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/java)
+- [launchpad > Linux Uprising > Oracle Java](https://launchpad.net/~linuxuprising/+archive/ubuntu/java)
