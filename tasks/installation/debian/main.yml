@@ -4,16 +4,17 @@
 # Task file to install Oracle Java Development Kit in a system with a Debian based Linux distribution.
 #
 
-- name: debian | ensure the webupd8 launchpad apt repository key is present
+- name: debian | ensure the apt repository key is present
   apt_key:
-    id=0xC2518248EEA14886
+    id="{{ oracle_java_apt_repository_key }}"
     keyserver=keyserver.ubuntu.com
     state=present
+  when: oracle_java_apt_repository_key is defined
   become: yes
 
-- name: debian | ensure the webupd8 launchpad apt repository is present
+- name: debian | ensure the apt repository is present
   apt_repository:
-    repo="{{ item }} {{ oracle_java_ppa }}"
+    repo="{{ item }} {{ oracle_java_apt_repository }}"
     update_cache=yes
     state=present
   with_items:
