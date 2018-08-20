@@ -10,6 +10,15 @@
       when: playbook_python2 is defined and
             playbook_python2
 
+- name: setup stretch
+  hosts: "{{ vagrant_box }}"
+
+  tasks:
+    - apt:
+        name=software-properties-common
+        state=present
+        become=yes
+      when: ansible_distribution | lower == 'stretch'
 
 - name: tests play
   hosts: all
@@ -17,7 +26,7 @@
   vars:
     debug: yes
     test_redhat_java_version: '10.0.2'
-    test_debian_java_version: '1.8.0_181'
+    test_debian_java_version: '10.0.2'
 
   roles:
     - role: oracle-java
