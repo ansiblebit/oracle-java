@@ -30,8 +30,15 @@
 
   roles:
     - role: oracle-java
+      oracle_java_dir_source: '/usr/local/src'
+      oracle_java_download_timeout: 60
+      oracle_java_rpm_filename: 'jdk-10.0.2_linux-x64_bin.rpm'
+      oracle_java_home: '/usr/java/default'
+      oracle_java_os_supported: yes
+      oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.rpm'
+      oracle_java_rpm_validate_certs: yes
       oracle_java_set_as_default: yes
-      oracle_java_rpm_validate_certs: no
+      oracle_java_version_string: 10.0.2
       when: ansible_os_family | lower == 'redhat'
 
     - role: tests
@@ -40,10 +47,12 @@
       when: ansible_os_family | lower == 'redhat'
 
     - role: oracle-java
-      oracle_java_set_as_default: yes
-      oracle_java_rpm_validate_certs: no
-      oracle_java_apt_repository: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu bionic main'
-      oracle_java_apt_repository_key: 'C2518248EEA14886'
+      oracle_java_apt_repository: "ppa:linuxuprising/java"
+      oracle_java_cache_valid_time: 3600
+      oracle_java_deb_package: 'oracle-java10-installer'
+      oracle_java_debconf_package_default: 'oracle-java10-set-default'
+      oracle_java_home: "/usr/lib/jvm/java-10-oracle"
+      oracle_java_state: latest
       when: ansible_os_family | lower == 'debian'
 
     - role: tests
