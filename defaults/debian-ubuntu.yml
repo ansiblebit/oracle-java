@@ -1,11 +1,10 @@
 ---
-# file: oracle-java/defaults/debian.yml
+# file: oracle-java/defaults/debian-ubuntu.yml
 #
-# Default variables for Debian-based Linux distributions.
+# Default variables for Ubuntu Linux distributions.
 #
 
-oracle_java_apt_repository: 'deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main'
-oracle_java_apt_repository_key: 'EA8CACC073C3DB2A'
+oracle_java_apt_repository: "ppa:linuxuprising/java"
 oracle_java_cache_valid_time: 3600
 oracle_java_deb_package: 'oracle-java10-installer'
 oracle_java_debconf_package_default: 'oracle-java10-set-default'

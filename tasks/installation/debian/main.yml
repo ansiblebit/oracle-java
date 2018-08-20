@@ -14,12 +14,9 @@
 
 - name: debian | ensure the apt repository is present
   apt_repository:
-    repo="{{ item }} {{ oracle_java_apt_repository }}"
+    repo="{{ oracle_java_apt_repository }}"
     update_cache=yes
     state=present
-  with_items:
-    - deb
-    - deb-src
   become: yes
 
 - name: debian | set license as accepted

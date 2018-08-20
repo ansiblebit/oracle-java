@@ -4,9 +4,6 @@
 # tasks file
 #
 
-- name: check host environment
-  include: check_environment.yml
-
 ## include OS family specific variables
 
 - name: include OS family/distribution specific variables
@@ -15,6 +12,11 @@
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}.yml"
   tags: [ installation ]
+
+## run
+
+- name: check host environment
+  include: check_environment.yml
 
 - include: debug.yml
   when: debug | default(false)
