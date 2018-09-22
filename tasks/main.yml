@@ -11,6 +11,7 @@
   with_first_found:
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}.yml"
+  when: oracle_java_use_defaults
   tags: [ installation ]
 
 ## run
@@ -35,7 +36,6 @@
     - "installation/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
     - "installation/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}.yml"
     - "installation/{{ ansible_os_family | lower }}/main.yml"
-  when: oracle_java_use_defaults
   tags: [ installation ]
 
 - name: check host environment
