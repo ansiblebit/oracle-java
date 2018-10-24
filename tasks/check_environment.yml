@@ -38,3 +38,5 @@
     - oracle_java_task_installed
     - oracle_java_task_version
     - oracle_java_version_installed
+  when: debug | default(false)
+  tags: [ debug ]
