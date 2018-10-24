@@ -10,5 +10,4 @@ oracle_java_cache_valid_time: 3600
 oracle_java_deb_package: 'oracle-java10-installer'
 oracle_java_debconf_package_default: 'oracle-java10-set-default'
 oracle_java_home: "/usr/lib/jvm/java-10-oracle"
-oracle_java_os_supported: yes
 oracle_java_state: latest
