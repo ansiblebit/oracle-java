@@ -44,7 +44,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ## Role Variables
 
 - **debug**: flag to make role more verbose.
-- **oracle_java_os_supported**: internal variable to check if a OS family is supported or not.
 - **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
 - **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
   **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
@@ -102,7 +101,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
   roles:
       - role: ansiblebit.oracle-java
 
-# debian | Java 10
+# debian | Java 11
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
@@ -126,7 +125,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
-# debian | ubuntu | Java 10
+# debian | ubuntu | Java 11
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
