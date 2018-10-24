@@ -44,7 +44,7 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ## Role Variables
 
 - **debug**: flag to make role more verbose.
-- **oracle_java_os_supported**: role internal variable to check if a OS family is supported or not.
+- **oracle_java_os_supported**: internal variable to check if a OS family is supported or not.
 - **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
 - **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
   **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
