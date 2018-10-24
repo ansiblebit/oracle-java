@@ -13,6 +13,7 @@
     - oracle_java_installed
     - oracle_java_apt_repository
     - oracle_java_apt_repository_key
+    - oracle_java_license_version
     - oracle_java_set_as_default
     - oracle_java_state
     - oracle_java_version_installed
