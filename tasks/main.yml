@@ -21,7 +21,7 @@
 
 - include: debug.yml
   when: debug | default(false)
-  tags: debug
+  tags: [ debug ]
 
 ## include OS family/distribution specific task file
 
