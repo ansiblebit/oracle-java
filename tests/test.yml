@@ -29,7 +29,6 @@
 
   roles:
     - role: oracle-java
-      when: ansible_os_family | lower == 'redhat'
 
     - role: tests
       expected_java_version: "{{ test_expected_java_version }}"
