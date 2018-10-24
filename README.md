@@ -146,7 +146,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
-# redhat | centos 7 | Java 10
+# redhat | centos 7 | Java 11
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
