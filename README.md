@@ -153,15 +153,16 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+        oracle_java_use_defaults: no
         oracle_java_dir_source: '/usr/local/src'
         oracle_java_download_timeout: 60  
-        oracle_java_rpm_filename: 'jdk-8u181-linux-x64.rpm'
+        oracle_java_rpm_filename: 'jdk-8u191-linux-x64.rpm'
         oracle_java_home: '/usr/java/default'
         oracle_java_os_supported: yes
-        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm'
+        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm'
         oracle_java_rpm_validate_certs: yes
         oracle_java_set_as_default: no
-        oracle_java_version_string: 1.8.0_181
+        oracle_java_version_string: 1.8.0_191
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
