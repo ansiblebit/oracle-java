@@ -139,9 +139,9 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_use_defaults: no
         oracle_java_apt_repository: "ppa:webupd8team/java"
         oracle_java_cache_valid_time: 3600
-        oracle_java_deb_package: 'oracle-java10-installer'
-        oracle_java_debconf_package_default: 'oracle-java10-set-default'
-        oracle_java_home: "/usr/lib/jvm/java-10-oracle"
+        oracle_java_deb_package: 'oracle-java8-installer'
+        oracle_java_debconf_package_default: 'oracle-java8-set-default'
+        oracle_java_home: "/usr/lib/jvm/java-8-oracle"
         oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
         oracle_java_set_as_default: no
         oracle_java_state: latest
