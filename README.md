@@ -44,7 +44,6 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ## Role Variables
 
 - **debug**: flag to make role more verbose.
-- **oracle_java_os_supported**: role internal variable to check if a OS family is supported or not.
 - **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
 - **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
   **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
@@ -77,6 +76,7 @@ See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
 - **oracle_java_deb_package**: name of debian package.
 - **oracle_java_debconf_package_default**: name of debconf package to set default.
 - **oracle_java_home**: the location of the Java home directory.
+- **oracle_java_license_version**: which Oracle license version you will be accepting.
 - **oracle_java_state**:** the package state (see Ansible apt module for more information).
 
 ### Redhat-only
@@ -102,7 +102,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
   roles:
       - role: ansiblebit.oracle-java
 
-# debian | Java 10
+# debian | Java 11
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
@@ -123,10 +123,11 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_deb_package: 'oracle-java8-installer'
         oracle_java_debconf_package_default: 'oracle-java8-set-default'
         oracle_java_home: "/usr/lib/jvm/java-8-oracle"
+        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
-# debian | ubuntu | Java 10
+# debian | ubuntu | Java 11
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
@@ -141,6 +142,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_deb_package: 'oracle-java8-installer'
         oracle_java_debconf_package_default: 'oracle-java8-set-default'
         oracle_java_home: "/usr/lib/jvm/java-8-oracle"
+        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
@@ -153,15 +155,16 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
 - hosts: servers
   roles:
       - role: ansiblebit.oracle-java
+        oracle_java_use_defaults: no
         oracle_java_dir_source: '/usr/local/src'
         oracle_java_download_timeout: 60  
-        oracle_java_rpm_filename: 'jdk-8u181-linux-x64.rpm'
+        oracle_java_rpm_filename: 'jdk-8u191-linux-x64.rpm'
         oracle_java_home: '/usr/java/default'
         oracle_java_os_supported: yes
-        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm'
+        oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.rpm'
         oracle_java_rpm_validate_certs: yes
         oracle_java_set_as_default: no
-        oracle_java_version_string: 1.8.0_181
+        oracle_java_version_string: 1.8.0_191
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.

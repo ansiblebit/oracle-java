@@ -22,9 +22,10 @@
 - name: debian | set license as accepted
   debconf:
     name="{{ oracle_java_deb_package }}"
-    question='shared/accepted-oracle-license-v1-1'
+    question="{{ oracle_java_license_version }}"
     value='true'
     vtype='select'
+  become: yes
   become: yes
 
 - name: debian | ensure Java is installed

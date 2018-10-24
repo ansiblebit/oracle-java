@@ -25,22 +25,11 @@
   gather_facts: yes
   vars:
     debug: yes
-    test_redhat_java_version: '10.0.2'
-    test_debian_java_version: '10.0.2'
+    test_expected_java_version: '11.0.1'
 
   roles:
     - role: oracle-java
-      when: ansible_os_family | lower == 'redhat'
 
     - role: tests
-      expected_java_version: "{{ test_redhat_java_version }}"
+      expected_java_version: "{{ test_expected_java_version }}"
       tags: [ test ]
-      when: ansible_os_family | lower == 'redhat'
-
-    - role: oracle-java
-      when: ansible_os_family | lower == 'debian'
-
-    - role: tests
-      expected_java_version: "{{ test_debian_java_version }}"
-      tags: [ test ]
-      when: ansible_os_family | lower == 'debian'
