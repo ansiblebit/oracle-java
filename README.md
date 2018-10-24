@@ -76,6 +76,7 @@ See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
 - **oracle_java_deb_package**: name of debian package.
 - **oracle_java_debconf_package_default**: name of debconf package to set default.
 - **oracle_java_home**: the location of the Java home directory.
+- **oracle_java_license_version**: which Oracle license version you will be accepting.
 - **oracle_java_state**:** the package state (see Ansible apt module for more information).
 
 ### Redhat-only
@@ -122,6 +123,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_deb_package: 'oracle-java8-installer'
         oracle_java_debconf_package_default: 'oracle-java8-set-default'
         oracle_java_home: "/usr/lib/jvm/java-8-oracle"
+        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
@@ -140,6 +142,7 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
         oracle_java_deb_package: 'oracle-java10-installer'
         oracle_java_debconf_package_default: 'oracle-java10-set-default'
         oracle_java_home: "/usr/lib/jvm/java-10-oracle"
+        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
         oracle_java_set_as_default: no
         oracle_java_state: latest
 
