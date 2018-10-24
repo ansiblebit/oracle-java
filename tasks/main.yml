@@ -21,12 +21,7 @@
 
 - include: debug.yml
   when: debug | default(false)
-  tags: debug
-
-- name: check if operating system is suported
-  fail:
-    msg: "The operating system ({{ ansible_os_family }}) of the target machine ({{ inventory_hostname }}) is not currently supported."
-  when: oracle_java_os_supported is not defined or not oracle_java_os_supported
+  tags: [ debug ]
 
 ## include OS family/distribution specific task file
 

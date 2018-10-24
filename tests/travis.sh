@@ -34,8 +34,7 @@ ansible-playbook \
     -e env=travis \
     --skip-tags=test \
     $@ \
-&& bash test_checkmode.sh \
-    --env travis \
 && bash test_idempotence.sh \
+    --env travis \
+&& bash test_checkmode.sh \
     --env travis
-
