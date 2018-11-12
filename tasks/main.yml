@@ -32,6 +32,7 @@
     - "installation/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}.yml"
     - "installation/{{ ansible_os_family | lower }}/main.yml"
   tags: [ installation ]
+  when: oracle_java_version_installed != oracle_java_version_string
 
 - name: check host environment
   include: check_environment.yml
