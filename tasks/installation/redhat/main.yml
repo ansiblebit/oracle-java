@@ -17,6 +17,7 @@
   register: oracle_java_task_rpm_download
   until: oracle_java_task_rpm_download is succeeded
   become: yes
+  when: oracle_java_version_installed is not defined or oracle_java_version_installed != oracle_java_version_string
 
 - name: install RPM
   yum:
