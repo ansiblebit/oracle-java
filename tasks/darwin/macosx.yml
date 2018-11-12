@@ -7,7 +7,7 @@
 - name: download DMG file
   shell:
     "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }} {{ oracle_java_dmg_url }}"
-  when: not oracle_java_task_dmg_check|skipped and not oracle_java_task_dmg_check.stat.exists
+  when: not oracle_java_task_dmg_check is skipped and not oracle_java_task_dmg_check.stat.exists
   args:
     creates: "{{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }}"
   tags:
@@ -36,4 +36,3 @@
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml
-

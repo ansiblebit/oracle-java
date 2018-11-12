@@ -13,31 +13,33 @@
     timeout={{ oracle_java_download_timeout }}
     force=no
   register: oracle_java_task_rpm_download
-  until: oracle_java_task_rpm_download|succeeded 
+  until: oracle_java_task_rpm_download is succeeded
   become: yes
 
 - name: install RPM
   yum:
     name="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
     state=present
-  when: not oracle_java_task_rpm_download|skipped
+  when: not oracle_java_task_rpm_download is skipped
   become: yes
 
 - name: set Java version as default
   alternatives:
-    name="{{ item.exe }}"
-    link="/usr/bin/{{ item.exe }}"
-    path="{{ item.path }}/{{ item.exe }}"
+    name="{{ java.exe }}"
+    link="/usr/bin/{{ java.exe }}"
+    path="{{ java.path }}/{{ java.exe }}"
   with_items:
     - { path: "{{ oracle_java_home }}/bin", exe: 'java' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'keytool' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
     - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
+  loop_control:
+      loop_var: java
   become: yes
   when: (
           oracle_java_set_as_default and
           oracle_java_task_rpm_download is defined and
-          oracle_java_task_rpm_download|changed
+          oracle_java_task_rpm_download is changed
         ) or (
           oracle_java_set_as_default and
           oracle_java_installed is defined and
