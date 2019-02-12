@@ -5,11 +5,17 @@
 #
 
 - name: download DMG file
-  shell:
-    "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie' -o {{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }} {{ oracle_java_dmg_url }}"
-  when: not oracle_java_task_dmg_check|skipped and not oracle_java_task_dmg_check.stat.exists
-  args:
-    creates: "{{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }}"
+  get_url:
+    headers:
+      Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F
+      oraclelicense: accept-securebackup-cookie
+    dest: "{{ oracle_java_dir_source }}/{{ oracle_java_dmg_filename }}"
+    url: "{{ oracle_java_dmg_url }}"
+    validate_certs: "{{ oracle_java_dmg_validate_certs }}"
+    timeout: "{{ oracle_java_download_timeout }}"
+    force: no
+  register: oracle_java_task_dmg_download
+  until: oracle_java_task_dmg_download is succeeded
   tags:
     - installation
 
@@ -36,4 +42,3 @@
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml
-
