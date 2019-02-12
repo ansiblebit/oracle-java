@@ -26,7 +26,6 @@
     value='true'
     vtype='select'
   become: yes
-  become: yes
 
 - name: debian | ensure Java is installed
   apt:
