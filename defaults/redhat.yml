@@ -6,9 +6,9 @@
 
 oracle_java_dir_source: '/usr/local/src'
 oracle_java_download_timeout: 60
-oracle_java_rpm_filename: 'jdk-11.0.1_linux-x64_bin.rpm'
+oracle_java_rpm_filename: 'jdk-11.0.2_linux-x64_bin.rpm'
 oracle_java_home: '/usr/java/default'
-oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.rpm'
+oracle_java_rpm_url: 'http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/f51449fcd52f4d52b93a989c5c56ed3c/jdk-11.0.2_linux-x64_bin.rpm'
 oracle_java_rpm_validate_certs: yes
 oracle_java_version: 11
-oracle_java_version_string: 11.0.1
+oracle_java_version_string: 11.0.2
