@@ -12,7 +12,7 @@
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}.yml"
   when: oracle_java_use_defaults
-  tags: [ installation ]
+  tags: [installation]
 
 ## run
 
@@ -21,7 +21,7 @@
 
 - include: debug.yml
   when: debug | default(false)
-  tags: [ debug ]
+  tags: [debug]
 
 ## include OS family/distribution specific task file
 
@@ -31,7 +31,7 @@
     - "installation/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
     - "installation/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}.yml"
     - "installation/{{ ansible_os_family | lower }}/main.yml"
-  tags: [ installation ]
+  tags: [installation]
 
 - name: check host environment
   include: check_environment.yml

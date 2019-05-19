@@ -1,7 +1,8 @@
 ---
 # file: oracle-java/tasks/installation/redhat/main.yml
 #
-# Task file to install Oracle Java Development Kit in a system with a Redhat based Linux distribution.
+# Task file to install Oracle Java Development Kit in a system with a Redhat
+# based Linux distribution.
 #
 
 - name: download Java RPM
@@ -12,18 +13,19 @@
     url: "{{ oracle_java_rpm_url }}"
     validate_certs: "{{ oracle_java_rpm_validate_certs }}"
     timeout: "{{ oracle_java_download_timeout }}"
-    force: no
+    force: false
   register: oracle_java_task_rpm_download
   until: oracle_java_task_rpm_download is succeeded
-  become: yes
-  when: oracle_java_version_installed is not defined or oracle_java_version_installed != oracle_java_version_string
+  become: true
+  when: oracle_java_version_installed is not defined
+    or oracle_java_version_installed != oracle_java_version_string
 
 - name: install RPM
   yum:
     name="{{ oracle_java_dir_source }}/{{ oracle_java_rpm_filename }}"
     state=present
   when: not oracle_java_task_rpm_download is skipped
-  become: yes
+  become: true
 
 - name: set Java version as default
   alternatives:
@@ -31,13 +33,13 @@
     link="/usr/bin/{{ java.exe }}"
     path="{{ java.path }}/{{ java.exe }}"
   with_items:
-    - { path: "{{ oracle_java_home }}/bin", exe: 'java' }
-    - { path: "{{ oracle_java_home }}/bin", exe: 'keytool' }
-    - { path: "{{ oracle_java_home }}/bin", exe: 'javac' }
-    - { path: "{{ oracle_java_home }}/bin", exe: 'javadoc' }
+    - {path: "{{ oracle_java_home }}/bin", exe: 'java'}
+    - {path: "{{ oracle_java_home }}/bin", exe: 'keytool'}
+    - {path: "{{ oracle_java_home }}/bin", exe: 'javac'}
+    - {path: "{{ oracle_java_home }}/bin", exe: 'javadoc'}
   loop_control:
-      loop_var: java
-  become: yes
+    loop_var: java
+  become: true
   when: (
           oracle_java_set_as_default and
           oracle_java_task_rpm_download is defined and

@@ -44,8 +44,8 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 ## Role Variables
 
 - **debug**: flag to make role more verbose.
-- **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
-- **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
+- **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `true`).
+- **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `true`).
   **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
   See `* | Java 8` examples in the _Playbooks_ section.
 
@@ -131,9 +131,9 @@ See `redhat | centos 7 | Java Other` example in the _Playbooks_ section.
       oracle_java_download_timeout: 60
       oracle_java_rpm_filename: 'jdk-8u201-linux-x64.rpm'
       oracle_java_home: '/usr/java/default'
-      oracle_java_os_supported: yes
+      oracle_java_os_supported: true
       oracle_java_rpm_url: 'https://download.oracle.com/path/to/file.rpm'
-      oracle_java_rpm_validate_certs: yes
+      oracle_java_rpm_validate_certs: true
       oracle_java_set_as_default: no
       oracle_java_version_string: 1.8.0_201
 ```

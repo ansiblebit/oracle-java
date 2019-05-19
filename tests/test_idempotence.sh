@@ -108,7 +108,7 @@ else
 fi
 
 echo "[INFO] ${BOX} ${VIRTUALENV_NAME} running idempotence test..."
-IDEMPOTENCE='yes' \
+IDEMPOTENCE='true' \
     ansible-playbook -vvvv -i ${INVENTORY} --limit ${BOX}, ${EXTRA_ARGS} ${PLAYBOOK} 2>&1 | \
     tee ${LOGFILE} | \
     grep "${BOX}" | grep -q "${PASS_CRITERIA}" && \
