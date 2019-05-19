@@ -84,7 +84,7 @@ See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
 **WARNING** to override **any** of the following variables (even if it's only one),
 you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
 OS family defaults will no longer be loaded.
-See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
+See `redhat | centos 7 | Java Other` example in the _Playbooks_ section.
 
 - **oracle_java_dir_source**: directory where to store the RPM files.
 - **oracle_java_download_timeout**: download timeout, in seconds.
@@ -100,76 +100,47 @@ See `redhat | centos 7 | Java 8` example in the _Playbooks_ section.
 # generic
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
+    - role: ansiblebit.oracle-java
 
 # debian | Java 11
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
+    - role: ansiblebit.oracle-java
 
 ## explicitely passing default parameters
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
-
-# debian | Java 8
-- hosts: servers
-  roles:
-      - role: ansiblebit.oracle-java
-        oracle_java_use_defaults: no
-        oracle_java_apt_repository: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu bionic main'
-        oracle_java_apt_repository_key: 'EA8CACC073C3DB2A'
-        oracle_java_cache_valid_time: 3600
-        oracle_java_deb_package: 'oracle-java8-installer'
-        oracle_java_debconf_package_default: 'oracle-java8-set-default'
-        oracle_java_home: "/usr/lib/jvm/java-8-oracle"
-        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
-        oracle_java_set_as_default: no
-        oracle_java_state: latest
+    - role: ansiblebit.oracle-java
 
 # debian | ubuntu | Java 11
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
-
-# debian | ubuntu | Java 8
-- hosts: servers
-  roles:
-      - role: ansiblebit.oracle-java
-        oracle_java_use_defaults: no
-        oracle_java_apt_repository: "ppa:webupd8team/java"
-        oracle_java_cache_valid_time: 3600
-        oracle_java_deb_package: 'oracle-java8-installer'
-        oracle_java_debconf_package_default: 'oracle-java8-set-default'
-        oracle_java_home: "/usr/lib/jvm/java-8-oracle"
-        oracle_java_license_version: "shared/accepted-oracle-license-v1-1"
-        oracle_java_set_as_default: no
-        oracle_java_state: latest
+    - role: ansiblebit.oracle-java
 
 # redhat | centos 7 | Java 11
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
+    - role: ansiblebit.oracle-java
 
-# redhat | centos 7 | Java 8
+# redhat | centos 7 | Java Other
 - hosts: servers
   roles:
-      - role: ansiblebit.oracle-java
-        oracle_java_use_defaults: no
-        oracle_java_dir_source: '/usr/local/src'
-        oracle_java_download_timeout: 60  
-        oracle_java_rpm_filename: 'jdk-8u201-linux-x64.rpm'
-        oracle_java_home: '/usr/java/default'
-        oracle_java_os_supported: yes
-        oracle_java_rpm_url: 'https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.rpm'
-        oracle_java_rpm_validate_certs: yes
-        oracle_java_set_as_default: no
-        oracle_java_version_string: 1.8.0_201
+    - role: ansiblebit.oracle-java
+      oracle_java_use_defaults: no
+      oracle_java_dir_source: '/usr/local/src'
+      oracle_java_download_timeout: 60
+      oracle_java_rpm_filename: 'jdk-8u201-linux-x64.rpm'
+      oracle_java_home: '/usr/java/default'
+      oracle_java_os_supported: yes
+      oracle_java_rpm_url: 'https://download.oracle.com/path/to/file.rpm'
+      oracle_java_rpm_validate_certs: yes
+      oracle_java_set_as_default: no
+      oracle_java_version_string: 1.8.0_201
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
-```
 
+```bash
 ## Test
 
 ```bash
