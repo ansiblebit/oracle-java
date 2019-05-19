@@ -18,14 +18,14 @@
     - apt:
         name=software-properties-common
         state=present
-        become=true
+        become=yes
       when: ansible_distribution | lower == 'stretch'
 
 - name: tests play
   hosts: all
-  gather_facts: true
+  gather_facts: yes
   vars:
-    debug: true
+    debug: yes
     test_expected_java_version: '11.0.2'
 
   roles:

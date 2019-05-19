@@ -10,7 +10,7 @@
   command: which java
   register: oracle_java_task_installed
   changed_when: oracle_java_task_installed.rc != 0
-  failed_when: false
+  failed_when: no
 # oracle_java_installed.rc == 0 : installed
 # oracle_java_installed.rc == 1 : not installed
 
@@ -24,14 +24,13 @@
     java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
   register: oracle_java_task_version
   when: oracle_java_installed
-  changed_when: false
+  changed_when: False
 
 - name: set fact oracle_java_installed_version
   set_fact:
     oracle_java_version_installed="{{ oracle_java_task_version.stdout }}"
-  when: oracle_java_task_version is defined and
-    oracle_java_task_version.stdout is defined
-  changed_when: false
+  when: oracle_java_task_version is defined and oracle_java_task_version.stdout is defined
+  changed_when: False
 
 - debug:
     var="{{ item }}"
@@ -41,4 +40,4 @@
     - oracle_java_task_installed
     - oracle_java_task_version
     - oracle_java_version_installed
-  tags: [debug]
+  tags: [ debug ]
