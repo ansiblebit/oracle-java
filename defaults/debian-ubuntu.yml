@@ -6,8 +6,8 @@
 
 oracle_java_apt_repository: 'ppa:linuxuprising/java'
 oracle_java_cache_valid_time: 3600
-oracle_java_deb_package: 'oracle-java11-installer'
-oracle_java_debconf_package_default: 'oracle-java11-set-default'
-oracle_java_home: "/usr/lib/jvm/java-11-oracle"
+oracle_java_deb_package: 'oracle-java12-installer'
+oracle_java_debconf_package_default: 'oracle-java12-set-default'
+oracle_java_home: "/usr/lib/jvm/java-12-oracle"
 oracle_java_license_version: 'shared/accepted-oracle-license-v1-2'
 oracle_java_state: latest
