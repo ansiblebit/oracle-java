@@ -20,8 +20,11 @@
 
 - name: determine which Java version is installed
   shell: |
-    set -o pipefail
-    java -version 2>&1 | head -n 1 | awk '{ print $3 }' | awk -F '"' '{ print $2 }'
+    set -o pipefail |
+    java -version 2>&1 |
+    head -n 1 |
+    awk '{ print $3 }' |
+    awk -F '"' '{ print $2 }'
   register: oracle_java_task_version
   when: oracle_java_installed
   changed_when: False
