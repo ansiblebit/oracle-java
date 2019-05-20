@@ -13,7 +13,6 @@ galaxy_info:
   platforms:
     - name: CentOS
       versions:
-        - all
         - any
         - 7
         - 6
@@ -23,12 +22,13 @@ galaxy_info:
         - wheezy
     - name: RedHat
       versions:
-        - all
         - any
         - 7
         - 6
     - name: Ubuntu
       versions:
+        - cosmic
+        - bionic
         - xenial
         - vivid
         - trusty
