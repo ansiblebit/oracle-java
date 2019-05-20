@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/tasks
+# file: oracle-java/tests/tasks/main.yml
 #
 # Test tasks to verify role execution.
 #
