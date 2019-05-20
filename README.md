@@ -47,14 +47,14 @@ DISCLAIMER: usage of any version of this role implies you have accepted the
 - **oracle_java_set_as_default**: flag to indicate if this play should set Java as default (default: `yes`).
 - **oracle_java_use_defaults**: flag to indicate you want to use defaults set in the `defaults` directory (default: `yes`).
   **WARNING**. setting this to `no` will require the user to pass all of the distribution variables.
-  See `* | Java 8` examples in the _Playbooks_ section.
+  See `* | Java 11` examples in the _Playbooks_ section.
 
 ### Debian
 
 **WARNING** to override **any** of the following variables (even if it's only one),
 you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
 OS family defaults will no longer be loaded.
-See `debian | Java 8` example in the _Playbooks_ section.
+See `debian | Java 11` example in the _Playbooks_ section.
 
 - **oracle_java_apt_repository**: Personal Package Archive (PPA) from where to install Java.
 - **oracle_java_apt_repository_key**: PPA repository key.
@@ -69,7 +69,7 @@ See `debian | Java 8` example in the _Playbooks_ section.
 **WARNING** to override **any** of the following variables (even if it's only one),
 you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
 OS family defaults will no longer be loaded.
-See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
+See `debian | ubuntu | Java 11` example in the _Playbooks_ section.
 
 - **oracle_java_apt_repository**: Personal Package Archive (PPA) from where to install Java.
 - **oracle_java_cache_valid_time**: the amount of time in seconds the apt cache is valid.
@@ -84,7 +84,7 @@ See `debian | ubuntu | Java 8` example in the _Playbooks_ section.
 **WARNING** to override **any** of the following variables (even if it's only one),
 you'll need to set `oracle_java_use_defaults: no` and override **all** of their values since
 OS family defaults will no longer be loaded.
-See `redhat | centos 7 | Java Other` example in the _Playbooks_ section.
+See `redhat | centos 7 | Java 11` example in the _Playbooks_ section.
 
 - **oracle_java_dir_source**: directory where to store the RPM files.
 - **oracle_java_download_timeout**: download timeout, in seconds.
@@ -102,12 +102,25 @@ See `redhat | centos 7 | Java Other` example in the _Playbooks_ section.
   roles:
     - role: ansiblebit.oracle-java
 
-# debian | Java 11
+# debian | Java 12
 - hosts: servers
   roles:
     - role: ansiblebit.oracle-java
 
+# debian | Java 11
+- hosts: servers
+  roles:
+    - role: ansiblebit.oracle-java
+      oracle_java_deb_package: 'oracle-java11-installer'
+      oracle_java_debconf_package_default: 'oracle-java11-set-default'
+      oracle_java_home: "/usr/lib/jvm/java-11-oracle"
+
 ## explicitely passing default parameters
+- hosts: servers
+  roles:
+    - role: ansiblebit.oracle-java
+
+# debian | ubuntu | Java 12
 - hosts: servers
   roles:
     - role: ansiblebit.oracle-java
@@ -116,26 +129,29 @@ See `redhat | centos 7 | Java Other` example in the _Playbooks_ section.
 - hosts: servers
   roles:
     - role: ansiblebit.oracle-java
+      oracle_java_deb_package: 'oracle-java11-installer'
+      oracle_java_debconf_package_default: 'oracle-java11-set-default'
+      oracle_java_home: "/usr/lib/jvm/java-11-oracle"
 
-# redhat | centos 7 | Java 11
+# redhat | centos 7 | Java 12
 - hosts: servers
   roles:
     - role: ansiblebit.oracle-java
 
-# redhat | centos 7 | Java Other
+# redhat | centos 7 | Java 11
 - hosts: servers
   roles:
     - role: ansiblebit.oracle-java
       oracle_java_use_defaults: no
       oracle_java_dir_source: '/usr/local/src'
       oracle_java_download_timeout: 60
-      oracle_java_rpm_filename: 'jdk-8u201-linux-x64.rpm'
+      oracle_java_rpm_filename: 'jdk-11.0.3_linux-x64_bin.rpm'
       oracle_java_home: '/usr/java/default'
       oracle_java_os_supported: yes
-      oracle_java_rpm_url: 'https://download.oracle.com/path/to/file.rpm'
+      oracle_java_rpm_url: 'https://download.oracle.com/otn/java/jdk/11.0.3+12/37f5e150db5247ab9333b11c1dddcd30/jdk-11.0.3_linux-x64_bin.rpm'
       oracle_java_rpm_validate_certs: yes
       oracle_java_set_as_default: no
-      oracle_java_version_string: 1.8.0_201
+      oracle_java_version_string: 11.0.3
 ```
 
 Use `--skip-tags=debug` if you want to suppress debug information.
@@ -175,5 +191,4 @@ vagrant destroy bionic64.vagrant.dev
 
 ## Links
 
-- [launchpad > WebUpd8 > Oracle Java (JDK) 8 / 9 Installer PPA](https://launchpad.net/~webupd8team/+archive/ubuntu/java)
 - [launchpad > Linux Uprising > Oracle Java](https://launchpad.net/~linuxuprising/+archive/ubuntu/java)
