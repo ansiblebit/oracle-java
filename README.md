@@ -160,12 +160,12 @@ Use `--skip-tags=debug` if you want to suppress debug information.
 ## Test
 
 ```bash
-tox -e py27-ansible26 -- --box centos7-64.vagrant.dev
+tox -e py36-ansible28 -- --box centos7-64.vagrant.dev
 
-tox -e py27-ansible26 -- --box bionic64.vagrant.dev
+tox -e py36-ansible28 -- --box bionic64.vagrant.dev
 
 # manual
-source .tox/py27-ansible26/bin/activate
+source .tox/py36-ansible28/bin/activate
 cd tests
 vagrant up bionic64.vagrant.dev
 
@@ -174,7 +174,7 @@ bash test_idempotence.sh \
   --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 
 ## look at idempotence test logs
-less log/bionic64.vagrant.dev_idempotence_py27-ansible26.log
+less log/bionic64.vagrant.dev_idempotence_py36-ansible28.log
 
 ## debug
 vagrant ssh bionic64.vagrant.dev
@@ -184,7 +184,7 @@ bash test_checkmode.sh \
   --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 
 ## look at checkmode test logs
-less log/bionic64.vagrant.dev_checkmode_py27-ansible26.log
+less log/bionic64.vagrant.dev_checkmode_py36-ansible28.log
 
 vagrant destroy bionic64.vagrant.dev
 ```
