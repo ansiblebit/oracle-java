@@ -19,26 +19,26 @@
   tags:
     - installation
 
-- name: mount DMG image
-  shell: echo TODO
-  tags:
-    - installation
+# - name: mount DMG image
+#   shell: echo TODO
+#   tags:
+#     - installation
 
-- name: install JDK
-  shell: echo TODO
-  tags:
-    - installation
+# - name: install JDK
+#   shell: echo TODO
+#   tags:
+#     - installation
 
-- name: unmount DMG image
-  shell: echo TODO
-  tags:
-    - installation
+# - name: unmount DMG image
+#   shell: echo TODO
+#   tags:
+#     - installation
 
-- name: set Java version as default
-  shell: echo TODO
-  when: oracle_java_set_as_default
-  register: oracle_java_task_set_default
-  become: yes
+# - name: set Java version as default
+#   shell: echo TODO
+#   when: oracle_java_set_as_default
+#   register: oracle_java_task_set_default
+#   become: yes
 
 - name: in case there were changes, check host environment again
   include: ../check_environment.yml

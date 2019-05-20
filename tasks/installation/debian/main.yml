@@ -39,7 +39,7 @@
 - name: debian | set Java version as default
   apt:
     name="{{ oracle_java_debconf_package_default }}"
-    state=latest
+    state=present
   register: oracle_java_task_set_default
   when: oracle_java_set_as_default
   become: yes
